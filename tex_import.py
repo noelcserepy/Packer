@@ -63,6 +63,7 @@ def change_slashes(to_change):
 
 
 def print_changes(diff):
+
     print(bcolors.WARNING + "Directories Modified:")
     print(change_slashes(diff.dirs_modified))
     print("Files Modified:")
@@ -79,34 +80,6 @@ def print_changes(diff):
     print(change_slashes(diff.files_deleted))
 
     print(bcolors.RESET)
-
-
-def pack_maps(output_texture_path, file_list):
-    """ 
-    Packs 3 or 4 files into a single texture and saves it with a given identifier and extension (set by match group settings).
-    Sets channels with missing files to black (user setting?). 
-    """
-
-    channels = []
-    for file in file_list:
-        texture_map = Image.open(file)
-        r, *_ = texture_map.split()
-        print(im.format, im.size, im.mode)
-        r.append(r)
-
-    if len(channels) == 3:
-        output_texture = Image.merge("RGB", (channels[0], channels[1], channels[2]))
-        with open(output_texture_path, "wb") as f:
-            f.write(output_texture)
-
-    if len(channels) == 3:
-        output_texture = Image.merge("RGBA", (channels[0], channels[1], channels[2], channels[3]))
-        with open(output_texture_path, "wb") as f:
-            f.write(output_texture)
-
-
-def push_maps_to_unreal(list_of_packed_maps):
-    pass
 
 
 def find_groups(diff, packing_group):
@@ -127,6 +100,37 @@ def find_groups(diff, packing_group):
 
     print("Groups:")
     pprint(groups)
+
+
+def pack_maps(output_texture_path, file_list):
+    """ 
+    Packs 3 or 4 files into a single texture and saves it with a given identifier and extension (set by match group settings).
+    Sets channels with missing files to black (user setting?). 
+    """
+
+    channels = []
+    for file in file_list:
+        texture_map = Image.open(file)
+        r, *_ = texture_map.split()
+        print(r.format, r.size, r.mode)
+        r.append(r)
+
+    if len(channels) == 3:
+        output_texture = Image.merge("RGB", (channels[0], channels[1], channels[2]))
+        with open(output_texture_path, "wb") as f:
+            f.write(output_texture)
+
+    if len(channels) == 3:
+        output_texture = Image.merge("RGBA", (channels[0], channels[1], channels[2], channels[3]))
+        with open(output_texture_path, "wb") as f:
+            f.write(output_texture)
+
+
+def push_maps_to_unreal(list_of_packed_maps):
+    pass
+
+
+
 
 
 diff = detect_changes(settings.get("sync_asset_dir"))

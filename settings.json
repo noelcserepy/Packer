@@ -5,12 +5,12 @@
 
     "packing_groups": [
         {   
-            "identifier": "MRAO_",
+            "identifier": "RMAO",
             "start": "True",
             "group": ["Metallic", "Roughness", "Ambient_Occlusion", "Opacity"]
         },
         {
-            "identifier": "MRA",
+            "identifier": "RMA",
             "start": "True",
             "group": ["Metallic", "Roughness", "Ambient_Occlusion"]
         },
@@ -35,7 +35,7 @@
             "extensions": ["TGA", "PNG"]
         },
         "Ambient_Occlusion": {
-            "identifier": "Ambient_Occlusion_",
+            "identifier": "AmbientOcclusion_",
             "start": "True",
             "extensions": ["TGA", "PNG"]
         },

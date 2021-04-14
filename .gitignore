@@ -1,2 +1,5 @@
-.vscode
-.pytest_cache
+/.vscode
+/.pytest_cache
+/.env
+/temp/
+/Dockerfile

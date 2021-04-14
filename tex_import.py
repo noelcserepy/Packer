@@ -2,24 +2,24 @@ import os
 import re
 import json
 import pickle
-from watchdog.utils.dirsnapshot import DirectorySnapshot, DirectorySnapshotDiff, EmptyDirectorySnapshot
+
 from pprint import pprint
 from PIL import Image
+from rename import format_paths
+from watchdog.utils.dirsnapshot import (
+    DirectorySnapshot, 
+    DirectorySnapshotDiff, 
+    EmptyDirectorySnapshot
+)
 
 
  
 """
-1. Search all dirs for changed/added files
-    1.1 If data exists, load tree
-    1.2 Make new tree of dirs
-    1.3 Compare to make new tree of changed dirs
-    
+1. Search all dirs for changed/added files    
 2. Create packing groups from changed files
 3. Display to user and wait for input
 4. Pack textures
 5. Import to Unreal
-
-pytest pyside
 """
 
 
@@ -35,14 +35,13 @@ class bcolors:
 def detect_changes(dir):
     """ 
     Takes main directory to search.
-    Returns a list of all subdirectories in which changes have been detected. 
+    Returns <class 'watchdog.utils.dirsnapshot.DirectorySnapshotDiff'> containing all subdirectories in which changes have been detected. 
     """
 
     if not os.path.exists("data.P"):
         empty_snap = EmptyDirectorySnapshot()
         snap = DirectorySnapshot(dir)
         diff = DirectorySnapshotDiff(empty_snap, snap)
-
         with open("data.P", "wb") as f:
             pickle.dump(snap, f)
         
@@ -54,6 +53,7 @@ def detect_changes(dir):
 
     snap = DirectorySnapshot(dir)
     diff = DirectorySnapshotDiff(o_snap, snap)
+
     print_changes(diff)
     return diff
 
@@ -63,7 +63,10 @@ def change_slashes(to_change):
 
 
 def print_changes(diff):
-
+    """ 
+    Takes <class 'watchdog.utils.dirsnapshot.DirectorySnapshotDiff'> 
+    Prints all the changes in directory structure since last time directories were saved with nice colours. 
+    """
     print(bcolors.WARNING + "Directories Modified:")
     print(change_slashes(diff.dirs_modified))
     print("Files Modified:")
@@ -82,20 +85,26 @@ def print_changes(diff):
     print(bcolors.RESET)
 
 
-def find_groups(diff, packing_group):
+def find_asset_textures(diff):
+    """ 
+    Takes <class 'watchdog.utils.dirsnapshot.DirectorySnapshotDiff'>
+    Returns dictionary of assets, each with a list of textures belonging to that asset e.g. {asset_name: [available textures]}.
+    """
     files_to_search = change_slashes(diff.files_created + diff.files_modified)
+    renamed_files = format_paths(files_to_search)
 
     groups = {}
-    for file in files_to_search:
+    for file in renamed_files:
         file_name = file.split("/")[-1]
         extension = file_name.split(".")[-1]
-        identifier = file_name.split("_")[0]
+        identifier = file_name.split("_")[0] + "_"
         asset_name = file_name[len(identifier):-len(extension)]
 
         if extension not in settings["extensions"]:
             continue
         if asset_name not in groups.keys():
             groups[asset_name] = []
+
         groups[asset_name].append((identifier, extension, file))
 
     print("Groups:")
@@ -134,7 +143,7 @@ def push_maps_to_unreal(list_of_packed_maps):
 
 
 diff = detect_changes(settings.get("sync_asset_dir"))
-find_groups(diff, settings.get("packing_groups")[0])
+find_asset_textures(diff, settings.get("packing_groups")[0])
 
 
 

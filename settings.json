@@ -23,36 +23,15 @@
 
     "extensions": ["TGA", "PNG", "JPEG", "JPG"],
 
-    "file_types": {
-        "Metallic": {
-            "identifier": "Metallic_",
-            "start": "True",
-            "extensions": ["TGA", "PNG"]
-        },
-        "Roughness": {
-            "identifier": "Roughness_",
-            "start": "True",
-            "extensions": ["TGA", "PNG"]
-        },
-        "Ambient_Occlusion": {
-            "identifier": "AmbientOcclusion_",
-            "start": "True",
-            "extensions": ["TGA", "PNG"]
-        },
-        "Opacity": {
-            "identifier": "Opacity_",
-            "start": "True",
-            "extensions": ["TGA", "PNG"]
-        },
-        "Curvature": {
-            "identifier": "Curvature_",
-            "start": "True",
-            "extensions": ["TGA", "PNG"]
-        },
-        "ID": {
-            "identifier": "ID_",
-            "start": "True",
-            "extensions": ["TGA", "PNG"]
-        }
-    }
+    "default_replacements": [
+        ["_c", "D_", "end"],
+        ["_r", "R_", "end"],
+        ["_o", "AO_", "end"],
+        ["_m", "M_", "end"],
+        ["_n", "N_", "end"],
+        ["Metallic_", "M_", "start"],
+        ["Roughness_", "R_", "start"],
+        ["Albedo_", "A_", "start"],
+        ["Normal_", "N_", "start"]
+    ]
 }

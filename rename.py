@@ -7,51 +7,15 @@ import json
 settings = json.load(open("settings.json"))
 dir = settings["sync_asset_dir"]
 valid_extensions = settings["extensions"]
-replacements = [
-    ("_c", "D_", "end"),
-    ("_r", "R_", "end"),
-    ("_o", "AO_", "end"),
-    ("_m", "M_", "end"),
-    ("_n", "N_", "end"),
-    ("Metallic_", "M_", "start"),
-    ("Roughness_", "R_", "start"),
-    ("Albedo_", "A_", "start"),
-    ("Normal_", "N_", "start"),
-]
+default_replacements = settings["default_replacements"]
 
 
 class RenameError(Exception):
     """ Base error class for formatting errors """
 
-class InvalidExtensionError(RenameError):
-    """ While formatting file, detected invalid file extension. """
-
-
-def format_filename(file, replacements):
-    filename_full = file.split("/")[-1]
-    filename, extension = filename_full.split(".")
-    directory = file[:-len(filename_full)]
-
-    if extension not in valid_extensions:
-        raise InvalidExtensionError()
-
-    for rep in replacements:
-        if rep[2] == "end":
-            if filename.endswith(rep[0]):
-                    new_filename = f"{rep[1]}{filename[:-len(rep[0])]}"
-                    new_path = f"{directory}{new_filename}.{extension}"
-                    
-                    return new_path
-
-        if rep[2] == "start":
-            if filename.startswith(rep[0]):
-                    new_filename = f"{rep[1]}{filename[len(rep[0]):]}"
-                    new_path = f"{directory}{new_filename}.{extension}"
-                    
-                    return new_path
-
 
 def get_all_files(dir, all_files):
+    """ Gets all files in a given directory """
     dir_files = [f"{dir}/{x}" for x in os.listdir(dir)]
     for file in dir_files:
         print(file)
@@ -63,18 +27,46 @@ def get_all_files(dir, all_files):
     return all_files
 
 
-def get_renamed_files(dir_files):
-    for file in dir_files:
+def format_filename_identifiers(file, replacements):
+    """ Replaces existing identifier of given file with desired identifier of that filetype e.g. "Roughness_Chair" or "Chair_r" -> "R_Chair".  """
+    filename_full = file.split("/")[-1]
+    filename, extension = filename_full.split(".")
+    directory = file[:-len(filename_full)]
+
+    if extension not in valid_extensions:
+        raise RenameError("While formatting file, detected invalid file extension.")
+
+    for rep in replacements:
+        if rep[2] == "end":
+            if filename.endswith(rep[0]):
+                    new_filename = f"{rep[1]}{filename[:-len(rep[0])]}"
+                    new_path = f"{directory}{new_filename}.{extension}"
+                    return new_path
+
+        if rep[2] == "start":
+            if filename.startswith(rep[0]):
+                    new_filename = f"{rep[1]}{filename[len(rep[0]):]}"
+                    new_path = f"{directory}{new_filename}.{extension}"
+                    return new_path
+
+
+def format_paths(paths, replacements=default_replacements):
+    """ Calls format_filename_identifiers() for every element of list of paths. """
+    new_paths = []
+    for file in paths:
         try:
-            new_path = format_filename(file, replacements)
-            print(file)
-            print(new_path)
+            new_path = format_filename_identifiers(file, replacements)
+            if not new_path:
+                raise RenameError("New path does not exist-")
+            new_paths.append(new_path)
         except:
             continue
+    return new_paths
 
 
-def rename_all_files(dir):
+def format_all_files_in_dir(dir):
     all_files = []
     get_all_files(dir, all_files)
-    get_renamed_files(all_files)
+    new_paths = format_paths(all_files)
+    return new_paths
 

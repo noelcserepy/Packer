@@ -1,8 +1,6 @@
 import os
-import re
 import json
 import pickle
-
 from pprint import pprint
 from PIL import Image
 from rename import format_paths
@@ -37,7 +35,6 @@ def detect_changes(dir):
     Takes main directory to search.
     Returns <class 'watchdog.utils.dirsnapshot.DirectorySnapshotDiff'> containing all subdirectories in which changes have been detected. 
     """
-
     if not os.path.exists("data.P"):
         empty_snap = EmptyDirectorySnapshot()
         snap = DirectorySnapshot(dir)
@@ -109,6 +106,7 @@ def find_asset_textures(diff):
 
     print("Groups:")
     pprint(groups)
+    return groups
 
 
 def pack_maps(output_texture_path, file_list):
@@ -141,9 +139,10 @@ def push_maps_to_unreal(list_of_packed_maps):
 
 
 
+def get_groups():
+    diff = detect_changes(settings.get("sync_asset_dir"))
+    return find_asset_textures(diff)
 
-diff = detect_changes(settings.get("sync_asset_dir"))
-find_asset_textures(diff, settings.get("packing_groups")[0])
 
 
 

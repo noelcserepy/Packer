@@ -4,12 +4,15 @@ from tex_import import get_groups
 from PySide6 import QtCore, QtGui
 from PySide6.QtWidgets import *
 
+@QtCore.Slot()
+def printhi():
+    print("hi")
 
 
 settings = json.load(open("settings.json", "r"))
 
 
-class MainWindow(QWidget):
+class MainWindow(QMainWindow):
     def __init__(self):
         super().__init__()
         self.setup()
@@ -17,8 +20,7 @@ class MainWindow(QWidget):
     def setup(self):
         self.setWindowTitle("TexImport")
         self.setGeometry(100, 100, 100, 300)
-        self.layout = QVBoxLayout(self)
-        self.layout.addWidget(Tabs())
+        self.setCentralWidget(Tabs())
 
 
 class SaveSettings(QWidget):
@@ -27,8 +29,35 @@ class SaveSettings(QWidget):
         self.setup()
 
     def setup(self):
-        pass
-    
+        self.save_button = QPushButton("Save Settings")
+        self.save_button.clicked.connect(self.on_save_clicked)
+        self.reset_button = QPushButton("Reset to Default")
+        self.reset_button.clicked.connect(self.on_reset_clicked)
+
+        self.layout = QHBoxLayout(self)
+        self.layout.addWidget(self.reset_button)
+        self.layout.addWidget(self.save_button)
+        
+    def on_save_clicked(self):
+        try:
+            user_settings = json.load(open("user_settings.json", "r"))
+        except:
+            print("No settings here.")
+            return
+
+        with open("settings.json", "w") as f:
+            json.dump(user_settings, f)
+
+    def on_reset_clicked(self):
+        try:
+            default_settings = json.load(open("settings_default.json", "r"))
+        except:
+            print("No default settings here.")
+            return
+
+        with open("settings.json", "w") as f:
+            json.dump(default_settings, f)
+
 
 class Tabs(QTabWidget):
     def __init__(self):
@@ -67,11 +96,48 @@ class SettingsTab(QWidget):
         self.setup()
 
     def setup(self):
+        self.dirselect  = DirSelect()
+        self.identifierselect  = IdentifierSelect()
+        self.extensionselect  = ExtensionSelect()
+        self.packinggroupselect  = PackingGroupSelect()
+        self.save = QWidget(self)
+
+        self.save_button = QPushButton("Save Settings")
+        self.save_button.clicked.connect(printhi())
+        self.reset_button = QPushButton("Reset to Default")
+        self.reset_button.clicked.connect(self.on_reset_clicked)
+
+        self.save.layout = QHBoxLayout(self.save)
+        self.save.layout.addWidget(self.reset_button)
+        self.save.layout.addWidget(self.save_button)
+
         self.layout = QGridLayout(self)
-        self.layout.addWidget(DirSelect(), 0, 0, 1, 1)
-        self.layout.addWidget(IdentifierSelect(), 0, 2, 1, 2)
-        self.layout.addWidget(PackingGroupSelect(), 1, 0, 1, -1)
-        self.layout.addWidget(ExtensionSelect(), 2, 0, 1, 2)
+        self.layout.addWidget(self.dirselect, 0, 0, 1, 2)
+        self.layout.addWidget(self.identifierselect, 1, 0, 1, 1)
+        self.layout.addWidget(self.extensionselect, 1, 1, 1, 1)
+        self.layout.addWidget(self.packinggroupselect, 2, 0, 1, 2)
+        self.layout.addWidget(self.save, 3, 1, 1, 1)
+        
+    def on_save_clicked(self):
+        try:
+            print(self.dirselect.tw)
+            user_settings = json.load(open("user_settings.json", "r"))
+        except:
+            print("No settings here.")
+            return
+
+        with open("settings.json", "w") as f:
+            json.dump(user_settings, f)
+
+    def on_reset_clicked(self):
+        try:
+            default_settings = json.load(open("settings_default.json", "r"))
+        except:
+            print("No default settings here.")
+            return
+
+        with open("settings.json", "w") as f:
+            json.dump(default_settings, f)
         
 
 class IdentifierSelect(QGroupBox):
@@ -105,21 +171,22 @@ class IdentifierSelect(QGroupBox):
         self.position.setPlaceholderText("Position")
         self.position.insertItems(0, ["Start", "End"])
 
-        self.id_select.layout = QHBoxLayout(self.id_select)
-        self.id_select.layout.addWidget(self.identifier)
-        self.id_select.layout.addWidget(self.position)
-
         self.add_button = QPushButton("+")
         self.add_button.clicked.connect(self.on_add_clicked)
         self.remove_button = QPushButton("-")
         self.remove_button.clicked.connect(self.on_remove_clicked)
 
-        self.layout = QGridLayout(self)
-        self.layout.addWidget(self.description_text, 0, 0, 1, 2)
-        self.layout.addWidget(self.tw, 1, 0, 2, -1)
-        self.layout.addWidget(self.id_select, 4, 0, 1, 3)
-        self.layout.addWidget(self.add_button, 4, 4, 1, 1)
-        self.layout.addWidget(self.remove_button, 4, 5, 1, 1)
+        self.id_select.layout = QHBoxLayout(self.id_select)
+        self.id_select.layout.addWidget(self.identifier)
+        self.id_select.layout.addWidget(self.position)
+        self.id_select.layout.addWidget(self.add_button)
+        self.id_select.layout.addWidget(self.remove_button)
+
+        self.layout = QVBoxLayout(self)
+        self.layout.addWidget(self.description_text)
+        self.layout.addWidget(self.tw)
+        self.layout.addWidget(self.id_select)
+        
 
     def on_add_clicked(self):
         id = self.identifier.text()

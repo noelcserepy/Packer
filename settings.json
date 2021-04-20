@@ -7,20 +7,24 @@
         {   
             "identifier": "RMAO",
             "start": "True",
-            "group": ["Metallic", "Roughness", "Ambient_Occlusion", "Opacity"]
+            "group": ["Metallic", "Roughness", "Ambient_Occlusion", "Opacity"],
+            "extension": "PNG"
         },
         {
             "identifier": "RMA",
             "start": "True",
-            "group": ["Metallic", "Roughness", "Ambient_Occlusion"]
+            "group": ["Metallic", "Roughness", "Ambient_Occlusion"],
+            "extension": "PNG"
         },
         {
             "identifier": "CAI",
             "start": "True",
-            "group": ["Curvature", "Ambient_Occlusion", "ID"]
+            "group": ["Curvature", "Ambient_Occlusion", "ID"],
+            "extension": "PNG"
         }
     ],
 
+    "textures": ["Roughness", "Metallic", "Ambient Occlusion", "Curvature", "ID"],
     "extensions": ["TGA", "PNG", "JPEG", "JPG"],
 
     "default_replacements": [

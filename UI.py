@@ -1,7 +1,11 @@
 import sys
+import json
 from tex_import import get_groups
 from PySide6 import QtCore, QtGui
 from PySide6.QtWidgets import *
+
+
+settings = json.load(open("settings.json", "r"))
 
 class MainWindow(QWidget):
     def __init__(self):
@@ -10,8 +14,7 @@ class MainWindow(QWidget):
 
     def setup(self):
         self.setWindowTitle("TexImport")
-        self.setGeometry(100, 100, 50, 150)
-
+        self.setGeometry(100, 100, 100, 300)
         self.layout = QVBoxLayout(self)
         self.layout.addWidget(Tabs())
     
@@ -55,20 +58,73 @@ class SettingsTab(QWidget):
 
 
     def setup(self):
-        self.layout = QVBoxLayout(self)
-        self.layout.addWidget(DirSelect())
-        self.layout.addWidget(PackingGroupAdd())
-        self.layout.addWidget(ExtensionSelect())
-        self.layout.addWidget(IdentifierSelect())
+        self.layout = QGridLayout(self)
+        self.layout.addWidget(DirSelect(), 0, 0, 1, 1)
+        self.layout.addWidget(IdentifierSelect(), 0, 2, 1, 2)
+        self.layout.addWidget(PackingGroupSelect(), 1, 0, 1, -1)
+        self.layout.addWidget(ExtensionSelect(), 2, 0, 1, 2)
+        
 
 
-class IdentifierSelect(QWidget):
+class IdentifierSelect(QGroupBox):
     def __init__(self):
         super().__init__()
         self.setup()
 
     def setup(self):
-        pass
+        self.setTitle("Identifier Select")
+        self.description = ("Select what texture identifiers to look for "
+                            "e.g. \"R_\" in R_assetName.png, \"_r\" in assetName_r.png or \"Roughness_\" in Roughness_assetName.png")
+        self.identifier_data = settings["default_replacements"]
+        self.description_text = QLabel(self.description,
+                                        alignment=QtCore.Qt.AlignLeft)
+
+        self.tw = QTreeWidget()
+        self.tw.setAlternatingRowColors(True)
+        self.tw.setHeaderLabels([
+            "Identifier", 
+            "Position"
+        ])
+
+        for id in self.identifier_data:
+            data = [id[0], id[-1]]
+            item = QTreeWidgetItem(self.tw, data)
+
+        self.id_select = QWidget()
+
+        self.identifier = QLineEdit(self.id_select)
+        self.identifier.setPlaceholderText("Identifier")
+
+        self.position = QComboBox(self.id_select)
+        self.position.setPlaceholderText("Position")
+        self.position.insertItems(0, ["Start", "End"])
+
+        self.id_select.layout = QHBoxLayout(self.id_select)
+        self.id_select.layout.addWidget(self.identifier)
+        self.id_select.layout.addWidget(self.position)
+
+        self.add_button = QPushButton("+")
+        self.add_button.clicked.connect(self.on_add_clicked)
+        self.remove_button = QPushButton("-")
+        self.remove_button.clicked.connect(self.on_remove_clicked)
+
+        self.layout = QGridLayout(self)
+        self.layout.addWidget(self.description_text, 0, 0, 1, 2)
+        self.layout.addWidget(self.tw, 1, 0, 2, -1)
+        self.layout.addWidget(self.id_select, 4, 0, 1, 3)
+        self.layout.addWidget(self.add_button, 4, 4, 1, 1)
+        self.layout.addWidget(self.remove_button, 4, 5, 1, 1)
+
+    def on_add_clicked(self):
+        id = self.identifier.text()
+        pos = self.position.currentText()
+        item = QTreeWidgetItem(self.tw, [id, pos])
+
+    def on_remove_clicked(self):
+        current = self.tw.currentItem()
+        index = self.tw.indexOfTopLevelItem(current)
+        self.tw.takeTopLevelItem(index)
+
 
 
 class ExtensionSelect(QWidget):
@@ -80,61 +136,88 @@ class ExtensionSelect(QWidget):
         pass
 
 
-class PackingGroupAdd(QGroupBox):
+class PackingGroupSelect(QGroupBox):
     def __init__(self):
         super().__init__()
         self.setup()
 
     def setup(self):
         self.setTitle("Packing Groups")
+        self.description = ("Packing groups define which texture maps should be packed into one file. "
+                            "You may choose which channels these textures will populate. "
+                            "The identifier signifies what letters to use to identify this new file "
+                            "e.g. \"Identifier_AssetName.PNG\".")
+        self.packing_groups_data = settings["packing_groups"]
+        self.channels = ["Red Channel", "Green Channel", "Blue Channel", "Alpha Channel"]
+        self.textures = settings["textures"]
+        self.textures.insert(0, "Empty")
+        self.fields = []
+
+        self.description_text = QLabel(self.description,
+                                        alignment=QtCore.Qt.AlignLeft)
+
+        self.tw = QTreeWidget()
+        self.tw.setAlternatingRowColors(True)
+        self.tw.setHeaderLabels([
+            "Identifier", 
+            "Extension",
+            "Red Channel", 
+            "Green Channel", 
+            "Blue Channel", 
+            "Alpha Channel"
+        ])
+
+        for group in self.packing_groups_data:
+            data = [group["identifier"]] + [group["extension"]] + group["group"]
+            item = QTreeWidgetItem(self.tw, data)
+
+
+        self.pg_select = QWidget()
+        identifier = QLineEdit(self.pg_select)
+        identifier.setPlaceholderText("Identifier")
+        self.fields.append(identifier)
+
+        extension = QLineEdit(self.pg_select)
+        extension.setPlaceholderText("Extension")
+        self.fields.append(extension)
+
+        for channel in self.channels:
+            item = QComboBox(self.pg_select)
+            item.setPlaceholderText(channel)
+            item.insertItems(0, self.textures)
+            self.fields.append(item)
+
+        self.pg_select.layout = QHBoxLayout(self.pg_select)
+        for field in self.fields:
+            self.pg_select.layout.addWidget(field)
+
 
         self.add_button = QPushButton("+")
+        self.add_button.clicked.connect(self.on_add_clicked)
         self.remove_button = QPushButton("-")
+        self.remove_button.clicked.connect(self.on_remove_clicked)
+
         
-        self.layout = QVBoxLayout(self)
-        
-        self.layout.addWidget(PackingGroupSelect())
-        self.layout.addWidget(self.add_button)
-        self.layout.addWidget(self.remove_button)
+        self.layout = QGridLayout(self)
+        self.layout.addWidget(self.description_text, 0, 0, 1, 2)
+        self.layout.addWidget(self.tw, 1, 0, 2, -1)
+        self.layout.addWidget(self.pg_select, 4, 0, 1, 3)
+        self.layout.addWidget(self.add_button, 4, 4, 1, 1)
+        self.layout.addWidget(self.remove_button, 4, 5, 1, 1)
 
-
-
-class PackingGroupSelect(QWidget):
-    def __init__(self):
-        super().__init__()
-        self.setup()
-
-    def setup(self):
-        self.textures = ["Roughness", "Metallic", "Ambient Occlusion", "Curvature", "ID"]
-        self.textures.insert(0, "Empty")
-
-        self.identifier = QLineEdit()
-        self.identifier.setPlaceholderText("Identifier")
-
-        self.texture_r = QComboBox()
-        self.texture_r.setPlaceholderText("Red Channel")
-        self.texture_r.insertItems(0, self.textures)
-
-        self.texture_g = QComboBox()
-        self.texture_g.setPlaceholderText("Green Channel")
-        self.texture_g.insertItems(0, self.textures)
-
-        self.texture_b = QComboBox()
-        self.texture_b.setPlaceholderText("Blue Channel")
-        self.texture_b.insertItems(0, self.textures)
-
-        self.texture_a = QComboBox()
-        self.texture_a.setPlaceholderText("Alpha Channel")
-        self.texture_a.insertItems(0, self.textures)
-
-        self.packing_groups_list = QPushButton("gaggi")
-
-        self.layout = QHBoxLayout(self)
-        self.layout.addWidget(self.identifier)
-        self.layout.addWidget(self.texture_r)
-        self.layout.addWidget(self.texture_g)
-        self.layout.addWidget(self.texture_b)
-        self.layout.addWidget(self.texture_a)
+    def on_add_clicked(self):
+        i = self.fields[0].text()
+        e = self.fields[1].text()
+        r = self.fields[2].currentText()
+        g = self.fields[3].currentText()
+        b = self.fields[4].currentText()
+        a = self.fields[5].currentText()
+        item = QTreeWidgetItem(self.tw, [i, e, r, g, b, a])
+    
+    def on_remove_clicked(self):
+        current = self.tw.currentItem()
+        index = self.tw.indexOfTopLevelItem(current)
+        self.tw.takeTopLevelItem(index)
 
 
 class DirSelect(QGroupBox):
@@ -144,34 +227,31 @@ class DirSelect(QGroupBox):
 
     def setup(self):
         self.setTitle("Asset Directory")
+        self.description = ("Select the directory that will be searched for textures. "
+                            "Subdirectories will also be searched")
+        self.description_text = QLabel(self.description,
+                                        alignment=QtCore.Qt.AlignLeft)
         self.directory_edit = QLineEdit()
         self.selectbutton = QPushButton("Select")
         self.selectbutton.clicked.connect(self.open_file_dialog)
 
-        self.layout = QHBoxLayout(self)
-        self.layout.addWidget(self.directory_edit)
-        self.layout.addWidget(self.selectbutton)
+        self.layout = QGridLayout(self)
+        self.layout.addWidget(self.description_text, 0, 0, 1, 1)
+        self.layout.addWidget(self.directory_edit, 1, 0, 1, 1)
+        self.layout.addWidget(self.selectbutton, 1, 2, 1, 1)
         
 
     @QtCore.Slot()
     def open_file_dialog(self):
-        dir_dialog = FileDialog()
-        dir_dialog.exec()
-        selected_dir = dir_dialog.selectedFiles()[0]
+        fd = QFileDialog()
+        fd.setFileMode(fd.Directory)
+        fd.setDirectory("C:\\")
+        fd.setViewMode(fd.List)
+        fd.setOption(fd.ShowDirsOnly, on=True)
+
+        fd.exec()
+        selected_dir = fd.selectedFiles()[0]
         self.directory_edit.setText(selected_dir)
-
-
-class FileDialog(QFileDialog):
-    def __init__(self):
-        super().__init__()
-        self.setup()
-
-    def setup(self):
-        self.fileMode
-        self.setFileMode(self.Directory)
-        self.setDirectory("C:\\")
-        self.setViewMode(self.List)
-        self.setOption(self.ShowDirsOnly, on=True)
 
 
 
@@ -179,7 +259,7 @@ if __name__ == "__main__":
     app = QApplication([])
 
     widget = MainWindow()
-    widget.resize(800, 600)
+    widget.resize(200, 800)
     widget.show()
 
     sys.exit(app.exec_())

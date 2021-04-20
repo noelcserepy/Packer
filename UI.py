@@ -5,7 +5,9 @@ from PySide6 import QtCore, QtGui
 from PySide6.QtWidgets import *
 
 
+
 settings = json.load(open("settings.json", "r"))
+
 
 class MainWindow(QWidget):
     def __init__(self):
@@ -17,6 +19,15 @@ class MainWindow(QWidget):
         self.setGeometry(100, 100, 100, 300)
         self.layout = QVBoxLayout(self)
         self.layout.addWidget(Tabs())
+
+
+class SaveSettings(QWidget):
+    def __init__(self):
+        super().__init__()
+        self.setup()
+
+    def setup(self):
+        pass
     
 
 class Tabs(QTabWidget):
@@ -38,7 +49,6 @@ class MainTab(QWidget):
         super().__init__()
         self.setup()
 
-
     def setup(self):
         self.button = QPushButton("Click me!")
         self.text = QLabel("main",
@@ -56,7 +66,6 @@ class SettingsTab(QWidget):
         super().__init__()
         self.setup()
 
-
     def setup(self):
         self.layout = QGridLayout(self)
         self.layout.addWidget(DirSelect(), 0, 0, 1, 1)
@@ -64,7 +73,6 @@ class SettingsTab(QWidget):
         self.layout.addWidget(PackingGroupSelect(), 1, 0, 1, -1)
         self.layout.addWidget(ExtensionSelect(), 2, 0, 1, 2)
         
-
 
 class IdentifierSelect(QGroupBox):
     def __init__(self):
@@ -74,7 +82,7 @@ class IdentifierSelect(QGroupBox):
     def setup(self):
         self.setTitle("Identifier Select")
         self.description = ("Select what texture identifiers to look for "
-                            "e.g. \"R_\" in R_assetName.png, \"_r\" in assetName_r.png or \"Roughness_\" in Roughness_assetName.png")
+                            "e.g. \"R_\" in R_assetName.png or \"_r\" in assetName_r.png")
         self.identifier_data = settings["default_replacements"]
         self.description_text = QLabel(self.description,
                                         alignment=QtCore.Qt.AlignLeft)
@@ -83,12 +91,10 @@ class IdentifierSelect(QGroupBox):
         self.tw.setAlternatingRowColors(True)
         self.tw.setHeaderLabels([
             "Identifier", 
-            "Position"
-        ])
-
+            "Position"])
         for id in self.identifier_data:
             data = [id[0], id[-1]]
-            item = QTreeWidgetItem(self.tw, data)
+            QTreeWidgetItem(self.tw, data)
 
         self.id_select = QWidget()
 
@@ -118,7 +124,7 @@ class IdentifierSelect(QGroupBox):
     def on_add_clicked(self):
         id = self.identifier.text()
         pos = self.position.currentText()
-        item = QTreeWidgetItem(self.tw, [id, pos])
+        QTreeWidgetItem(self.tw, [id, pos])
 
     def on_remove_clicked(self):
         current = self.tw.currentItem()
@@ -126,14 +132,51 @@ class IdentifierSelect(QGroupBox):
         self.tw.takeTopLevelItem(index)
 
 
-
-class ExtensionSelect(QWidget):
+class ExtensionSelect(QGroupBox):
     def __init__(self):
         super().__init__()
         self.setup()
 
     def setup(self):
-        pass
+        self.setTitle("Extension Select")
+        self.description = ("Select what extensions to look for "
+                            "e.g. PNG, JPG, TGA. "
+                            "This is not case sensitive.")
+        self.extensions_data = settings["extensions"]
+        self.description_text = QLabel(self.description,
+                                        alignment=QtCore.Qt.AlignLeft)
+
+        self.lw = QListWidget()
+        self.lw.setAlternatingRowColors(True)
+        self.lw.addItems(self.extensions_data)
+
+        self.ex_select = QWidget()
+
+        self.extension = QLineEdit(self.ex_select)
+        self.extension.setPlaceholderText("Extension")
+
+        self.add_button = QPushButton("+")
+        self.add_button.clicked.connect(self.on_add_clicked)
+        self.remove_button = QPushButton("-")
+        self.remove_button.clicked.connect(self.on_remove_clicked)
+
+        self.ex_select.layout = QHBoxLayout(self.ex_select)
+        self.ex_select.layout.addWidget(self.extension)
+        self.ex_select.layout.addWidget(self.add_button)
+        self.ex_select.layout.addWidget(self.remove_button)        
+
+        self.layout = QVBoxLayout(self)
+        self.layout.addWidget(self.description_text)
+        self.layout.addWidget(self.lw)
+        self.layout.addWidget(self.ex_select)
+
+    def on_add_clicked(self):
+        ex = self.extension.text()
+        self.lw.addItem(ex)
+
+    def on_remove_clicked(self):
+        current = self.lw.currentRow()
+        self.lw.takeItem(current)
 
 
 class PackingGroupSelect(QGroupBox):
@@ -171,7 +214,6 @@ class PackingGroupSelect(QGroupBox):
             data = [group["identifier"]] + [group["extension"]] + group["group"]
             item = QTreeWidgetItem(self.tw, data)
 
-
         self.pg_select = QWidget()
         identifier = QLineEdit(self.pg_select)
         identifier.setPlaceholderText("Identifier")
@@ -191,13 +233,11 @@ class PackingGroupSelect(QGroupBox):
         for field in self.fields:
             self.pg_select.layout.addWidget(field)
 
-
         self.add_button = QPushButton("+")
         self.add_button.clicked.connect(self.on_add_clicked)
         self.remove_button = QPushButton("-")
         self.remove_button.clicked.connect(self.on_remove_clicked)
 
-        
         self.layout = QGridLayout(self)
         self.layout.addWidget(self.description_text, 0, 0, 1, 2)
         self.layout.addWidget(self.tw, 1, 0, 2, -1)
@@ -212,7 +252,7 @@ class PackingGroupSelect(QGroupBox):
         g = self.fields[3].currentText()
         b = self.fields[4].currentText()
         a = self.fields[5].currentText()
-        item = QTreeWidgetItem(self.tw, [i, e, r, g, b, a])
+        QTreeWidgetItem(self.tw, [i, e, r, g, b, a])
     
     def on_remove_clicked(self):
         current = self.tw.currentItem()
@@ -259,7 +299,7 @@ if __name__ == "__main__":
     app = QApplication([])
 
     widget = MainWindow()
-    widget.resize(200, 800)
+    widget.resize(400, 300)
     widget.show()
 
     sys.exit(app.exec_())

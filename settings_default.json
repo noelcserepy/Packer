@@ -2,34 +2,40 @@
     "project_asset_dir": "C:/Users/noelc/OneDrive/Dokumente/Unreal Projects/TextureImport/Content",
     "sync_asset_dir": "C:/Users/noelc/OneDrive/Desktop/syncdir",
     "pack_incomplete": "True",
+
     "packing_groups": [
-      {
-        "identifier": "RMAO",
-        "extension": "PNG",
-        "textures": ["Metallic", "Roughness", "Ambient_Occlusion", "Opacity"]
-      },
-      {
-        "identifier": "RMA",
-        "extension": "PNG",
-        "textures": ["Metallic", "Roughness", "Ambient_Occlusion"]
-      },
-      {
-        "identifier": "CAI",
-        "extension": "PNG",
-        "textures": ["Curvature", "Ambient_Occlusion", "ID"]
-      }
+        {   
+            "identifier": "RMAO",
+            "start": "True",
+            "group": ["Metallic", "Roughness", "Ambient_Occlusion", "Opacity"],
+            "extension": "PNG"
+        },
+        {
+            "identifier": "RMA",
+            "start": "True",
+            "group": ["Metallic", "Roughness", "Ambient_Occlusion"],
+            "extension": "PNG"
+        },
+        {
+            "identifier": "CAI",
+            "start": "True",
+            "group": ["Curvature", "Ambient_Occlusion", "ID"],
+            "extension": "PNG"
+        }
     ],
+
+    "textures": ["Roughness", "Metallic", "Ambient Occlusion", "Curvature", "ID"],
     "extensions": ["TGA", "PNG", "JPEG", "JPG"],
+
     "default_replacements": [
-      ["_c", "D_", "end"],
-      ["_r", "R_", "end"],
-      ["_o", "AO_", "end"],
-      ["_m", "M_", "end"],
-      ["_n", "N_", "end"],
-      ["Metallic_", "M_", "start"],
-      ["Roughness_", "R_", "start"],
-      ["Albedo_", "A_", "start"],
-      ["Normal_", "N_", "start"]
+        ["_c", "D_", "end"],
+        ["_r", "R_", "end"],
+        ["_o", "AO_", "end"],
+        ["_m", "M_", "end"],
+        ["_n", "N_", "end"],
+        ["Metallic_", "M_", "start"],
+        ["Roughness_", "R_", "start"],
+        ["Albedo_", "A_", "start"],
+        ["Normal_", "N_", "start"]
     ]
-  }
-  
+}

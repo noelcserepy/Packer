@@ -9,8 +9,6 @@ class TextureSelect(QGroupBox):
         self.header_font.setBold(True)
         # @QtCore.Signal
 
-        # self.data_gathered = QtCore.pyqtSignal(QListWidgetItem)
-        # self.data_gathered.connect(self.on_data_gathered)
         self.setup(settings)
 
     def setup(self, settings):
@@ -88,18 +86,30 @@ class TextureSelect(QGroupBox):
         
         
     def on_add_clicked(self):
-        ted = TextureEditDialog(self, self.data_gathered)
+        ted = TextureEditDialog(self, edit_index=-1)
         ted.setModal(True)
+        ted.submitted.connect(self.add_new_item)
         ted.exec()
 
     def on_edit_clicked(self):
+        selected_row = self.tex_list.currentRow()
         selected_data = self.tex_list.currentItem().data(QtCore.Qt.UserRole)
-        ted = TextureEditDialog(self, self.data_gathered, data=selected_data)
+        ted = TextureEditDialog(self, edit_index=selected_row, data=selected_data)
         ted.setModal(True)
+        ted.submitted.connect(self.add_new_item)
         ted.exec()
 
-    def on_data_gathered(self, qitem):
-        self.tex_list.addItem(qitem)
+    @QtCore.Slot(dict, QListWidgetItem)
+    def add_new_item(self, tex, edit_index):
+        print(f"RECEIVED FROM SIGNAL: {tex}")
+        tex_item = QListWidgetItem()
+        tex_item.setData(QtCore.Qt.UserRole, tex)
+        tex_item.setText(tex["name"])
+        if edit_index > -1:
+            self.tex_list.takeItem(edit_index)
+            self.tex_list.insertItem(edit_index, tex_item)
+            return
+        self.tex_list.addItem(tex_item)
     
     def on_remove_clicked(self):
         current_row = self.tex_list.currentRow()

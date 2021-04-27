@@ -4,10 +4,12 @@ from PySide6.QtWidgets import *
 
 
 class TextureEditDialog(QDialog):
-    def __init__(self, parent, data_signal, data=None):
+    submitted = QtCore.Signal(dict, int)
+
+    def __init__(self, parent, edit_index=-1, data=None):
         super().__init__(parent=parent)
         self.data = data
-        self.data_gathered = data_signal
+        self.edit_index = edit_index
         self.setup()
         
     def setup(self):
@@ -20,10 +22,7 @@ class TextureEditDialog(QDialog):
         self.name = QLineEdit("")
         self.name.setPlaceholderText("e.g. Color")
 
-        self.preferred_header = QLabel("Preferred Identifier", alignment=QtCore.Qt.AlignLeft)
-        self.preferred = QLineEdit("")
-        self.preferred.setPlaceholderText("e.g. D_, start")
-
+        self.preferred = PreferredSelect()
         self.identifiers = IdentifierSelect()
         self.extensions = ExtensionSelect()
 
@@ -35,9 +34,17 @@ class TextureEditDialog(QDialog):
         # Populates fields if data is passed
         if self.data:
             self.name.setText(self.data["name"])
-            self.preferred.setText(str(self.data["preferred_identifier"]))
-            ids = [str(id) for id in self.data["identifiers"]]
-            self.identifiers.id_list.addItems(ids)
+
+            self.preferred.identifier.setText(self.data["preferred_identifier"][0])
+            pos_index = 0 if self.data["preferred_identifier"][1] == "start" else 1
+            self.preferred.position.setCurrentIndex(pos_index)
+
+            for id in self.data["identifiers"]:
+                item = QListWidgetItem()
+                item.setText(str(id))
+                item.setData(QtCore.Qt.UserRole, id)
+                self.identifiers.id_list.addItem(item)
+
             self.extensions.ex_list.addItems(self.data["extensions"])
 
         self.buttons = QWidget()
@@ -48,7 +55,6 @@ class TextureEditDialog(QDialog):
         self.tex_info_box.layout = QVBoxLayout(self.tex_info_box)
         self.tex_info_box.layout.addWidget(self.name_header)
         self.tex_info_box.layout.addWidget(self.name)
-        self.tex_info_box.layout.addWidget(self.preferred_header)
         self.tex_info_box.layout.addWidget(self.preferred)
         self.tex_info_box.layout.addWidget(self.identifiers)
         self.tex_info_box.layout.addWidget(self.extensions)
@@ -59,22 +65,50 @@ class TextureEditDialog(QDialog):
 
     def on_save_clicked(self):
         tex = {
-            "name": self.name,
-            "preferred_identifier": self.preferred,
+            "name": self.name.text(),
+            "preferred_identifier": self.preferred.export_items(),
             "identifiers": self.identifiers.export_items(),
             "extensions": self.extensions.export_items()
         }
-        print(tex)
-        tex_item = QListWidgetItem()
-        tex_item.setData(QtCore.Qt.UserRole, tex)
-        tex_item.setText(tex["name"])
-        self.data_gathered.emit(tex_item)
-        self.tex_list.addItem(tex_item)
-
+        self.submitted.emit(tex, self.edit_index)
         self.close()
 
     def on_discard_clicked(self):
         self.close()
+
+
+class PreferredSelect(QGroupBox):
+    def __init__(self):
+        super().__init__()
+        self.setup()
+
+    def setup(self):
+        self.setTitle("Preferred Identifier")
+        self.description = ("Select what you would like this texture to be identified with "
+                            "e.g. \"R_\" in R_assetName.png")
+        self.description_text = QLabel(self.description, alignment=QtCore.Qt.AlignLeft)
+
+        self.id_select = QWidget()
+        self.identifier = QLineEdit(self.id_select)
+        self.identifier.setPlaceholderText("Identifier")
+
+        self.position = QComboBox(self.id_select)
+        self.position.setPlaceholderText("Position")
+        self.position.insertItems(0, ["Start", "End"])
+
+        self.id_select.layout = QHBoxLayout(self.id_select)
+        self.id_select.layout.addWidget(self.identifier)
+        self.id_select.layout.addWidget(self.position)
+
+        self.layout = QVBoxLayout(self)
+        self.layout.addWidget(self.description_text)
+        self.layout.addWidget(self.id_select)
+
+    def export_items(self):
+        id = self.identifier.text()
+        pos = self.position.currentText()
+        pref = [id, pos]
+        return pref
 
 
 class IdentifierSelect(QGroupBox):
@@ -132,7 +166,8 @@ class IdentifierSelect(QGroupBox):
         all_identifiers = []
         for i in range(row_count):
             item = self.id_list.item(i)
-            all_identifiers.append(item.data())
+            all_identifiers.append(item.data(QtCore.Qt.UserRole))
+        return all_identifiers
             
 
 class ExtensionSelect(QGroupBox):
@@ -183,3 +218,4 @@ class ExtensionSelect(QGroupBox):
         for i in range(row_count):
             item = self.ex_list.item(i)
             all_extensions.append(item.text())
+        return all_extensions

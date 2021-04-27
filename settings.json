@@ -23,8 +23,78 @@
             "extension": "PNG"
         }
     ],
+    
+    "textures": [
+        {
+            "name": "Base Color",
+            "extensions": ["TGA", "PNG", "JPEG", "JPG"],
+            "identifiers": [
+                ["_b", "end"], 
+                ["Base_Color_", "start"], 
+                ["Albedo_", "start"], 
+                ["A_", "start"],
+                ["Diffuse_", "start"],
+                ["_d", "end"]
+            ],
+            "preferred_identifier": ["D_", "start"]
+        }, 
+        {
+            "name": "Roughness",
+            "extensions": ["TGA", "PNG", "JPEG", "JPG"],
+            "identifiers": [
+                ["_r", "end"], 
+                ["Roughness_", "start"]
+            ],
+            "preferred_identifier": ["R_", "start"]
+        }, 
+        {
+            "name": "Metallic",
+            "extensions": ["TGA", "PNG", "JPEG", "JPG"],
+            "identifiers": [
+                ["_m", "end"], 
+                ["Metallic_", "start"]
+            ],
+            "preferred_identifier": ["M_", "start"]
+        }, 
+        {
+            "name": "Ambient Occlusion",
+            "extensions": ["TGA", "PNG", "JPEG", "JPG"],
+            "identifiers": [
+                ["_ao", "end"], 
+                ["Ambient_Occlusion_", "start"]
+            ],
+            "preferred_identifier": ["AO_", "start"]
+        }, 
+        {
+            "name": "Curvature",
+            "extensions": ["TGA", "PNG", "JPEG", "JPG"],
+            "identifiers": [
+                ["_cu", "end"], 
+                ["Curvature_", "start"]
+            ],
+            "preferred_identifier": ["C_", "start"]
+        }, 
+        {
+            "name": "ID",
+            "extensions": ["TGA", "PNG", "JPEG", "JPG"],
+            "identifiers": [
+                ["_id", "end"], 
+                ["ID_", "start"]
+            ],
+            "preferred_identifier": ["ID_", "start"]
+        }, 
+        {
+            "name": "Normal",
+            "extensions": ["TGA", "PNG", "JPEG", "JPG"],
+            "identifiers": [
+                ["_n", "end"], 
+                ["Normal_", "start"]
+            ],
+            "preferred_identifier": ["N_", "start"]
+        }
+    ],
 
-    "textures": ["Roughness", "Metallic", "Ambient Occlusion", "Curvature", "ID"],
+    "tex": ["Roughness", "Metallic", "Ambient Occlusion", "Curvature", "ID"],
     "extensions": ["TGA", "PNG", "JPEG", "JPG"],
 
     "default_replacements": [

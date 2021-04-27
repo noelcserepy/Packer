@@ -3,7 +3,7 @@ import json
 import pickle
 from pprint import pprint
 from PIL import Image
-from rename import format_paths
+from tex_import.rename import format_paths
 from watchdog.utils.dirsnapshot import (
     DirectorySnapshot, 
     DirectorySnapshotDiff, 
@@ -135,8 +135,6 @@ def pack_maps(output_texture_path, file_list):
 
 def push_maps_to_unreal(list_of_packed_maps):
     pass
-
-
 
 
 def get_groups():

@@ -1,6 +1,6 @@
 import sys
 from UI.settings_tab import SettingsTab
-from tex_import.tex_import import get_groups
+from tex_import.tex_import import get_asset_files
 from PySide6 import QtCore
 from PySide6.QtWidgets import *
 
@@ -35,11 +35,10 @@ class MainTab(QWidget):
         self.setup()
 
     def setup(self):
+        get_asset_files()
         self.button = QPushButton("Click me!")
-        self.text = QLabel("main",
-                            alignment=QtCore.Qt.AlignLeft)
-        self.text2 = QLabel("Do stuff",
-                            alignment=QtCore.Qt.AlignLeft)
+        self.text = QLabel("main", alignment=QtCore.Qt.AlignLeft)
+        self.text2 = QLabel("Do stuff", alignment=QtCore.Qt.AlignLeft)
 
         self.layout = QVBoxLayout(self)
         self.layout.addWidget(self.text)

@@ -3,7 +3,7 @@ import json
 import pickle
 from pprint import pprint
 from PIL import Image
-from tex_import.rename import format_paths
+from tex_import.texture_search import TextureSearch
 from watchdog.utils.dirsnapshot import (
     DirectorySnapshot, 
     DirectorySnapshotDiff, 
@@ -14,8 +14,8 @@ from watchdog.utils.dirsnapshot import (
  
 """
 1. Search all dirs for changed/added files    
-2. Create packing groups from changed files
-3. Display to user and wait for input
+2. Find textures within those files
+3. Create packing groups from changed files
 4. Pack textures
 5. Import to Unreal
 """
@@ -30,6 +30,15 @@ class bcolors:
     RESET = '\033[0m' #RESET COLOR
 
 
+def get_asset_files():
+    diff = detect_changes(settings["sync_asset_dir"])
+    files_to_search = change_slashes(diff.files_created + diff.files_modified)
+    ts = TextureSearch(settings)
+    asset_textures = ts.get_files_by_asset(files_to_search)
+    pprint(asset_textures)
+    return asset_textures
+
+
 def detect_changes(dir):
     """ 
     Takes main directory to search.
@@ -41,7 +50,6 @@ def detect_changes(dir):
         diff = DirectorySnapshotDiff(empty_snap, snap)
         with open("data.P", "wb") as f:
             pickle.dump(snap, f)
-        
         print_changes(diff)
         return diff
 
@@ -53,60 +61,6 @@ def detect_changes(dir):
 
     print_changes(diff)
     return diff
-
-
-def change_slashes(to_change):
-    return [s.replace("\\", "/") for s in to_change]
-
-
-def print_changes(diff):
-    """ 
-    Takes <class 'watchdog.utils.dirsnapshot.DirectorySnapshotDiff'> 
-    Prints all the changes in directory structure since last time directories were saved with nice colours. 
-    """
-    print(bcolors.WARNING + "Directories Modified:")
-    print(change_slashes(diff.dirs_modified))
-    print("Files Modified:")
-    print(change_slashes(diff.files_modified))
-
-    print(bcolors.OK + "Directories Created:")
-    print(change_slashes(diff.dirs_created))
-    print("Files Created:")
-    print(change_slashes(diff.files_created))
-
-    print(bcolors.FAIL + "Directories Deleted:")
-    print(change_slashes(diff.dirs_deleted))
-    print("Files Deleted:")
-    print(change_slashes(diff.files_deleted))
-
-    print(bcolors.RESET)
-
-
-def find_asset_textures(diff):
-    """ 
-    Takes <class 'watchdog.utils.dirsnapshot.DirectorySnapshotDiff'>
-    Returns dictionary of assets, each with a list of textures belonging to that asset e.g. {asset_name: [available textures]}.
-    """
-    files_to_search = change_slashes(diff.files_created + diff.files_modified)
-    renamed_files = format_paths(files_to_search)
-
-    groups = {}
-    for file in renamed_files:
-        file_name = file.split("/")[-1]
-        extension = file_name.split(".")[-1]
-        identifier = file_name.split("_")[0] + "_"
-        asset_name = file_name[len(identifier):-len(extension)]
-
-        if extension not in settings["extensions"]:
-            continue
-        if asset_name not in groups.keys():
-            groups[asset_name] = []
-
-        groups[asset_name].append((identifier, extension, file))
-
-    print("Groups:")
-    pprint(groups)
-    return groups
 
 
 def pack_maps(output_texture_path, file_list):
@@ -137,11 +91,39 @@ def push_maps_to_unreal(list_of_packed_maps):
     pass
 
 
-def get_groups():
-    diff = detect_changes(settings.get("sync_asset_dir"))
-    return find_asset_textures(diff)
+def change_slashes(to_change):
+    return [s.replace("\\", "/") for s in to_change]
 
 
+def print_changes(diff):
+    """ 
+    Takes <class 'watchdog.utils.dirsnapshot.DirectorySnapshotDiff'> 
+    Prints all the changes in directory structure since last time directories were saved with nice colours. 
+    """
+    print(bcolors.WARNING + "Directories Modified:")
+    print(change_slashes(diff.dirs_modified))
+    print("Files Modified:")
+    print(change_slashes(diff.files_modified))
 
+    print(bcolors.OK + "Directories Created:")
+    print(change_slashes(diff.dirs_created))
+    print("Files Created:")
+    print(change_slashes(diff.files_created))
 
+    print(bcolors.FAIL + "Directories Deleted:")
+    print(change_slashes(diff.dirs_deleted))
+    print("Files Deleted:")
+    print(change_slashes(diff.files_deleted))
 
+    print(bcolors.RESET)
+
+def get_all_files(dir, all_files):
+        """ Gets all files in a given directory """
+        dir_files = [f"{dir}/{x}" for x in os.listdir(dir)]
+        for file in dir_files:
+            print(file)
+            if os.path.isdir(file):
+                get_all_files(file, all_files)
+            elif os.path.isfile(file):
+                all_files.append(file)
+        return all_files

@@ -7,8 +7,6 @@ class TextureSelect(QGroupBox):
         super().__init__()
         self.header_font=QtGui.QFont()
         self.header_font.setBold(True)
-        # @QtCore.Signal
-
         self.setup(settings)
 
     def setup(self, settings):
@@ -129,3 +127,12 @@ class TextureSelect(QGroupBox):
         self.identifiers.addItems(self.selected_identifiers)
         self.extensions.clear()
         self.extensions.addItems(self.selected_extensions)
+
+    def get_data(self):
+        data = []
+        row_count = self.tex_list.count()
+        for i in range(row_count):
+            item = self.tex_list.item(i)
+            item_data = item.data(QtCore.Qt.UserRole)
+            data.append(item_data)
+        return data

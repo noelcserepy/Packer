@@ -94,7 +94,7 @@ class PreferredSelect(QGroupBox):
 
         self.position = QComboBox(self.id_select)
         self.position.setPlaceholderText("Position")
-        self.position.insertItems(0, ["Start", "End"])
+        self.position.insertItems(0, ["start", "end"])
 
         self.id_select.layout = QHBoxLayout(self.id_select)
         self.id_select.layout.addWidget(self.identifier)
@@ -129,7 +129,7 @@ class IdentifierSelect(QGroupBox):
 
         self.position = QComboBox(self.id_select)
         self.position.setPlaceholderText("Position")
-        self.position.insertItems(0, ["Start", "End"])
+        self.position.insertItems(0, ["start", "end"])
 
         self.add_button = QPushButton("+")
         self.add_button.clicked.connect(self.on_add_clicked)
@@ -153,7 +153,7 @@ class IdentifierSelect(QGroupBox):
         if not (id and pos):
             return
         item = QListWidgetItem()
-        item.setText(f"[{id}, {pos}]")
+        item.setText(f"['{id}', '{pos}']")
         item.setData(QtCore.Qt.UserRole, [id, pos])
         self.id_list.addItem(item)
 

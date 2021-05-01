@@ -1,6 +1,6 @@
 import sys
 from UI.settings_tab import SettingsTab
-from tex_import.tex_import import get_asset_files
+from tex_import.tex_import import create_packing_groups
 from PySide6 import QtCore
 from PySide6.QtWidgets import *
 
@@ -35,7 +35,7 @@ class MainTab(QWidget):
         self.setup()
 
     def setup(self):
-        get_asset_files()
+        create_packing_groups()
         self.button = QPushButton("Click me!")
         self.text = QLabel("main", alignment=QtCore.Qt.AlignLeft)
         self.text2 = QLabel("Do stuff", alignment=QtCore.Qt.AlignLeft)

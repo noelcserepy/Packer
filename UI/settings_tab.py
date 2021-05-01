@@ -8,8 +8,6 @@ from UI.packinggroupselect import PackingGroupSelect
 
 
 settings = json.load(open("settings.json", "r"))
-with open("settings_tmp.json", "w") as f:
-    json.dump(settings, f)
 
 
 class SettingsTab(QWidget):

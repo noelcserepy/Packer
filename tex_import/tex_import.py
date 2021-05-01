@@ -30,13 +30,60 @@ class bcolors:
     RESET = '\033[0m' #RESET COLOR
 
 
+a = [{'asset_name': 'Urn_a',
+  'current_filename': 'Urn_a_n.TGA',
+  'dir': 'C:/Users/noelc/OneDrive/Desktop/syncdir/Game/EF_Edie/Textures/',
+  'path': 'C:/Users/noelc/OneDrive/Desktop/syncdir/Game/EF_Edie/Textures/Urn_a_n.TGA',
+  'preferred_filename': 'N_Urn_a.TGA',
+  'texture_type': 'Normal'},
+ {'asset_name': 'Urn_a',
+  'current_filename': 'Urn_a_r.TGA',
+  'dir': 'C:/Users/noelc/OneDrive/Desktop/syncdir/Game/EF_Edie/Textures/',
+  'path': 'C:/Users/noelc/OneDrive/Desktop/syncdir/Game/EF_Edie/Textures/Urn_a_r.TGA',
+  'preferred_filename': 'R_Urn_a.TGA',
+  'texture_type': 'Roughness'}]
+
+b = {
+    "group": ["Normal", "Normal", "Normal", "Roughness"]
+}
+
+def match_textures(p_group, asset):
+    g = p_group["group"]
+    matched = []
+    for t_type in g:
+        len_before = len(matched)
+        for texture in asset:
+            if texture["texture_type"] == t_type:
+                matched.append(texture)
+                break
+        len_after = len(matched)
+        if len_after <= len_before:
+            return None
+    return matched
+
+
+def create_packing_groups():
+    asset_files = get_asset_files()
+    matched_p_groups = []
+    for asset in asset_files.values():
+        for p_group in settings["packing_groups"]:
+            matched = match_textures(p_group, asset)
+            if matched:
+                matched_group = {
+                    "group": p_group,
+                    "textures": matched
+                }
+                matched_p_groups.append(matched_group)
+
+    json.dump(matched_p_groups, open("pgroups.json", "w+"))
+
+
 def get_asset_files():
     diff = detect_changes(settings["sync_asset_dir"])
     files_to_search = change_slashes(diff.files_created + diff.files_modified)
     ts = TextureSearch(settings)
-    asset_textures = ts.get_files_by_asset(files_to_search)
-    pprint(asset_textures)
-    return asset_textures
+    asset_files = ts.get_files_by_asset(files_to_search)
+    return asset_files
 
 
 def detect_changes(dir):
@@ -48,8 +95,8 @@ def detect_changes(dir):
         empty_snap = EmptyDirectorySnapshot()
         snap = DirectorySnapshot(dir)
         diff = DirectorySnapshotDiff(empty_snap, snap)
-        with open("data.P", "wb") as f:
-            pickle.dump(snap, f)
+        # with open("data.P", "wb") as f:
+        #     pickle.dump(snap, f)
         print_changes(diff)
         return diff
 
@@ -68,7 +115,6 @@ def pack_maps(output_texture_path, file_list):
     Packs 3 or 4 files into a single texture and saves it with a given identifier and extension (set by match group settings).
     Sets channels with missing files to black (user setting?). 
     """
-
     channels = []
     for file in file_list:
         texture_map = Image.open(file)

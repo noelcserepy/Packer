@@ -17,13 +17,15 @@ class SettingsTab(QWidget):
 
     def setup(self):
         self.dirselect  = DirSelect(settings)
-        self.dirselect.setMinimumHeight(100)
+        self.dirselect.setMinimumHeight(150)
+        self.dirselect.setMaximumHeight(150)
+        self.dirselect.setMinimumWidth(800)
         self.texture_select = TextureSelect(settings)
         self.texture_select.setMinimumHeight(400)
-        self.texture_select.setMaximumWidth(600)
+        self.texture_select.setMinimumWidth(1000)
         self.packinggroupselect  = PackingGroupSelect(settings)
-        self.packinggroupselect.setMinimumHeight(300)
-        self.packinggroupselect.setMaximumWidth(600)
+        self.packinggroupselect.setMinimumHeight(400)
+        self.packinggroupselect.setMinimumWidth(1000)
         self.save = QWidget(self)
 
         self.save_button = QPushButton("Save Settings")

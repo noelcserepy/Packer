@@ -1,8 +1,9 @@
 import sys
 from UI.settings_tab import SettingsTab
-from tex_import.tex_import import create_packing_groups
+from tex_import.tex_import import main
 from PySide6 import QtCore
 from PySide6.QtWidgets import *
+from qt_material import apply_stylesheet
 
 class MainWindow(QMainWindow):
     def __init__(self):
@@ -35,7 +36,7 @@ class MainTab(QWidget):
         self.setup()
 
     def setup(self):
-        create_packing_groups()
+        main()
         self.button = QPushButton("Click me!")
         self.text = QLabel("main", alignment=QtCore.Qt.AlignLeft)
         self.text2 = QLabel("Do stuff", alignment=QtCore.Qt.AlignLeft)
@@ -49,10 +50,11 @@ if __name__ == "__main__":
     app = QApplication([])
 
     widget = MainWindow()
+    apply_stylesheet(app, theme='dark_cyan.xml')
     widget.resize(400, 300)
     widget.show()
 
-    sys.exit(app.exec_())
+    sys.exit(app.exec())
 
 
 

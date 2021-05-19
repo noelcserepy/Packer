@@ -1,5 +1,6 @@
 {
     "sync_asset_dir": "C:/Users/noelc/OneDrive/Desktop/syncdir",
+    "output_path": "C:/Users/noelc/OneDrive/Desktop/syncdir/teximport",
     "textures": [
       {
         "extensions": ["TGA", "PNG", "JPEG", "JPG"],

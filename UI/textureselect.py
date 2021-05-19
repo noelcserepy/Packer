@@ -11,14 +11,14 @@ class TextureSelect(QGroupBox):
 
     def setup(self, settings):
         self.setTitle("Texture Info")
-        self.description = ("Define what textures TexImport should look for.")
+        self.description = ("Define what input textures TexImport should look for.")
         self.description_text = QLabel(self.description, alignment=QtCore.Qt.AlignLeft)
 
         self.tex_info_widget = QWidget()
 
         # Displays list of saved textures.
         self.tex_list = QListWidget()
-        self.tex_list.setAlternatingRowColors(True)
+        self.tex_list.setAlternatingRowColors(False)
         for tex in settings["textures"]:
             tex_item = QListWidgetItem()
             tex_item.setData(QtCore.Qt.UserRole, tex)
@@ -29,6 +29,7 @@ class TextureSelect(QGroupBox):
 
         # Sets up fields for displaying texture information.
         self.tex_info_box = QWidget()
+        self.tex_info_box_labels = QWidget()
 
         self.name_header = QLabel("Name:", alignment=QtCore.Qt.AlignLeft)
         self.name_header.setFont(self.header_font)
@@ -37,6 +38,12 @@ class TextureSelect(QGroupBox):
         self.preferred_header = QLabel("Preferred Identifier:", alignment=QtCore.Qt.AlignLeft)
         self.preferred_header.setFont(self.header_font)
         self.preferred = QLabel("", alignment=QtCore.Qt.AlignLeft)
+
+        self.tex_info_box_labels.layout = QHBoxLayout(self.tex_info_box_labels)
+        self.tex_info_box_labels.layout.addWidget(self.name_header)
+        self.tex_info_box_labels.layout.addWidget(self.name)
+        self.tex_info_box_labels.layout.addWidget(self.preferred_header)
+        self.tex_info_box_labels.layout.addWidget(self.preferred)
 
         self.identifiers_header = QLabel("Identifiers:", alignment=QtCore.Qt.AlignLeft)
         self.identifiers_header.setFont(self.header_font)
@@ -50,11 +57,10 @@ class TextureSelect(QGroupBox):
 
         self.on_current_changed()
 
+        
+
         self.tex_info_box.layout = QVBoxLayout(self.tex_info_box)
-        self.tex_info_box.layout.addWidget(self.name_header)
-        self.tex_info_box.layout.addWidget(self.name)
-        self.tex_info_box.layout.addWidget(self.preferred_header)
-        self.tex_info_box.layout.addWidget(self.preferred)
+        self.tex_info_box.layout.addWidget(self.tex_info_box_labels)
         self.tex_info_box.layout.addWidget(self.identifiers_header)
         self.tex_info_box.layout.addWidget(self.identifiers)
         self.tex_info_box.layout.addWidget(self.extensions_header)

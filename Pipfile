@@ -10,6 +10,8 @@ watchdog = "*"
 pytest = "*"
 pytest-mock = "*"
 pyside6 = "*"
+qt-material = "*"
+requests = "*"
 
 [dev-packages]
 autopep8 = "*"

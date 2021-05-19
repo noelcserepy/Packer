@@ -15,7 +15,7 @@ class PackingGroupSelect(QGroupBox):
                             "The identifier signifies what letters to use to identify this new file "
                             "e.g. \"Identifier_AssetName.PNG\".")
         self.packing_groups_data = settings["packing_groups"]
-        self.channels = ["Red Channel", "Green Channel", "Blue Channel", "Alpha Channel"]
+        self.channels = ["Red", "Green", "Blue", "Alpha"]
         self.textures = [tex["name"] for tex in settings["textures"]]
         self.textures.insert(0, "Empty")
         self.fields = []
@@ -24,14 +24,14 @@ class PackingGroupSelect(QGroupBox):
                                         alignment=QtCore.Qt.AlignLeft)
 
         self.tw = QTreeWidget()
-        self.tw.setAlternatingRowColors(True)
+        self.tw.setAlternatingRowColors(False)
         self.tw.setHeaderLabels([
             "Identifier", 
             "Extension",
-            "Red Channel", 
-            "Green Channel", 
-            "Blue Channel", 
-            "Alpha Channel"
+            "Red", 
+            "Green", 
+            "Blue", 
+            "Alpha"
         ])
 
         for group in self.packing_groups_data:

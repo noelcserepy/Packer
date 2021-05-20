@@ -1,9 +1,9 @@
 import json
 from PySide6 import QtCore
 from PySide6.QtWidgets import *
-from UI.textureselect import TextureSelect
-from UI.dirselect import DirSelect
-from UI.packinggroupselect import PackingGroupSelect
+from UI.settings_tab.texture_select import TextureSelect
+from UI.settings_tab.dir_select import DirSelect
+from UI.settings_tab.packinggroup_select import PackingGroupSelect
 
 
 
@@ -14,6 +14,7 @@ class SettingsTab(QWidget):
     def __init__(self):
         super().__init__()
         self.setup()
+
 
     def setup(self):
         self.dirselect  = DirSelect(settings)
@@ -43,6 +44,7 @@ class SettingsTab(QWidget):
         self.layout.addWidget(self.packinggroupselect, 2, 0, 1, 2)
         self.layout.addWidget(self.save, 3, 1, 1, 1)
         
+
     def print_data(self):
         collected_settings = {
             "sync_asset_dir": self.dirselect.get_data(),
@@ -51,6 +53,7 @@ class SettingsTab(QWidget):
         }
         print(collected_settings)
         
+
     def on_save_clicked(self):
         collected_settings = {
             "sync_asset_dir": self.dirselect.get_data(),
@@ -60,6 +63,7 @@ class SettingsTab(QWidget):
 
         with open("settings.json", "w+") as f:
             json.dump(collected_settings, f)
+
 
     def on_reset_clicked(self):
         try:

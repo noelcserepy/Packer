@@ -12,6 +12,7 @@ pytest-mock = "*"
 pyside6 = "*"
 qt-material = "*"
 requests = "*"
+pyqt5-tools = "*"
 
 [dev-packages]
 autopep8 = "*"

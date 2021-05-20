@@ -1,5 +1,6 @@
 import sys
-from UI.settings_tab import SettingsTab
+from UI.settings_tab.settings_tab import SettingsTab
+from UI.main_tab.main_tab import MainTab
 from tex_import.tex_import import main
 from PySide6 import QtCore
 from PySide6.QtWidgets import *
@@ -26,24 +27,9 @@ class Tabs(QTabWidget):
         self.setMovable(False)
         self.setTabsClosable(False)
 
+        main()
         self.addTab(MainTab(), "Main")
         self.addTab(SettingsTab(), "Settings")
-
-
-class MainTab(QWidget):
-    def __init__(self):
-        super().__init__()
-        self.setup()
-
-    def setup(self):
-        main()
-        self.button = QPushButton("Click me!")
-        self.text = QLabel("main", alignment=QtCore.Qt.AlignLeft)
-        self.text2 = QLabel("Do stuff", alignment=QtCore.Qt.AlignLeft)
-
-        self.layout = QVBoxLayout(self)
-        self.layout.addWidget(self.text)
-        self.layout.addWidget(self.text2)
 
 
 if __name__ == "__main__":

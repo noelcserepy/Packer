@@ -1,6 +1,5 @@
 import os
 import json
-from collections import Counter
 from PIL import Image
 
 
@@ -24,7 +23,7 @@ class Packer():
 
         json.dump(matched_p_groups, open("pgroups.json", "w+"))
 
-        #output_maps(matched_p_groups)
+        self.output_maps(matched_p_groups)
 
 
     def match_textures(self, p_group, asset):
@@ -49,9 +48,12 @@ class Packer():
 
         for p_group in matched_p_groups:
             asset_name = p_group["textures"][0]["asset_name"]
+            if not os.path.exists(f"{output_folder}/{asset_name}"):
+                os.mkdir(f"{output_folder}/{asset_name}")
+            
             identifier = p_group["group"]["identifier"]
             extension = p_group["group"]["extension"]
-            output_path = f"{output_folder}/{identifier}_{asset_name}_{extension}"
+            output_path = f"{output_folder}/{asset_name}/{identifier}_{asset_name}.{extension}"
             self.pack_maps(output_path, p_group)   
 
 
@@ -61,29 +63,36 @@ class Packer():
         Sets channels with missing files to black (user setting?). 
         """
     
-        type_count = dict(Counter(p_group["group"]["group"]))
+        in_channels = []
+        split_counter = 0
+        prev_tex = ""
+        for texture_type in p_group["group"]["group"]:
+            if texture_type != prev_tex:
+                prev_tex = texture_type
+                split_counter = 0
+            for texture in p_group["textures"]:
+                if texture["texture_type"] == texture_type:
+                    tex_split_channel = (texture["path"], split_counter)
+                    split_counter += 1
+                    in_channels.append(tex_split_channel)
+                    break
 
-        channels = []
-        occurrence = 0
-        for texture in p_group["textures"]:
-            texture_img = Image.open(texture["path"])
+        out_channels = []
+        for in_channel in in_channels:
+            in_image = Image.open(in_channel[0])
+            split = in_image.split()
+            out_channels.append(split[in_channel[1]])
 
-            r, *_ = texture_img.split()
-            print(r.format, r.size, r.mode)
-        
-        for file in p_group:
-            texture_map = Image.open(file)
-            r, *_ = texture_map.split()
-            print(r.format, r.size, r.mode)
-            r.append(r)
+        try:
+            if len(out_channels) == 3:
+                output_texture = Image.merge("RGB", (out_channels[0], out_channels[1], out_channels[2]))
+                output_texture.save(output_path)
+                return
 
-        if len(channels) == 3:
-            output_texture = Image.merge("RGB", (channels[0], channels[1], channels[2]))
-            with open(output_path, "wb") as f:
-                f.write(output_texture)
+            if len(out_channels) == 4:
+                output_texture = Image.merge("RGBA", (out_channels[0], out_channels[1], out_channels[2], out_channels[3]))
+                output_texture.save(output_path)
+                return
 
-        if len(channels) == 4:
-            output_texture = Image.merge("RGBA", (channels[0], channels[1], channels[2], channels[3]))
-            with open(output_path, "wb") as f:
-                f.write(output_texture)
-
+        except Exception as e:
+            print(p_group["textures"][0]["asset_name"], e)

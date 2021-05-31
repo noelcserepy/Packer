@@ -3,13 +3,13 @@ from tex_import.packer import Packer
 from tex_import.texture_search import TextureSearch
 
 
-def main():
-    settings = json.load(open("settings.json"))
+settings = json.load(open("settings.json"))
+ft = TextureSearch(settings)
+pk = Packer(settings)
 
-    ft = TextureSearch(settings)
+
+def startup():
     asset_files = ft.get_asset_files()
-
-    pk = Packer(settings)
     pk.create_packing_groups(asset_files)
 
 
@@ -18,6 +18,7 @@ def refresh():
 
 
 def pack():
-    pass
+    p_groups = json.load(open("pgroups.json"))
+    pk.output_maps(p_groups)
 
 

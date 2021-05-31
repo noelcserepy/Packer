@@ -1,6 +1,8 @@
 import os
 import json
+import datetime
 from PIL import Image
+from db.data_handler import DataHandler
 
 
 
@@ -21,9 +23,22 @@ class Packer():
                     }
                     matched_p_groups.append(matched_group)
 
-        json.dump(matched_p_groups, open("pgroups.json", "w+"))
+        dh = DataHandler()
+        for m in matched_p_groups:
+            asset_name = m["textures"][0]["asset_name"]
+            group_identifier = m["group"]["identifier"]
+            path = "path"
+            status = "Ready"
+            channel_r_path = m["textures"][0]["path"]
+            channel_g_path = m["textures"][1]["path"]
+            channel_b_path = m["textures"][2]["path"]
+            channel_a_path = m["textures"][3]["path"]
+            date = str(datetime.datetime.now())
+            dh.save_asset(asset_name, group_identifier, path, status, channel_r_path, 
+            channel_g_path, channel_b_path, channel_a_path, date=date, size=None)
 
-        self.output_maps(matched_p_groups)
+
+        json.dump(matched_p_groups, open("pgroups.json", "w+"))
 
 
     def match_textures(self, p_group, asset):

@@ -1,10 +1,6 @@
 import json
-from PySide6 import QtCore
 from PySide6.QtWidgets import *
-from UI.main_tab.ready_display import ReadyDisplay
-from UI.main_tab.packed_display import PackedDisplay
-
-
+from UI.main_tab.main_table import MainTable
 
 settings = json.load(open("settings.json", "r"))
 
@@ -17,23 +13,17 @@ class MainTab(QWidget):
 
     def setup(self):
         height = 800
-        width = 300
-        self.readydisplay = ReadyDisplay(settings)
-        self.readydisplay.setMinimumHeight(height)
-        self.readydisplay.setMaximumHeight(height)
-        self.readydisplay.setMinimumWidth(width)
-        self.readydisplay.setMaximumWidth(width)
+        width = 1000
+        main_table = MainTable()
+        # main_table.setMinimumHeight(height)
+        # main_table.setMaximumHeight(height)
+        # main_table.setMinimumWidth(width)
+        # main_table.setMaximumWidth(width)
 
-        self.packeddisplay = PackedDisplay(settings)
-        self.packeddisplay.setMinimumHeight(height)
-        self.packeddisplay.setMaximumHeight(height)
-        self.packeddisplay.setMinimumWidth(width)
-        self.packeddisplay.setMaximumWidth(width)
-
-        self.layout = QHBoxLayout(self)
-        self.layout.addWidget(self.readydisplay)
-        self.layout.addWidget(self.packeddisplay)
-
+        layout = QHBoxLayout(self)
+        layout.setContentsMargins(0, 0, 0, 0)
+        layout.addWidget(main_table)
+        
 
     def open_file_dialog(self):
         fd = QFileDialog()

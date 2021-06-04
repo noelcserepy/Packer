@@ -1,12 +1,12 @@
 import json
-from tex_import.packer import Packer
-from tex_import.texture_search import TextureSearch
+from packer.packinggroup import PackingGroup
+from packer.filesearch import FileSearch
 
 
 with open("settings.json", "r") as f:
     settings = json.load(f)
-ft = TextureSearch(settings)
-pk = Packer(settings)
+ft = FileSearch(settings)
+pk = PackingGroup(settings)
 
 
 def startup():

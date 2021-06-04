@@ -6,7 +6,7 @@ from db.data_handler import DataHandler
 
 
 
-class Packer():
+class PackingGroup():
     def __init__(self, settings):
         self.settings = settings
 

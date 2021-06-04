@@ -2,7 +2,7 @@ import sys
 import os
 from UI.settings_tab.settings_tab import SettingsTab
 from UI.main_tab.main_tab import MainTab
-from tex_import.tex_import import startup
+from packer.packer import startup
 from PySide6.QtWidgets import *
 from qt_material import apply_stylesheet
 

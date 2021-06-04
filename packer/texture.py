@@ -2,8 +2,8 @@ from datetime import datetime
 
 class Texture():
     def __init__(self, settings, path):
-        self.path = path
         self.settings = settings
+        self.path = path
         self.filename_full = self.path.split("/")[-1]
         self.filename, self.extension = self.filename_full.split(".")
         self.directory = self.path[:-len(self.filename_full)]

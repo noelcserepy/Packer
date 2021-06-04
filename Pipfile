@@ -5,18 +5,15 @@ name = "pypi"
 
 [packages]
 pillow = "*"
-deepdiff = "*"
 watchdog = "*"
-pytest = "*"
 pytest-mock = "*"
 pyside6 = "*"
 qt-material = "*"
-requests = "*"
-pyqt5-tools = "*"
 pipfile = "*"
 
 [dev-packages]
 autopep8 = "*"
+pytest = "*"
 
 [requires]
 python_version = "3.9"

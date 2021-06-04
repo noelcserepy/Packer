@@ -7,6 +7,33 @@ from db.data_handler import DataHandler
 
 
 class PackingGroup():
+    def __init__(self, m):
+        self.asset_name = m["textures"][0]["asset_name"]
+        self.group_identifier = m["group"]["identifier"]
+        self.path = "path"
+        self.status = "Ready"
+        self.channel_r_path = m["textures"][0]["path"]
+        self.channel_g_path = m["textures"][1]["path"]
+        self.channel_b_path = m["textures"][2]["path"]
+        self.channel_a_path = m["textures"][3]["path"]
+        self.date = str(datetime.datetime.now())
+
+
+    def save_packing_group_in_database(self):
+        dh= DataHandler()
+        dh.save_asset(
+            self.asset_name, 
+            self.group_identifier, 
+            self.path, self.status, 
+            self.channel_r_path, 
+            self.channel_g_path, 
+            self.channel_b_path, 
+            self.channel_a_path, 
+            date=self.date, 
+            size=None)
+
+
+class GroupPacker():
     def __init__(self, settings):
         self.settings = settings
 
@@ -15,7 +42,7 @@ class PackingGroup():
         matched_p_groups = []
         for asset in asset_files.values():
             for p_group in self.settings["packing_groups"]:
-                matched = self.match_textures(p_group, asset)
+                matched = self._match_textures(p_group, asset)
                 if matched:
                     matched_group = {
                         "group": p_group,
@@ -23,25 +50,14 @@ class PackingGroup():
                     }
                     matched_p_groups.append(matched_group)
 
-        dh = DataHandler()
         for m in matched_p_groups:
-            asset_name = m["textures"][0]["asset_name"]
-            group_identifier = m["group"]["identifier"]
-            path = "path"
-            status = "Ready"
-            channel_r_path = m["textures"][0]["path"]
-            channel_g_path = m["textures"][1]["path"]
-            channel_b_path = m["textures"][2]["path"]
-            channel_a_path = m["textures"][3]["path"]
-            date = str(datetime.datetime.now())
-            dh.save_asset(asset_name, group_identifier, path, status, channel_r_path, 
-            channel_g_path, channel_b_path, channel_a_path, date=date, size=None)
-
+            pg = PackingGroup(m)
+            pg.save_packing_group_in_database()
 
         json.dump(matched_p_groups, open("pgroups.json", "w+"))
 
 
-    def match_textures(self, p_group, asset):
+    def _match_textures(self, p_group, asset):
         g = p_group["group"]
         matched = []
         for t_type in g:

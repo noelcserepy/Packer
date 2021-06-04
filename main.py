@@ -2,7 +2,7 @@ import sys
 import os
 from UI.settings_tab.settings_tab import SettingsTab
 from UI.main_tab.main_tab import MainTab
-from packer.packer import startup
+from packer.packer import Packer
 from PySide6.QtWidgets import *
 from qt_material import apply_stylesheet
 
@@ -28,7 +28,7 @@ class Tabs(QTabWidget):
         self.setMovable(False)
         self.setTabsClosable(False)
 
-        startup()
+        Packer()
         self.addTab(MainTab(), "Main")
         self.addTab(SettingsTab(), "Settings")
 

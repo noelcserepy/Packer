@@ -1,7 +1,3 @@
-import os
-import pickle
-from packer.texture import Texture
-from packer.helpers import Helpers
 from watchdog.utils.dirsnapshot import (
     DirectorySnapshot, 
     DirectorySnapshotDiff, 
@@ -10,71 +6,68 @@ from watchdog.utils.dirsnapshot import (
 
 
 
-
 class FileSearch():
     def __init__(self, settings):
         self.settings = settings
+        self.root_directory = self.settings["sync_asset_dir"]
+        self.all_directory_file_paths = list()
+
+        self.find_all_files()
 
 
-    def get_asset_files(self):
-        diff = self.detect_directory_changes(self.settings["sync_asset_dir"])
-        files_to_search = Helpers().change_slashes(diff.files_created + diff.files_modified)
-        asset_files = self.get_files_by_asset(files_to_search)
-        return asset_files
+    def find_all_files(self):
+        empty_snapshot = EmptyDirectorySnapshot()
+        snapshot = DirectorySnapshot(self.root_directory)
+        snapshot_diff = DirectorySnapshotDiff(empty_snapshot, snapshot)
+        self._print_found_files(snapshot_diff)
+        self.all_directory_file_paths = self._change_slashes(snapshot_diff.files_created)
 
 
-    def detect_directory_changes(self, dir):
+    def _change_slashes(self, to_change):
+        return [s.replace("\\", "/") for s in to_change]
+
+
+    def _print_found_files(self, diff):
         """ 
-        Takes main directory to search.
-        Returns <class 'watchdog.utils.dirsnapshot.DirectorySnapshotDiff'> containing all subdirectories in which changes have been detected. 
+        Takes <class 'watchdog.utils.dirsnapshot.DirectorySnapshotDiff'> 
+        Prints all the changes in directory structure since last time directories were saved with nice colours. 
         """
-        if not os.path.exists("data.P"):
-            empty_snap = EmptyDirectorySnapshot()
-            snap = DirectorySnapshot(dir)
-            diff = DirectorySnapshotDiff(empty_snap, snap)
-            # with open("data.P", "wb") as f:
-            #     pickle.dump(snap, f)
-            Helpers().print_changes(diff)
-            return diff
+        ok = '\033[92m' #GREEN
+        warning = '\033[93m' #YELLOW
+        fail = '\033[91m' #RED
+        reset = '\033[0m' #RESET COLOR
 
-        with open("data.P", "rb") as f:
-            o_snap = pickle.load(f)
+        print(warning + "Directories Modified:")
+        print(self._change_slashes(diff.dirs_modified))
+        print("Files Modified:")
+        print(self._change_slashes(diff.files_modified))
 
-        snap = DirectorySnapshot(dir)
-        diff = DirectorySnapshotDiff(o_snap, snap)
+        print(ok + "Directories Created:")
+        print(self._change_slashes(diff.dirs_created))
+        print("Files Created:")
+        print(self._change_slashes(diff.files_created))
 
-        Helpers().print_changes(diff)
-        return diff
+        print(fail + "Directories Deleted:")
+        print(self._change_slashes(diff.dirs_deleted))
+        print("Files Deleted:")
+        print(self._change_slashes(diff.files_deleted))
 
-    
-    def get_all_files(self, dir, all_files):
-        """ Gets all files in a given directory """
-        dir_files = [f"{dir}/{x}" for x in os.listdir(dir)]
-        for file in dir_files:
-            if os.path.isdir(file):
-                self.get_all_files(file, all_files)
-            elif os.path.isfile(file):
-                all_files.append(file)
-        return all_files
+        print(reset)
 
 
-    def get_files_by_asset(self, files):
-        """ 
-        Takes a list of files.
-        Returns dictionary of assets, each with a list of textures belonging to that asset e.g. {asset_name: [available textures]}.
-        """
-        asset_files = {}
-        for file in files:
-            try:
-                texture = Texture(self.settings, file).get_texture_data()
-                if not texture:
-                    raise Exception("Texture does not exist")
-                
-                asset_name = texture["asset_name"]
-                if asset_name not in asset_files.keys():
-                    asset_files[asset_name] = []
+    # def detect_directory_changes(self):
+        # if not os.path.exists("data.P"):
+        #     empty_snap = EmptyDirectorySnapshot()
+        #     snap = DirectorySnapshot(self.root_directory)
+        #     diff = DirectorySnapshotDiff(empty_snap, snap)
+        #     with open("data.P", "wb") as f:
+        #         pickle.dump(snap, f)
+        #     Helpers().print_changes(diff)
+        #     return diff
 
-                asset_files[asset_name].append(texture)
-            except:
-                continue
-        return asset_files
+        # with open("data.P", "rb") as f:
+        #     o_snap = pickle.load(f)
+
+        # snap = DirectorySnapshot(self.root_directory)
+        # Helpers().print_changes(diff)
+        # return diff

@@ -26,6 +26,12 @@ class DataHandler():
 
     def save_asset(self, asset_name, group_identifier, path, status, channel_r_path, 
                     channel_g_path, channel_b_path, channel_a_path, date=None, size=None):
+        
+        query = "SELECT asset_name, group_identifier FROM packing_groups WHERE asset_name = :asset_name AND group_identifier = :group_identifier"
+        self.cur.execute(query, {"asset_name": asset_name, "group_identifier": group_identifier})
+        if self.cur.fetchone():
+            print(f"{asset_name} {group_identifier} already in database.")
+            return
 
         query = """
             INSERT INTO packing_groups (
@@ -70,7 +76,6 @@ class DataHandler():
     def get_all_rows(self):
         query = "SELECT asset_name, group_identifier, path, date, status FROM packing_groups ORDER BY asset_name"
         with self.conn:
-            rows = []
-            for row in self.cur.execute(query):
-                rows.append(row)
-            return rows 
+            self.cur.execute(query)
+            return self.cur.fetchall()
+           

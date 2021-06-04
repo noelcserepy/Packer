@@ -13,6 +13,7 @@ pyside6 = "*"
 qt-material = "*"
 requests = "*"
 pyqt5-tools = "*"
+pipfile = "*"
 
 [dev-packages]
 autopep8 = "*"

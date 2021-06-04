@@ -6,8 +6,8 @@ from UI.settings_tab.dir_select import DirSelect
 from UI.settings_tab.packinggroup_select import PackingGroupSelect
 
 
-
-settings = json.load(open("settings.json", "r"))
+with open("settings.json", "r") as f:
+    settings = json.load(f)
 
 
 class SettingsTab(QWidget):

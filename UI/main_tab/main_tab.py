@@ -2,7 +2,8 @@ import json
 from PySide6.QtWidgets import *
 from UI.main_tab.main_table import MainTable
 
-settings = json.load(open("settings.json", "r"))
+with open("settings.json", "r") as f:
+    settings = json.load(f)
 
 
 class MainTab(QWidget):
@@ -12,16 +13,9 @@ class MainTab(QWidget):
 
 
     def setup(self):
-        height = 800
-        width = 1000
         main_table = MainTable()
-        # main_table.setMinimumHeight(height)
-        # main_table.setMaximumHeight(height)
-        # main_table.setMinimumWidth(width)
-        # main_table.setMaximumWidth(width)
 
         layout = QHBoxLayout(self)
-        layout.setContentsMargins(0, 0, 0, 0)
         layout.addWidget(main_table)
         
 

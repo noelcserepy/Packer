@@ -17,22 +17,25 @@ class MainTable(QGroupBox):
         self.refresh_button.clicked.connect(self.on_scan_clicked)
         self.pack_button = QPushButton("PACK")
         self.pack_button.clicked.connect(self.on_pack_clicked)
+        self.live_pack_text = QLabel("Live Pack Assets")
         self.live_pack_checkbox = QCheckBox()
 
         self.button_widget.layout = QHBoxLayout(self.button_widget)
         self.button_widget.layout.addWidget(self.refresh_button)
         self.button_widget.layout.addWidget(self.pack_button)
+        self.button_widget.layout.addWidget(self.live_pack_text)
         self.button_widget.layout.addWidget(self.live_pack_checkbox)
 
         # Displays table of assets
         self.asset_table = QTableWidget(50, 5)
         self.asset_table.verticalHeader().setVisible(False)
         self.asset_table.horizontalHeader().setSectionResizeMode(QHeaderView(Qt.Orientation.Horizontal).Stretch)
+        self.asset_table.horizontalHeader().setDefaultAlignment(Qt.AlignLeft)
         self.asset_table.setHorizontalHeaderLabels(["Asset Name", "Packing Group", "Output Path", "Date Packed", "Status"])
         dh = DataHandler()
         for i, row in enumerate(dh.get_all_rows()):
-            for record_index in range(len(row)):
-                self.asset_table.setItem(i, record_index, QTableWidgetItem(row[record_index]))
+            for column_index in range(len(row)):
+                self.asset_table.setItem(i, column_index, QTableWidgetItem(row[column_index]))
 
         self.layout = QVBoxLayout(self)
         self.layout.setContentsMargins(0, 0, 0, 0)

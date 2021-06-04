@@ -3,7 +3,8 @@ from tex_import.packer import Packer
 from tex_import.texture_search import TextureSearch
 
 
-settings = json.load(open("settings.json"))
+with open("settings.json", "r") as f:
+    settings = json.load(f)
 ft = TextureSearch(settings)
 pk = Packer(settings)
 

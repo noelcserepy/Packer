@@ -65,7 +65,8 @@
       "extensions": ["TGA", "PNG", "JPEG", "JPG"],
       "identifiers": [
         ["_n", "end"],
-        ["Normal_", "start"]
+        ["Normal_", "start"],
+        ["_N", "end"]
       ],
       "name": "Normal",
       "preferred_identifier": ["N_", "start"]

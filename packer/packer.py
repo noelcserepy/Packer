@@ -18,7 +18,7 @@ class Packer():
         asset_files = {}
         for file in self.all_directory_file_paths:
             try:
-                texture = Texture(self.settings, file)
+                texture = Texture(self.settings, file).get_texture_data()
                 if not texture:
                     raise Exception("Texture could not be created.")
                 

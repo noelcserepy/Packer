@@ -19,7 +19,7 @@ class FileSearch():
         empty_snapshot = EmptyDirectorySnapshot()
         snapshot = DirectorySnapshot(self.root_directory)
         snapshot_diff = DirectorySnapshotDiff(empty_snapshot, snapshot)
-        self._print_found_files(snapshot_diff)
+        # self._print_found_files(snapshot_diff)
         self.all_directory_file_paths = self._change_slashes(snapshot_diff.files_created)
 
 
@@ -53,21 +53,3 @@ class FileSearch():
         print(self._change_slashes(diff.files_deleted))
 
         print(reset)
-
-
-    # def detect_directory_changes(self):
-        # if not os.path.exists("data.P"):
-        #     empty_snap = EmptyDirectorySnapshot()
-        #     snap = DirectorySnapshot(self.root_directory)
-        #     diff = DirectorySnapshotDiff(empty_snap, snap)
-        #     with open("data.P", "wb") as f:
-        #         pickle.dump(snap, f)
-        #     Helpers().print_changes(diff)
-        #     return diff
-
-        # with open("data.P", "rb") as f:
-        #     o_snap = pickle.load(f)
-
-        # snap = DirectorySnapshot(self.root_directory)
-        # Helpers().print_changes(diff)
-        # return diff

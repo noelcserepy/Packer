@@ -2,6 +2,7 @@ import json
 from packer.texture import Texture
 from packer.packinggroup import GroupPacker
 from packer.filesearch import FileSearch
+from db.alchemy import add_texture_to_db, print_assets
 
 
 class Packer():
@@ -15,21 +16,40 @@ class Packer():
 
 
     def _make_textures_from_file_paths(self):
-        asset_files = {}
+        textures_by_asset = {}
         for file in self.all_directory_file_paths:
             try:
-                texture = Texture(self.settings, file).get_texture_data()
-                if not texture:
-                    raise Exception("Texture could not be created.")
-                
-                asset_name = texture["asset_name"]
-                if asset_name not in asset_files.keys():
-                    asset_files[asset_name] = []
+                texture = Texture(self.settings, file)
+                if not texture.match_completed:
+                    raise Exception("Texture match incomplete.")
+                add_texture_to_db(texture)
 
-                asset_files[asset_name].append(texture)
+                # asset_name = texture["asset_name"]
+                # if asset_name not in textures_by_asset.keys():
+                #     textures_by_asset[asset_name] = []
+
+                # textures_by_asset[asset_name].append(texture)
             except:
                 continue
-        return asset_files
+        print_assets()
+
+
+    # def _make_textures_from_file_paths(self):
+    #     textures_by_asset = {}
+    #     for file in self.all_directory_file_paths:
+    #         try:
+    #             texture = Texture(self.settings, file).get_texture_data()
+    #             if not texture:
+    #                 raise Exception("Texture could not be created.")
+                
+    #             asset_name = texture["asset_name"]
+    #             if asset_name not in textures_by_asset.keys():
+    #                 textures_by_asset[asset_name] = []
+
+    #             textures_by_asset[asset_name].append(texture)
+    #         except:
+    #             continue
+    #     return textures_by_asset
 
 
 

@@ -10,6 +10,7 @@ pytest-mock = "*"
 pyside6 = "*"
 qt-material = "*"
 pipfile = "*"
+sqlalchemy = "*"
 
 [dev-packages]
 autopep8 = "*"

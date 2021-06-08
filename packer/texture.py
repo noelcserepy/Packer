@@ -6,6 +6,7 @@ class Texture():
     def __init__(self, settings, path):
         self.all_texture_types = settings["textures"]
         self.path = path
+        self.match_completed = False
 
         self.filename_full = self.path.split("/")[-1]
         self.filename, self.extension = self.filename_full.split(".")
@@ -33,6 +34,7 @@ class Texture():
             self.texture_type = tex["name"]
             self.preferred_identifier = tex["preferred_identifier"]
             self._create_preferred_filename()
+            self.match_completed = True
             return
 
     

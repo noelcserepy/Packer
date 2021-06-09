@@ -1,8 +1,8 @@
 import json
-from packer.texture import Texture
+from packer.texture_match import TextureMatch
 from packer.packinggroup import GroupPacker
 from packer.filesearch import FileSearch
-from db.alchemy import add_texture_to_db, print_assets
+from db.alchemy import DatabaseHandler
 
 
 class Packer():
@@ -16,22 +16,19 @@ class Packer():
 
 
     def _make_textures_from_file_paths(self):
-        textures_by_asset = {}
         for file in self.all_directory_file_paths:
-            try:
-                texture = Texture(self.settings, file)
-                if not texture.match_completed:
-                    raise Exception("Texture match incomplete.")
-                add_texture_to_db(texture)
+            texture_match = TextureMatch(self.settings, file)
+            if texture_match.match_completed:
+                texture_match.save_in_db()
 
-                # asset_name = texture["asset_name"]
-                # if asset_name not in textures_by_asset.keys():
-                #     textures_by_asset[asset_name] = []
+        DatabaseHandler().print_assets()
+        DatabaseHandler().print_textures()
 
-                # textures_by_asset[asset_name].append(texture)
-            except:
-                continue
-        print_assets()
+
+
+
+
+
 
 
     # def _make_textures_from_file_paths(self):

@@ -2,7 +2,6 @@ import os
 import json
 import datetime
 from PIL import Image
-from db.data_handler import DataHandler
 
 
 
@@ -19,18 +18,18 @@ class PackingGroup():
         self.date = str(datetime.datetime.now())
 
 
-    def save_packing_group_in_database(self):
-        dh= DataHandler()
-        dh.save_asset(
-            self.asset_name, 
-            self.group_identifier, 
-            self.path, self.status, 
-            self.channel_r_path, 
-            self.channel_g_path, 
-            self.channel_b_path, 
-            self.channel_a_path, 
-            date=self.date, 
-            size=None)
+    # def save_packing_group_in_database(self):
+    #     dh= DataHandler()
+    #     dh.save_asset(
+    #         self.asset_name, 
+    #         self.group_identifier, 
+    #         self.path, self.status, 
+    #         self.channel_r_path, 
+    #         self.channel_g_path, 
+    #         self.channel_b_path, 
+    #         self.channel_a_path, 
+    #         date=self.date, 
+    #         size=None)
 
 
 class GroupPacker():

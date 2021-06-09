@@ -1,26 +1,24 @@
-import re 
-from datetime import datetime
-from pprint import pprint
+import re
+from db.alchemy import DatabaseHandler
 
-class Texture():
+class TextureMatch():
     def __init__(self, settings, path):
         self.all_texture_types = settings["textures"]
         self.path = path
         self.match_completed = False
 
         self.filename_full = self.path.split("/")[-1]
+        if not "." in self.filename_full:
+            return
         self.filename, self.extension = self.filename_full.split(".")
         self.directory = self.path[:-len(self.filename_full)]
         
-        self.scan_timestamp = datetime.now().timestamp()
         self.asset_name = str()
         self.preferred_filename = str()
         self.texture_type = str()
         self.preferred_identifier = str()
-
         self._identify_texture_from_path()
 
-        
     def _identify_texture_from_path(self):
         for tex in self.all_texture_types:
             if self.extension.upper() not in tex["extensions"]:
@@ -37,7 +35,6 @@ class Texture():
             self.match_completed = True
             return
 
-    
     def _determine_asset_name(self, identifiers):
         for id in identifiers:
             if id[1] == "end":
@@ -53,7 +50,6 @@ class Texture():
                     self.asset_name = self.filename[len(id[0]):]
                     return
 
-
     def _create_preferred_filename(self):
         if self.preferred_identifier[1] == "start":
             self.preferred_filename = f"{self.preferred_identifier[0]}{self.asset_name}.{self.extension}"
@@ -62,15 +58,8 @@ class Texture():
             self.preferred_filename = f"{self.asset_name}{self.preferred_identifier[0]}.{self.extension}"
             return
 
-
-    def get_texture_data(self):
-        texture_data = {
-            "asset_name": self.asset_name,
-            "path": self.path,
-            "dir": self.directory,
-            "current_filename": self.filename_full,
-            "preferred_filename": self.preferred_filename,
-            "texture_type": self.texture_type,
-            "scan_timestamp": self.scan_timestamp
-        }
-        return texture_data
+    def save_in_db(self):
+        if not self.match_completed:
+            print("match failed")
+            raise Exception("Match incomplete.")
+        DatabaseHandler().add_texture_to_db(self)

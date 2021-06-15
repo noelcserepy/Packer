@@ -1,0 +1,1532 @@
+[
+  {
+    "group": {
+      "extension": "PNG",
+      "group": ["Normal", "Normal", "Normal", "Roughness"],
+      "identifier": "NR"
+    },
+    "textures": [
+      {
+        "asset_name": "WritingDeskKnob_a",
+        "path": "C:/Users/noelc/OneDrive/Desktop/syncdir/Game/EF_Edie/Textures/WritingDeskKnob_a_n.TGA",
+        "dir": "C:/Users/noelc/OneDrive/Desktop/syncdir/Game/EF_Edie/Textures/",
+        "current_filename": "WritingDeskKnob_a_n.TGA",
+        "preferred_filename": "N_WritingDeskKnob_a.TGA",
+        "texture_type": "Normal",
+        "scan_timestamp": 1623053014.870675
+      },
+      {
+        "asset_name": "WritingDeskKnob_a",
+        "path": "C:/Users/noelc/OneDrive/Desktop/syncdir/Game/EF_Edie/Textures/WritingDeskKnob_a_n.TGA",
+        "dir": "C:/Users/noelc/OneDrive/Desktop/syncdir/Game/EF_Edie/Textures/",
+        "current_filename": "WritingDeskKnob_a_n.TGA",
+        "preferred_filename": "N_WritingDeskKnob_a.TGA",
+        "texture_type": "Normal",
+        "scan_timestamp": 1623053014.870675
+      },
+      {
+        "asset_name": "WritingDeskKnob_a",
+        "path": "C:/Users/noelc/OneDrive/Desktop/syncdir/Game/EF_Edie/Textures/WritingDeskKnob_a_n.TGA",
+        "dir": "C:/Users/noelc/OneDrive/Desktop/syncdir/Game/EF_Edie/Textures/",
+        "current_filename": "WritingDeskKnob_a_n.TGA",
+        "preferred_filename": "N_WritingDeskKnob_a.TGA",
+        "texture_type": "Normal",
+        "scan_timestamp": 1623053014.870675
+      },
+      {
+        "asset_name": "WritingDeskKnob_a",
+        "path": "C:/Users/noelc/OneDrive/Desktop/syncdir/Game/EF_Edie/Textures/WritingDeskKnob_a_r.TGA",
+        "dir": "C:/Users/noelc/OneDrive/Desktop/syncdir/Game/EF_Edie/Textures/",
+        "current_filename": "WritingDeskKnob_a_r.TGA",
+        "preferred_filename": "R_WritingDeskKnob_a.TGA",
+        "texture_type": "Roughness",
+        "scan_timestamp": 1623053015.006293
+      }
+    ]
+  },
+  {
+    "group": {
+      "extension": "PNG",
+      "group": ["Base Color", "Base Color", "Base Color", "Roughness"],
+      "identifier": "DR"
+    },
+    "textures": [
+      {
+        "asset_name": "WritingDeskKnob_a",
+        "path": "C:/Users/noelc/OneDrive/Desktop/syncdir/Game/EF_Edie/Textures/WritingDeskKnob_a_c.TGA",
+        "dir": "C:/Users/noelc/OneDrive/Desktop/syncdir/Game/EF_Edie/Textures/",
+        "current_filename": "WritingDeskKnob_a_c.TGA",
+        "preferred_filename": "WritingDeskKnob_aD_.TGA",
+        "texture_type": "Base Color",
+        "scan_timestamp": 1623053015.071119
+      },
+      {
+        "asset_name": "WritingDeskKnob_a",
+        "path": "C:/Users/noelc/OneDrive/Desktop/syncdir/Game/EF_Edie/Textures/WritingDeskKnob_a_c.TGA",
+        "dir": "C:/Users/noelc/OneDrive/Desktop/syncdir/Game/EF_Edie/Textures/",
+        "current_filename": "WritingDeskKnob_a_c.TGA",
+        "preferred_filename": "WritingDeskKnob_aD_.TGA",
+        "texture_type": "Base Color",
+        "scan_timestamp": 1623053015.071119
+      },
+      {
+        "asset_name": "WritingDeskKnob_a",
+        "path": "C:/Users/noelc/OneDrive/Desktop/syncdir/Game/EF_Edie/Textures/WritingDeskKnob_a_c.TGA",
+        "dir": "C:/Users/noelc/OneDrive/Desktop/syncdir/Game/EF_Edie/Textures/",
+        "current_filename": "WritingDeskKnob_a_c.TGA",
+        "preferred_filename": "WritingDeskKnob_aD_.TGA",
+        "texture_type": "Base Color",
+        "scan_timestamp": 1623053015.071119
+      },
+      {
+        "asset_name": "WritingDeskKnob_a",
+        "path": "C:/Users/noelc/OneDrive/Desktop/syncdir/Game/EF_Edie/Textures/WritingDeskKnob_a_r.TGA",
+        "dir": "C:/Users/noelc/OneDrive/Desktop/syncdir/Game/EF_Edie/Textures/",
+        "current_filename": "WritingDeskKnob_a_r.TGA",
+        "preferred_filename": "R_WritingDeskKnob_a.TGA",
+        "texture_type": "Roughness",
+        "scan_timestamp": 1623053015.006293
+      }
+    ]
+  },
+  {
+    "group": {
+      "extension": "PNG",
+      "group": ["Normal", "Normal", "Normal", "Roughness"],
+      "identifier": "NR"
+    },
+    "textures": [
+      {
+        "asset_name": "radiator_a",
+        "path": "C:/Users/noelc/OneDrive/Desktop/syncdir/Game/EF_Edie/Textures/radiator_a_n.TGA",
+        "dir": "C:/Users/noelc/OneDrive/Desktop/syncdir/Game/EF_Edie/Textures/",
+        "current_filename": "radiator_a_n.TGA",
+        "preferred_filename": "N_radiator_a.TGA",
+        "texture_type": "Normal",
+        "scan_timestamp": 1623053014.888603
+      },
+      {
+        "asset_name": "radiator_a",
+        "path": "C:/Users/noelc/OneDrive/Desktop/syncdir/Game/EF_Edie/Textures/radiator_a_n.TGA",
+        "dir": "C:/Users/noelc/OneDrive/Desktop/syncdir/Game/EF_Edie/Textures/",
+        "current_filename": "radiator_a_n.TGA",
+        "preferred_filename": "N_radiator_a.TGA",
+        "texture_type": "Normal",
+        "scan_timestamp": 1623053014.888603
+      },
+      {
+        "asset_name": "radiator_a",
+        "path": "C:/Users/noelc/OneDrive/Desktop/syncdir/Game/EF_Edie/Textures/radiator_a_n.TGA",
+        "dir": "C:/Users/noelc/OneDrive/Desktop/syncdir/Game/EF_Edie/Textures/",
+        "current_filename": "radiator_a_n.TGA",
+        "preferred_filename": "N_radiator_a.TGA",
+        "texture_type": "Normal",
+        "scan_timestamp": 1623053014.888603
+      },
+      {
+        "asset_name": "radiator_a",
+        "path": "C:/Users/noelc/OneDrive/Desktop/syncdir/Game/EF_Edie/Textures/radiator_a_r.TGA",
+        "dir": "C:/Users/noelc/OneDrive/Desktop/syncdir/Game/EF_Edie/Textures/",
+        "current_filename": "radiator_a_r.TGA",
+        "preferred_filename": "R_radiator_a.TGA",
+        "texture_type": "Roughness",
+        "scan_timestamp": 1623053015.090069
+      }
+    ]
+  },
+  {
+    "group": {
+      "extension": "PNG",
+      "group": ["Base Color", "Base Color", "Base Color", "Roughness"],
+      "identifier": "DR"
+    },
+    "textures": [
+      {
+        "asset_name": "radiator_a",
+        "path": "C:/Users/noelc/OneDrive/Desktop/syncdir/Game/EF_Edie/Textures/radiator_a_c.TGA",
+        "dir": "C:/Users/noelc/OneDrive/Desktop/syncdir/Game/EF_Edie/Textures/",
+        "current_filename": "radiator_a_c.TGA",
+        "preferred_filename": "radiator_aD_.TGA",
+        "texture_type": "Base Color",
+        "scan_timestamp": 1623053015.109018
+      },
+      {
+        "asset_name": "radiator_a",
+        "path": "C:/Users/noelc/OneDrive/Desktop/syncdir/Game/EF_Edie/Textures/radiator_a_c.TGA",
+        "dir": "C:/Users/noelc/OneDrive/Desktop/syncdir/Game/EF_Edie/Textures/",
+        "current_filename": "radiator_a_c.TGA",
+        "preferred_filename": "radiator_aD_.TGA",
+        "texture_type": "Base Color",
+        "scan_timestamp": 1623053015.109018
+      },
+      {
+        "asset_name": "radiator_a",
+        "path": "C:/Users/noelc/OneDrive/Desktop/syncdir/Game/EF_Edie/Textures/radiator_a_c.TGA",
+        "dir": "C:/Users/noelc/OneDrive/Desktop/syncdir/Game/EF_Edie/Textures/",
+        "current_filename": "radiator_a_c.TGA",
+        "preferred_filename": "radiator_aD_.TGA",
+        "texture_type": "Base Color",
+        "scan_timestamp": 1623053015.109018
+      },
+      {
+        "asset_name": "radiator_a",
+        "path": "C:/Users/noelc/OneDrive/Desktop/syncdir/Game/EF_Edie/Textures/radiator_a_r.TGA",
+        "dir": "C:/Users/noelc/OneDrive/Desktop/syncdir/Game/EF_Edie/Textures/",
+        "current_filename": "radiator_a_r.TGA",
+        "preferred_filename": "R_radiator_a.TGA",
+        "texture_type": "Roughness",
+        "scan_timestamp": 1623053015.090069
+      }
+    ]
+  },
+  {
+    "group": {
+      "extension": "PNG",
+      "group": ["Base Color", "Base Color", "Base Color", "Roughness"],
+      "identifier": "DR"
+    },
+    "textures": [
+      {
+        "asset_name": "2K_ue4jejmjw",
+        "path": "C:/Users/noelc/OneDrive/Desktop/syncdir/Game/Megascans/Ginger_ue4jejmjw/Albedo_2K_ue4jejmjw.TGA",
+        "dir": "C:/Users/noelc/OneDrive/Desktop/syncdir/Game/Megascans/Ginger_ue4jejmjw/",
+        "current_filename": "Albedo_2K_ue4jejmjw.TGA",
+        "preferred_filename": "2K_ue4jejmjwD_.TGA",
+        "texture_type": "Base Color",
+        "scan_timestamp": 1623053015.030229
+      },
+      {
+        "asset_name": "2K_ue4jejmjw",
+        "path": "C:/Users/noelc/OneDrive/Desktop/syncdir/Game/Megascans/Ginger_ue4jejmjw/Albedo_2K_ue4jejmjw.TGA",
+        "dir": "C:/Users/noelc/OneDrive/Desktop/syncdir/Game/Megascans/Ginger_ue4jejmjw/",
+        "current_filename": "Albedo_2K_ue4jejmjw.TGA",
+        "preferred_filename": "2K_ue4jejmjwD_.TGA",
+        "texture_type": "Base Color",
+        "scan_timestamp": 1623053015.030229
+      },
+      {
+        "asset_name": "2K_ue4jejmjw",
+        "path": "C:/Users/noelc/OneDrive/Desktop/syncdir/Game/Megascans/Ginger_ue4jejmjw/Albedo_2K_ue4jejmjw.TGA",
+        "dir": "C:/Users/noelc/OneDrive/Desktop/syncdir/Game/Megascans/Ginger_ue4jejmjw/",
+        "current_filename": "Albedo_2K_ue4jejmjw.TGA",
+        "preferred_filename": "2K_ue4jejmjwD_.TGA",
+        "texture_type": "Base Color",
+        "scan_timestamp": 1623053015.030229
+      },
+      {
+        "asset_name": "2K_ue4jejmjw",
+        "path": "C:/Users/noelc/OneDrive/Desktop/syncdir/Game/Megascans/Ginger_ue4jejmjw - Copy - Copy/Roughness_2K_ue4jejmjw.TGA",
+        "dir": "C:/Users/noelc/OneDrive/Desktop/syncdir/Game/Megascans/Ginger_ue4jejmjw - Copy - Copy/",
+        "current_filename": "Roughness_2K_ue4jejmjw.TGA",
+        "preferred_filename": "R_2K_ue4jejmjw.TGA",
+        "texture_type": "Roughness",
+        "scan_timestamp": 1623053014.889601
+      }
+    ]
+  },
+  {
+    "group": {
+      "extension": "PNG",
+      "group": ["Normal", "Normal", "Normal", "Roughness"],
+      "identifier": "NR"
+    },
+    "textures": [
+      {
+        "asset_name": "ArmchairBlanket_a",
+        "path": "C:/Users/noelc/OneDrive/Desktop/syncdir/Game/EF_Edie/Textures/ArmchairBlanket_a_n.TGA",
+        "dir": "C:/Users/noelc/OneDrive/Desktop/syncdir/Game/EF_Edie/Textures/",
+        "current_filename": "ArmchairBlanket_a_n.TGA",
+        "preferred_filename": "N_ArmchairBlanket_a.TGA",
+        "texture_type": "Normal",
+        "scan_timestamp": 1623053014.900571
+      },
+      {
+        "asset_name": "ArmchairBlanket_a",
+        "path": "C:/Users/noelc/OneDrive/Desktop/syncdir/Game/EF_Edie/Textures/ArmchairBlanket_a_n.TGA",
+        "dir": "C:/Users/noelc/OneDrive/Desktop/syncdir/Game/EF_Edie/Textures/",
+        "current_filename": "ArmchairBlanket_a_n.TGA",
+        "preferred_filename": "N_ArmchairBlanket_a.TGA",
+        "texture_type": "Normal",
+        "scan_timestamp": 1623053014.900571
+      },
+      {
+        "asset_name": "ArmchairBlanket_a",
+        "path": "C:/Users/noelc/OneDrive/Desktop/syncdir/Game/EF_Edie/Textures/ArmchairBlanket_a_n.TGA",
+        "dir": "C:/Users/noelc/OneDrive/Desktop/syncdir/Game/EF_Edie/Textures/",
+        "current_filename": "ArmchairBlanket_a_n.TGA",
+        "preferred_filename": "N_ArmchairBlanket_a.TGA",
+        "texture_type": "Normal",
+        "scan_timestamp": 1623053014.900571
+      },
+      {
+        "asset_name": "ArmchairBlanket_a",
+        "path": "C:/Users/noelc/OneDrive/Desktop/syncdir/Game/EF_Edie/Textures/ArmchairBlanket_a_r.TGA",
+        "dir": "C:/Users/noelc/OneDrive/Desktop/syncdir/Game/EF_Edie/Textures/",
+        "current_filename": "ArmchairBlanket_a_r.TGA",
+        "preferred_filename": "R_ArmchairBlanket_a.TGA",
+        "texture_type": "Roughness",
+        "scan_timestamp": 1623053015.146916
+      }
+    ]
+  },
+  {
+    "group": {
+      "extension": "PNG",
+      "group": ["Base Color", "Base Color", "Base Color", "Roughness"],
+      "identifier": "DR"
+    },
+    "textures": [
+      {
+        "asset_name": "ArmchairBlanket_a",
+        "path": "C:/Users/noelc/OneDrive/Desktop/syncdir/Game/EF_Edie/Textures/ArmchairBlanket_a_c.TGA",
+        "dir": "C:/Users/noelc/OneDrive/Desktop/syncdir/Game/EF_Edie/Textures/",
+        "current_filename": "ArmchairBlanket_a_c.TGA",
+        "preferred_filename": "ArmchairBlanket_aD_.TGA",
+        "texture_type": "Base Color",
+        "scan_timestamp": 1623053015.081093
+      },
+      {
+        "asset_name": "ArmchairBlanket_a",
+        "path": "C:/Users/noelc/OneDrive/Desktop/syncdir/Game/EF_Edie/Textures/ArmchairBlanket_a_c.TGA",
+        "dir": "C:/Users/noelc/OneDrive/Desktop/syncdir/Game/EF_Edie/Textures/",
+        "current_filename": "ArmchairBlanket_a_c.TGA",
+        "preferred_filename": "ArmchairBlanket_aD_.TGA",
+        "texture_type": "Base Color",
+        "scan_timestamp": 1623053015.081093
+      },
+      {
+        "asset_name": "ArmchairBlanket_a",
+        "path": "C:/Users/noelc/OneDrive/Desktop/syncdir/Game/EF_Edie/Textures/ArmchairBlanket_a_c.TGA",
+        "dir": "C:/Users/noelc/OneDrive/Desktop/syncdir/Game/EF_Edie/Textures/",
+        "current_filename": "ArmchairBlanket_a_c.TGA",
+        "preferred_filename": "ArmchairBlanket_aD_.TGA",
+        "texture_type": "Base Color",
+        "scan_timestamp": 1623053015.081093
+      },
+      {
+        "asset_name": "ArmchairBlanket_a",
+        "path": "C:/Users/noelc/OneDrive/Desktop/syncdir/Game/EF_Edie/Textures/ArmchairBlanket_a_r.TGA",
+        "dir": "C:/Users/noelc/OneDrive/Desktop/syncdir/Game/EF_Edie/Textures/",
+        "current_filename": "ArmchairBlanket_a_r.TGA",
+        "preferred_filename": "R_ArmchairBlanket_a.TGA",
+        "texture_type": "Roughness",
+        "scan_timestamp": 1623053015.146916
+      }
+    ]
+  },
+  {
+    "group": {
+      "extension": "PNG",
+      "group": ["Normal", "Normal", "Normal", "Roughness"],
+      "identifier": "NR"
+    },
+    "textures": [
+      {
+        "asset_name": "WardrobeHandle_a",
+        "path": "C:/Users/noelc/OneDrive/Desktop/syncdir/Game/EF_Edie/Textures/WardrobeHandle_a_n.TGA",
+        "dir": "C:/Users/noelc/OneDrive/Desktop/syncdir/Game/EF_Edie/Textures/",
+        "current_filename": "WardrobeHandle_a_n.TGA",
+        "preferred_filename": "N_WardrobeHandle_a.TGA",
+        "texture_type": "Normal",
+        "scan_timestamp": 1623053014.909548
+      },
+      {
+        "asset_name": "WardrobeHandle_a",
+        "path": "C:/Users/noelc/OneDrive/Desktop/syncdir/Game/EF_Edie/Textures/WardrobeHandle_a_n.TGA",
+        "dir": "C:/Users/noelc/OneDrive/Desktop/syncdir/Game/EF_Edie/Textures/",
+        "current_filename": "WardrobeHandle_a_n.TGA",
+        "preferred_filename": "N_WardrobeHandle_a.TGA",
+        "texture_type": "Normal",
+        "scan_timestamp": 1623053014.909548
+      },
+      {
+        "asset_name": "WardrobeHandle_a",
+        "path": "C:/Users/noelc/OneDrive/Desktop/syncdir/Game/EF_Edie/Textures/WardrobeHandle_a_n.TGA",
+        "dir": "C:/Users/noelc/OneDrive/Desktop/syncdir/Game/EF_Edie/Textures/",
+        "current_filename": "WardrobeHandle_a_n.TGA",
+        "preferred_filename": "N_WardrobeHandle_a.TGA",
+        "texture_type": "Normal",
+        "scan_timestamp": 1623053014.909548
+      },
+      {
+        "asset_name": "WardrobeHandle_a",
+        "path": "C:/Users/noelc/OneDrive/Desktop/syncdir/Game/EF_Edie/Textures/WardrobeHandle_a_r.TGA",
+        "dir": "C:/Users/noelc/OneDrive/Desktop/syncdir/Game/EF_Edie/Textures/",
+        "current_filename": "WardrobeHandle_a_r.TGA",
+        "preferred_filename": "R_WardrobeHandle_a.TGA",
+        "texture_type": "Roughness",
+        "scan_timestamp": 1623053015.018261
+      }
+    ]
+  },
+  {
+    "group": {
+      "extension": "PNG",
+      "group": ["Base Color", "Base Color", "Base Color", "Roughness"],
+      "identifier": "DR"
+    },
+    "textures": [
+      {
+        "asset_name": "WardrobeHandle_a",
+        "path": "C:/Users/noelc/OneDrive/Desktop/syncdir/Game/EF_Edie/Textures/WardrobeHandle_a_c.TGA",
+        "dir": "C:/Users/noelc/OneDrive/Desktop/syncdir/Game/EF_Edie/Textures/",
+        "current_filename": "WardrobeHandle_a_c.TGA",
+        "preferred_filename": "WardrobeHandle_aD_.TGA",
+        "texture_type": "Base Color",
+        "scan_timestamp": 1623053015.122981
+      },
+      {
+        "asset_name": "WardrobeHandle_a",
+        "path": "C:/Users/noelc/OneDrive/Desktop/syncdir/Game/EF_Edie/Textures/WardrobeHandle_a_c.TGA",
+        "dir": "C:/Users/noelc/OneDrive/Desktop/syncdir/Game/EF_Edie/Textures/",
+        "current_filename": "WardrobeHandle_a_c.TGA",
+        "preferred_filename": "WardrobeHandle_aD_.TGA",
+        "texture_type": "Base Color",
+        "scan_timestamp": 1623053015.122981
+      },
+      {
+        "asset_name": "WardrobeHandle_a",
+        "path": "C:/Users/noelc/OneDrive/Desktop/syncdir/Game/EF_Edie/Textures/WardrobeHandle_a_c.TGA",
+        "dir": "C:/Users/noelc/OneDrive/Desktop/syncdir/Game/EF_Edie/Textures/",
+        "current_filename": "WardrobeHandle_a_c.TGA",
+        "preferred_filename": "WardrobeHandle_aD_.TGA",
+        "texture_type": "Base Color",
+        "scan_timestamp": 1623053015.122981
+      },
+      {
+        "asset_name": "WardrobeHandle_a",
+        "path": "C:/Users/noelc/OneDrive/Desktop/syncdir/Game/EF_Edie/Textures/WardrobeHandle_a_r.TGA",
+        "dir": "C:/Users/noelc/OneDrive/Desktop/syncdir/Game/EF_Edie/Textures/",
+        "current_filename": "WardrobeHandle_a_r.TGA",
+        "preferred_filename": "R_WardrobeHandle_a.TGA",
+        "texture_type": "Roughness",
+        "scan_timestamp": 1623053015.018261
+      }
+    ]
+  },
+  {
+    "group": {
+      "extension": "PNG",
+      "group": ["Base Color", "Base Color", "Base Color", "Roughness"],
+      "identifier": "DR"
+    },
+    "textures": [
+      {
+        "asset_name": "2K_tgrmacdpa",
+        "path": "C:/Users/noelc/OneDrive/Desktop/syncdir/Game/Megascans/3D_Assets/cabbage_tgrmacdpa/Albedo_2K_tgrmacdpa.TGA",
+        "dir": "C:/Users/noelc/OneDrive/Desktop/syncdir/Game/Megascans/3D_Assets/cabbage_tgrmacdpa/",
+        "current_filename": "Albedo_2K_tgrmacdpa.TGA",
+        "preferred_filename": "2K_tgrmacdpaD_.TGA",
+        "texture_type": "Base Color",
+        "scan_timestamp": 1623053014.914533
+      },
+      {
+        "asset_name": "2K_tgrmacdpa",
+        "path": "C:/Users/noelc/OneDrive/Desktop/syncdir/Game/Megascans/3D_Assets/cabbage_tgrmacdpa/Albedo_2K_tgrmacdpa.TGA",
+        "dir": "C:/Users/noelc/OneDrive/Desktop/syncdir/Game/Megascans/3D_Assets/cabbage_tgrmacdpa/",
+        "current_filename": "Albedo_2K_tgrmacdpa.TGA",
+        "preferred_filename": "2K_tgrmacdpaD_.TGA",
+        "texture_type": "Base Color",
+        "scan_timestamp": 1623053014.914533
+      },
+      {
+        "asset_name": "2K_tgrmacdpa",
+        "path": "C:/Users/noelc/OneDrive/Desktop/syncdir/Game/Megascans/3D_Assets/cabbage_tgrmacdpa/Albedo_2K_tgrmacdpa.TGA",
+        "dir": "C:/Users/noelc/OneDrive/Desktop/syncdir/Game/Megascans/3D_Assets/cabbage_tgrmacdpa/",
+        "current_filename": "Albedo_2K_tgrmacdpa.TGA",
+        "preferred_filename": "2K_tgrmacdpaD_.TGA",
+        "texture_type": "Base Color",
+        "scan_timestamp": 1623053014.914533
+      },
+      {
+        "asset_name": "2K_tgrmacdpa",
+        "path": "C:/Users/noelc/OneDrive/Desktop/syncdir/Game/Megascans/3D_Assets/cabbage_tgrmacdpa/Roughness_2K_tgrmacdpa.TGA",
+        "dir": "C:/Users/noelc/OneDrive/Desktop/syncdir/Game/Megascans/3D_Assets/cabbage_tgrmacdpa/",
+        "current_filename": "Roughness_2K_tgrmacdpa.TGA",
+        "preferred_filename": "R_2K_tgrmacdpa.TGA",
+        "texture_type": "Roughness",
+        "scan_timestamp": 1623053015.128965
+      }
+    ]
+  },
+  {
+    "group": {
+      "extension": "PNG",
+      "group": ["Normal", "Normal", "Normal", "Roughness"],
+      "identifier": "NR"
+    },
+    "textures": [
+      {
+        "asset_name": "VanityHandle_a",
+        "path": "C:/Users/noelc/OneDrive/Desktop/syncdir/Game/EF_Edie/Textures/VanityHandle_a_n.TGA",
+        "dir": "C:/Users/noelc/OneDrive/Desktop/syncdir/Game/EF_Edie/Textures/",
+        "current_filename": "VanityHandle_a_n.TGA",
+        "preferred_filename": "N_VanityHandle_a.TGA",
+        "texture_type": "Normal",
+        "scan_timestamp": 1623053014.91952
+      },
+      {
+        "asset_name": "VanityHandle_a",
+        "path": "C:/Users/noelc/OneDrive/Desktop/syncdir/Game/EF_Edie/Textures/VanityHandle_a_n.TGA",
+        "dir": "C:/Users/noelc/OneDrive/Desktop/syncdir/Game/EF_Edie/Textures/",
+        "current_filename": "VanityHandle_a_n.TGA",
+        "preferred_filename": "N_VanityHandle_a.TGA",
+        "texture_type": "Normal",
+        "scan_timestamp": 1623053014.91952
+      },
+      {
+        "asset_name": "VanityHandle_a",
+        "path": "C:/Users/noelc/OneDrive/Desktop/syncdir/Game/EF_Edie/Textures/VanityHandle_a_n.TGA",
+        "dir": "C:/Users/noelc/OneDrive/Desktop/syncdir/Game/EF_Edie/Textures/",
+        "current_filename": "VanityHandle_a_n.TGA",
+        "preferred_filename": "N_VanityHandle_a.TGA",
+        "texture_type": "Normal",
+        "scan_timestamp": 1623053014.91952
+      },
+      {
+        "asset_name": "VanityHandle_a",
+        "path": "C:/Users/noelc/OneDrive/Desktop/syncdir/Game/EF_Edie/Textures/VanityHandle_a_r.TGA",
+        "dir": "C:/Users/noelc/OneDrive/Desktop/syncdir/Game/EF_Edie/Textures/",
+        "current_filename": "VanityHandle_a_r.TGA",
+        "preferred_filename": "R_VanityHandle_a.TGA",
+        "texture_type": "Roughness",
+        "scan_timestamp": 1623053015.202331
+      }
+    ]
+  },
+  {
+    "group": {
+      "extension": "PNG",
+      "group": ["Base Color", "Base Color", "Base Color", "Roughness"],
+      "identifier": "DR"
+    },
+    "textures": [
+      {
+        "asset_name": "VanityHandle_a",
+        "path": "C:/Users/noelc/OneDrive/Desktop/syncdir/Game/EF_Edie/Textures/VanityHandle_a_c.TGA",
+        "dir": "C:/Users/noelc/OneDrive/Desktop/syncdir/Game/EF_Edie/Textures/",
+        "current_filename": "VanityHandle_a_c.TGA",
+        "preferred_filename": "VanityHandle_aD_.TGA",
+        "texture_type": "Base Color",
+        "scan_timestamp": 1623053015.200336
+      },
+      {
+        "asset_name": "VanityHandle_a",
+        "path": "C:/Users/noelc/OneDrive/Desktop/syncdir/Game/EF_Edie/Textures/VanityHandle_a_c.TGA",
+        "dir": "C:/Users/noelc/OneDrive/Desktop/syncdir/Game/EF_Edie/Textures/",
+        "current_filename": "VanityHandle_a_c.TGA",
+        "preferred_filename": "VanityHandle_aD_.TGA",
+        "texture_type": "Base Color",
+        "scan_timestamp": 1623053015.200336
+      },
+      {
+        "asset_name": "VanityHandle_a",
+        "path": "C:/Users/noelc/OneDrive/Desktop/syncdir/Game/EF_Edie/Textures/VanityHandle_a_c.TGA",
+        "dir": "C:/Users/noelc/OneDrive/Desktop/syncdir/Game/EF_Edie/Textures/",
+        "current_filename": "VanityHandle_a_c.TGA",
+        "preferred_filename": "VanityHandle_aD_.TGA",
+        "texture_type": "Base Color",
+        "scan_timestamp": 1623053015.200336
+      },
+      {
+        "asset_name": "VanityHandle_a",
+        "path": "C:/Users/noelc/OneDrive/Desktop/syncdir/Game/EF_Edie/Textures/VanityHandle_a_r.TGA",
+        "dir": "C:/Users/noelc/OneDrive/Desktop/syncdir/Game/EF_Edie/Textures/",
+        "current_filename": "VanityHandle_a_r.TGA",
+        "preferred_filename": "R_VanityHandle_a.TGA",
+        "texture_type": "Roughness",
+        "scan_timestamp": 1623053015.202331
+      }
+    ]
+  },
+  {
+    "group": {
+      "extension": "PNG",
+      "group": ["Normal", "Normal", "Normal", "Roughness"],
+      "identifier": "NR"
+    },
+    "textures": [
+      {
+        "asset_name": "SatelliteDish_a",
+        "path": "C:/Users/noelc/OneDrive/Desktop/syncdir/Game/EF_Edie/Textures/SatelliteDish_a_n.TGA",
+        "dir": "C:/Users/noelc/OneDrive/Desktop/syncdir/Game/EF_Edie/Textures/",
+        "current_filename": "SatelliteDish_a_n.TGA",
+        "preferred_filename": "N_SatelliteDish_a.TGA",
+        "texture_type": "Normal",
+        "scan_timestamp": 1623053014.920517
+      },
+      {
+        "asset_name": "SatelliteDish_a",
+        "path": "C:/Users/noelc/OneDrive/Desktop/syncdir/Game/EF_Edie/Textures/SatelliteDish_a_n.TGA",
+        "dir": "C:/Users/noelc/OneDrive/Desktop/syncdir/Game/EF_Edie/Textures/",
+        "current_filename": "SatelliteDish_a_n.TGA",
+        "preferred_filename": "N_SatelliteDish_a.TGA",
+        "texture_type": "Normal",
+        "scan_timestamp": 1623053014.920517
+      },
+      {
+        "asset_name": "SatelliteDish_a",
+        "path": "C:/Users/noelc/OneDrive/Desktop/syncdir/Game/EF_Edie/Textures/SatelliteDish_a_n.TGA",
+        "dir": "C:/Users/noelc/OneDrive/Desktop/syncdir/Game/EF_Edie/Textures/",
+        "current_filename": "SatelliteDish_a_n.TGA",
+        "preferred_filename": "N_SatelliteDish_a.TGA",
+        "texture_type": "Normal",
+        "scan_timestamp": 1623053014.920517
+      },
+      {
+        "asset_name": "SatelliteDish_a",
+        "path": "C:/Users/noelc/OneDrive/Desktop/syncdir/Game/EF_Edie/Textures/SatelliteDish_a_r.TGA",
+        "dir": "C:/Users/noelc/OneDrive/Desktop/syncdir/Game/EF_Edie/Textures/",
+        "current_filename": "SatelliteDish_a_r.TGA",
+        "preferred_filename": "R_SatelliteDish_a.TGA",
+        "texture_type": "Roughness",
+        "scan_timestamp": 1623053015.154465
+      }
+    ]
+  },
+  {
+    "group": {
+      "extension": "PNG",
+      "group": ["Base Color", "Base Color", "Base Color", "Roughness"],
+      "identifier": "DR"
+    },
+    "textures": [
+      {
+        "asset_name": "SatelliteDish_a",
+        "path": "C:/Users/noelc/OneDrive/Desktop/syncdir/Game/EF_Edie/Textures/SatelliteDish_a_c.TGA",
+        "dir": "C:/Users/noelc/OneDrive/Desktop/syncdir/Game/EF_Edie/Textures/",
+        "current_filename": "SatelliteDish_a_c.TGA",
+        "preferred_filename": "SatelliteDish_aD_.TGA",
+        "texture_type": "Base Color",
+        "scan_timestamp": 1623053015.057156
+      },
+      {
+        "asset_name": "SatelliteDish_a",
+        "path": "C:/Users/noelc/OneDrive/Desktop/syncdir/Game/EF_Edie/Textures/SatelliteDish_a_c.TGA",
+        "dir": "C:/Users/noelc/OneDrive/Desktop/syncdir/Game/EF_Edie/Textures/",
+        "current_filename": "SatelliteDish_a_c.TGA",
+        "preferred_filename": "SatelliteDish_aD_.TGA",
+        "texture_type": "Base Color",
+        "scan_timestamp": 1623053015.057156
+      },
+      {
+        "asset_name": "SatelliteDish_a",
+        "path": "C:/Users/noelc/OneDrive/Desktop/syncdir/Game/EF_Edie/Textures/SatelliteDish_a_c.TGA",
+        "dir": "C:/Users/noelc/OneDrive/Desktop/syncdir/Game/EF_Edie/Textures/",
+        "current_filename": "SatelliteDish_a_c.TGA",
+        "preferred_filename": "SatelliteDish_aD_.TGA",
+        "texture_type": "Base Color",
+        "scan_timestamp": 1623053015.057156
+      },
+      {
+        "asset_name": "SatelliteDish_a",
+        "path": "C:/Users/noelc/OneDrive/Desktop/syncdir/Game/EF_Edie/Textures/SatelliteDish_a_r.TGA",
+        "dir": "C:/Users/noelc/OneDrive/Desktop/syncdir/Game/EF_Edie/Textures/",
+        "current_filename": "SatelliteDish_a_r.TGA",
+        "preferred_filename": "R_SatelliteDish_a.TGA",
+        "texture_type": "Roughness",
+        "scan_timestamp": 1623053015.154465
+      }
+    ]
+  },
+  {
+    "group": {
+      "extension": "PNG",
+      "group": ["Normal", "Normal", "Normal", "Roughness"],
+      "identifier": "NR"
+    },
+    "textures": [
+      {
+        "asset_name": "Urn_a",
+        "path": "C:/Users/noelc/OneDrive/Desktop/syncdir/Game/EF_Edie/Textures/Urn_a_n.TGA",
+        "dir": "C:/Users/noelc/OneDrive/Desktop/syncdir/Game/EF_Edie/Textures/",
+        "current_filename": "Urn_a_n.TGA",
+        "preferred_filename": "N_Urn_a.TGA",
+        "texture_type": "Normal",
+        "scan_timestamp": 1623053014.922514
+      },
+      {
+        "asset_name": "Urn_a",
+        "path": "C:/Users/noelc/OneDrive/Desktop/syncdir/Game/EF_Edie/Textures/Urn_a_n.TGA",
+        "dir": "C:/Users/noelc/OneDrive/Desktop/syncdir/Game/EF_Edie/Textures/",
+        "current_filename": "Urn_a_n.TGA",
+        "preferred_filename": "N_Urn_a.TGA",
+        "texture_type": "Normal",
+        "scan_timestamp": 1623053014.922514
+      },
+      {
+        "asset_name": "Urn_a",
+        "path": "C:/Users/noelc/OneDrive/Desktop/syncdir/Game/EF_Edie/Textures/Urn_a_n.TGA",
+        "dir": "C:/Users/noelc/OneDrive/Desktop/syncdir/Game/EF_Edie/Textures/",
+        "current_filename": "Urn_a_n.TGA",
+        "preferred_filename": "N_Urn_a.TGA",
+        "texture_type": "Normal",
+        "scan_timestamp": 1623053014.922514
+      },
+      {
+        "asset_name": "Urn_a",
+        "path": "C:/Users/noelc/OneDrive/Desktop/syncdir/Game/EF_Edie/Textures/Urn_a_r.TGA",
+        "dir": "C:/Users/noelc/OneDrive/Desktop/syncdir/Game/EF_Edie/Textures/",
+        "current_filename": "Urn_a_r.TGA",
+        "preferred_filename": "R_Urn_a.TGA",
+        "texture_type": "Roughness",
+        "scan_timestamp": 1623053014.950438
+      }
+    ]
+  },
+  {
+    "group": {
+      "extension": "PNG",
+      "group": ["Base Color", "Base Color", "Base Color", "Roughness"],
+      "identifier": "DR"
+    },
+    "textures": [
+      {
+        "asset_name": "Urn_a",
+        "path": "C:/Users/noelc/OneDrive/Desktop/syncdir/Game/EF_Edie/Textures/Urn_a_c.TGA",
+        "dir": "C:/Users/noelc/OneDrive/Desktop/syncdir/Game/EF_Edie/Textures/",
+        "current_filename": "Urn_a_c.TGA",
+        "preferred_filename": "Urn_aD_.TGA",
+        "texture_type": "Base Color",
+        "scan_timestamp": 1623053014.931489
+      },
+      {
+        "asset_name": "Urn_a",
+        "path": "C:/Users/noelc/OneDrive/Desktop/syncdir/Game/EF_Edie/Textures/Urn_a_c.TGA",
+        "dir": "C:/Users/noelc/OneDrive/Desktop/syncdir/Game/EF_Edie/Textures/",
+        "current_filename": "Urn_a_c.TGA",
+        "preferred_filename": "Urn_aD_.TGA",
+        "texture_type": "Base Color",
+        "scan_timestamp": 1623053014.931489
+      },
+      {
+        "asset_name": "Urn_a",
+        "path": "C:/Users/noelc/OneDrive/Desktop/syncdir/Game/EF_Edie/Textures/Urn_a_c.TGA",
+        "dir": "C:/Users/noelc/OneDrive/Desktop/syncdir/Game/EF_Edie/Textures/",
+        "current_filename": "Urn_a_c.TGA",
+        "preferred_filename": "Urn_aD_.TGA",
+        "texture_type": "Base Color",
+        "scan_timestamp": 1623053014.931489
+      },
+      {
+        "asset_name": "Urn_a",
+        "path": "C:/Users/noelc/OneDrive/Desktop/syncdir/Game/EF_Edie/Textures/Urn_a_r.TGA",
+        "dir": "C:/Users/noelc/OneDrive/Desktop/syncdir/Game/EF_Edie/Textures/",
+        "current_filename": "Urn_a_r.TGA",
+        "preferred_filename": "R_Urn_a.TGA",
+        "texture_type": "Roughness",
+        "scan_timestamp": 1623053014.950438
+      }
+    ]
+  },
+  {
+    "group": {
+      "extension": "PNG",
+      "group": ["Normal", "Normal", "Normal", "Roughness"],
+      "identifier": "NR"
+    },
+    "textures": [
+      {
+        "asset_name": "HospitalBed",
+        "path": "C:/Users/noelc/OneDrive/Desktop/syncdir/Game/EF_Edie/Textures/HospitalBed_n.TGA",
+        "dir": "C:/Users/noelc/OneDrive/Desktop/syncdir/Game/EF_Edie/Textures/",
+        "current_filename": "HospitalBed_n.TGA",
+        "preferred_filename": "N_HospitalBed.TGA",
+        "texture_type": "Normal",
+        "scan_timestamp": 1623053015.059151
+      },
+      {
+        "asset_name": "HospitalBed",
+        "path": "C:/Users/noelc/OneDrive/Desktop/syncdir/Game/EF_Edie/Textures/HospitalBed_n.TGA",
+        "dir": "C:/Users/noelc/OneDrive/Desktop/syncdir/Game/EF_Edie/Textures/",
+        "current_filename": "HospitalBed_n.TGA",
+        "preferred_filename": "N_HospitalBed.TGA",
+        "texture_type": "Normal",
+        "scan_timestamp": 1623053015.059151
+      },
+      {
+        "asset_name": "HospitalBed",
+        "path": "C:/Users/noelc/OneDrive/Desktop/syncdir/Game/EF_Edie/Textures/HospitalBed_n.TGA",
+        "dir": "C:/Users/noelc/OneDrive/Desktop/syncdir/Game/EF_Edie/Textures/",
+        "current_filename": "HospitalBed_n.TGA",
+        "preferred_filename": "N_HospitalBed.TGA",
+        "texture_type": "Normal",
+        "scan_timestamp": 1623053015.059151
+      },
+      {
+        "asset_name": "HospitalBed",
+        "path": "C:/Users/noelc/OneDrive/Desktop/syncdir/Game/EF_Edie/Textures/HospitalBed_r.TGA",
+        "dir": "C:/Users/noelc/OneDrive/Desktop/syncdir/Game/EF_Edie/Textures/",
+        "current_filename": "HospitalBed_r.TGA",
+        "preferred_filename": "R_HospitalBed.TGA",
+        "texture_type": "Roughness",
+        "scan_timestamp": 1623053015.186374
+      }
+    ]
+  },
+  {
+    "group": {
+      "extension": "PNG",
+      "group": ["Base Color", "Base Color", "Base Color", "Roughness"],
+      "identifier": "DR"
+    },
+    "textures": [
+      {
+        "asset_name": "HospitalBed",
+        "path": "C:/Users/noelc/OneDrive/Desktop/syncdir/Game/EF_Edie/Textures/HospitalBed_c.TGA",
+        "dir": "C:/Users/noelc/OneDrive/Desktop/syncdir/Game/EF_Edie/Textures/",
+        "current_filename": "HospitalBed_c.TGA",
+        "preferred_filename": "HospitalBedD_.TGA",
+        "texture_type": "Base Color",
+        "scan_timestamp": 1623053015.159447
+      },
+      {
+        "asset_name": "HospitalBed",
+        "path": "C:/Users/noelc/OneDrive/Desktop/syncdir/Game/EF_Edie/Textures/HospitalBed_c.TGA",
+        "dir": "C:/Users/noelc/OneDrive/Desktop/syncdir/Game/EF_Edie/Textures/",
+        "current_filename": "HospitalBed_c.TGA",
+        "preferred_filename": "HospitalBedD_.TGA",
+        "texture_type": "Base Color",
+        "scan_timestamp": 1623053015.159447
+      },
+      {
+        "asset_name": "HospitalBed",
+        "path": "C:/Users/noelc/OneDrive/Desktop/syncdir/Game/EF_Edie/Textures/HospitalBed_c.TGA",
+        "dir": "C:/Users/noelc/OneDrive/Desktop/syncdir/Game/EF_Edie/Textures/",
+        "current_filename": "HospitalBed_c.TGA",
+        "preferred_filename": "HospitalBedD_.TGA",
+        "texture_type": "Base Color",
+        "scan_timestamp": 1623053015.159447
+      },
+      {
+        "asset_name": "HospitalBed",
+        "path": "C:/Users/noelc/OneDrive/Desktop/syncdir/Game/EF_Edie/Textures/HospitalBed_r.TGA",
+        "dir": "C:/Users/noelc/OneDrive/Desktop/syncdir/Game/EF_Edie/Textures/",
+        "current_filename": "HospitalBed_r.TGA",
+        "preferred_filename": "R_HospitalBed.TGA",
+        "texture_type": "Roughness",
+        "scan_timestamp": 1623053015.186374
+      }
+    ]
+  },
+  {
+    "group": {
+      "extension": "PNG",
+      "group": ["Normal", "Normal", "Normal", "Roughness"],
+      "identifier": "NR"
+    },
+    "textures": [
+      {
+        "asset_name": "Alarmclock_a",
+        "path": "C:/Users/noelc/OneDrive/Desktop/syncdir/Game/EF_Edie/Textures/Alarmclock_a_n.TGA",
+        "dir": "C:/Users/noelc/OneDrive/Desktop/syncdir/Game/EF_Edie/Textures/",
+        "current_filename": "Alarmclock_a_n.TGA",
+        "preferred_filename": "N_Alarmclock_a.TGA",
+        "texture_type": "Normal",
+        "scan_timestamp": 1623053015.032223
+      },
+      {
+        "asset_name": "Alarmclock_a",
+        "path": "C:/Users/noelc/OneDrive/Desktop/syncdir/Game/EF_Edie/Textures/Alarmclock_a_n.TGA",
+        "dir": "C:/Users/noelc/OneDrive/Desktop/syncdir/Game/EF_Edie/Textures/",
+        "current_filename": "Alarmclock_a_n.TGA",
+        "preferred_filename": "N_Alarmclock_a.TGA",
+        "texture_type": "Normal",
+        "scan_timestamp": 1623053015.032223
+      },
+      {
+        "asset_name": "Alarmclock_a",
+        "path": "C:/Users/noelc/OneDrive/Desktop/syncdir/Game/EF_Edie/Textures/Alarmclock_a_n.TGA",
+        "dir": "C:/Users/noelc/OneDrive/Desktop/syncdir/Game/EF_Edie/Textures/",
+        "current_filename": "Alarmclock_a_n.TGA",
+        "preferred_filename": "N_Alarmclock_a.TGA",
+        "texture_type": "Normal",
+        "scan_timestamp": 1623053015.032223
+      },
+      {
+        "asset_name": "Alarmclock_a",
+        "path": "C:/Users/noelc/OneDrive/Desktop/syncdir/Game/EF_Edie/Textures/Alarmclock_a_r.TGA",
+        "dir": "C:/Users/noelc/OneDrive/Desktop/syncdir/Game/EF_Edie/Textures/",
+        "current_filename": "Alarmclock_a_r.TGA",
+        "preferred_filename": "R_Alarmclock_a.TGA",
+        "texture_type": "Roughness",
+        "scan_timestamp": 1623053015.100042
+      }
+    ]
+  },
+  {
+    "group": {
+      "extension": "PNG",
+      "group": ["Base Color", "Base Color", "Base Color", "Roughness"],
+      "identifier": "DR"
+    },
+    "textures": [
+      {
+        "asset_name": "Alarmclock_a",
+        "path": "C:/Users/noelc/OneDrive/Desktop/syncdir/Game/EF_Edie/Textures/Alarmclock_a_c.TGA",
+        "dir": "C:/Users/noelc/OneDrive/Desktop/syncdir/Game/EF_Edie/Textures/",
+        "current_filename": "Alarmclock_a_c.TGA",
+        "preferred_filename": "Alarmclock_aD_.TGA",
+        "texture_type": "Base Color",
+        "scan_timestamp": 1623053014.999313
+      },
+      {
+        "asset_name": "Alarmclock_a",
+        "path": "C:/Users/noelc/OneDrive/Desktop/syncdir/Game/EF_Edie/Textures/Alarmclock_a_c.TGA",
+        "dir": "C:/Users/noelc/OneDrive/Desktop/syncdir/Game/EF_Edie/Textures/",
+        "current_filename": "Alarmclock_a_c.TGA",
+        "preferred_filename": "Alarmclock_aD_.TGA",
+        "texture_type": "Base Color",
+        "scan_timestamp": 1623053014.999313
+      },
+      {
+        "asset_name": "Alarmclock_a",
+        "path": "C:/Users/noelc/OneDrive/Desktop/syncdir/Game/EF_Edie/Textures/Alarmclock_a_c.TGA",
+        "dir": "C:/Users/noelc/OneDrive/Desktop/syncdir/Game/EF_Edie/Textures/",
+        "current_filename": "Alarmclock_a_c.TGA",
+        "preferred_filename": "Alarmclock_aD_.TGA",
+        "texture_type": "Base Color",
+        "scan_timestamp": 1623053014.999313
+      },
+      {
+        "asset_name": "Alarmclock_a",
+        "path": "C:/Users/noelc/OneDrive/Desktop/syncdir/Game/EF_Edie/Textures/Alarmclock_a_r.TGA",
+        "dir": "C:/Users/noelc/OneDrive/Desktop/syncdir/Game/EF_Edie/Textures/",
+        "current_filename": "Alarmclock_a_r.TGA",
+        "preferred_filename": "R_Alarmclock_a.TGA",
+        "texture_type": "Roughness",
+        "scan_timestamp": 1623053015.100042
+      }
+    ]
+  },
+  {
+    "group": {
+      "extension": "PNG",
+      "group": ["Normal", "Normal", "Normal", "Roughness"],
+      "identifier": "NR"
+    },
+    "textures": [
+      {
+        "asset_name": "Yarn_a",
+        "path": "C:/Users/noelc/OneDrive/Desktop/syncdir/Game/EF_Edie/Textures/Yarn_a_n.TGA",
+        "dir": "C:/Users/noelc/OneDrive/Desktop/syncdir/Game/EF_Edie/Textures/",
+        "current_filename": "Yarn_a_n.TGA",
+        "preferred_filename": "N_Yarn_a.TGA",
+        "texture_type": "Normal",
+        "scan_timestamp": 1623053015.166427
+      },
+      {
+        "asset_name": "Yarn_a",
+        "path": "C:/Users/noelc/OneDrive/Desktop/syncdir/Game/EF_Edie/Textures/Yarn_a_n.TGA",
+        "dir": "C:/Users/noelc/OneDrive/Desktop/syncdir/Game/EF_Edie/Textures/",
+        "current_filename": "Yarn_a_n.TGA",
+        "preferred_filename": "N_Yarn_a.TGA",
+        "texture_type": "Normal",
+        "scan_timestamp": 1623053015.166427
+      },
+      {
+        "asset_name": "Yarn_a",
+        "path": "C:/Users/noelc/OneDrive/Desktop/syncdir/Game/EF_Edie/Textures/Yarn_a_n.TGA",
+        "dir": "C:/Users/noelc/OneDrive/Desktop/syncdir/Game/EF_Edie/Textures/",
+        "current_filename": "Yarn_a_n.TGA",
+        "preferred_filename": "N_Yarn_a.TGA",
+        "texture_type": "Normal",
+        "scan_timestamp": 1623053015.166427
+      },
+      {
+        "asset_name": "Yarn_a",
+        "path": "C:/Users/noelc/OneDrive/Desktop/syncdir/Game/EF_Edie/Textures/Yarn_a_r.TGA",
+        "dir": "C:/Users/noelc/OneDrive/Desktop/syncdir/Game/EF_Edie/Textures/",
+        "current_filename": "Yarn_a_r.TGA",
+        "preferred_filename": "R_Yarn_a.TGA",
+        "texture_type": "Roughness",
+        "scan_timestamp": 1623053015.009285
+      }
+    ]
+  },
+  {
+    "group": {
+      "extension": "PNG",
+      "group": ["Base Color", "Base Color", "Base Color", "Roughness"],
+      "identifier": "DR"
+    },
+    "textures": [
+      {
+        "asset_name": "Yarn_a",
+        "path": "C:/Users/noelc/OneDrive/Desktop/syncdir/Game/EF_Edie/Textures/Yarn_a_c.TGA",
+        "dir": "C:/Users/noelc/OneDrive/Desktop/syncdir/Game/EF_Edie/Textures/",
+        "current_filename": "Yarn_a_c.TGA",
+        "preferred_filename": "Yarn_aD_.TGA",
+        "texture_type": "Base Color",
+        "scan_timestamp": 1623053015.080095
+      },
+      {
+        "asset_name": "Yarn_a",
+        "path": "C:/Users/noelc/OneDrive/Desktop/syncdir/Game/EF_Edie/Textures/Yarn_a_c.TGA",
+        "dir": "C:/Users/noelc/OneDrive/Desktop/syncdir/Game/EF_Edie/Textures/",
+        "current_filename": "Yarn_a_c.TGA",
+        "preferred_filename": "Yarn_aD_.TGA",
+        "texture_type": "Base Color",
+        "scan_timestamp": 1623053015.080095
+      },
+      {
+        "asset_name": "Yarn_a",
+        "path": "C:/Users/noelc/OneDrive/Desktop/syncdir/Game/EF_Edie/Textures/Yarn_a_c.TGA",
+        "dir": "C:/Users/noelc/OneDrive/Desktop/syncdir/Game/EF_Edie/Textures/",
+        "current_filename": "Yarn_a_c.TGA",
+        "preferred_filename": "Yarn_aD_.TGA",
+        "texture_type": "Base Color",
+        "scan_timestamp": 1623053015.080095
+      },
+      {
+        "asset_name": "Yarn_a",
+        "path": "C:/Users/noelc/OneDrive/Desktop/syncdir/Game/EF_Edie/Textures/Yarn_a_r.TGA",
+        "dir": "C:/Users/noelc/OneDrive/Desktop/syncdir/Game/EF_Edie/Textures/",
+        "current_filename": "Yarn_a_r.TGA",
+        "preferred_filename": "R_Yarn_a.TGA",
+        "texture_type": "Roughness",
+        "scan_timestamp": 1623053015.009285
+      }
+    ]
+  },
+  {
+    "group": {
+      "extension": "PNG",
+      "group": ["Normal", "Normal", "Normal", "Roughness"],
+      "identifier": "NR"
+    },
+    "textures": [
+      {
+        "asset_name": "CeilingLight_a",
+        "path": "C:/Users/noelc/OneDrive/Desktop/syncdir/Game/EF_Edie/Textures/CeilingLight_a_n.TGA",
+        "dir": "C:/Users/noelc/OneDrive/Desktop/syncdir/Game/EF_Edie/Textures/",
+        "current_filename": "CeilingLight_a_n.TGA",
+        "preferred_filename": "N_CeilingLight_a.TGA",
+        "texture_type": "Normal",
+        "scan_timestamp": 1623053015.04818
+      },
+      {
+        "asset_name": "CeilingLight_a",
+        "path": "C:/Users/noelc/OneDrive/Desktop/syncdir/Game/EF_Edie/Textures/CeilingLight_a_n.TGA",
+        "dir": "C:/Users/noelc/OneDrive/Desktop/syncdir/Game/EF_Edie/Textures/",
+        "current_filename": "CeilingLight_a_n.TGA",
+        "preferred_filename": "N_CeilingLight_a.TGA",
+        "texture_type": "Normal",
+        "scan_timestamp": 1623053015.04818
+      },
+      {
+        "asset_name": "CeilingLight_a",
+        "path": "C:/Users/noelc/OneDrive/Desktop/syncdir/Game/EF_Edie/Textures/CeilingLight_a_n.TGA",
+        "dir": "C:/Users/noelc/OneDrive/Desktop/syncdir/Game/EF_Edie/Textures/",
+        "current_filename": "CeilingLight_a_n.TGA",
+        "preferred_filename": "N_CeilingLight_a.TGA",
+        "texture_type": "Normal",
+        "scan_timestamp": 1623053015.04818
+      },
+      {
+        "asset_name": "CeilingLight_a",
+        "path": "C:/Users/noelc/OneDrive/Desktop/syncdir/Game/EF_Edie/Textures/CeilingLight_a_r.TGA",
+        "dir": "C:/Users/noelc/OneDrive/Desktop/syncdir/Game/EF_Edie/Textures/",
+        "current_filename": "CeilingLight_a_r.TGA",
+        "preferred_filename": "R_CeilingLight_a.TGA",
+        "texture_type": "Roughness",
+        "scan_timestamp": 1623053015.039204
+      }
+    ]
+  },
+  {
+    "group": {
+      "extension": "PNG",
+      "group": ["Base Color", "Base Color", "Base Color", "Roughness"],
+      "identifier": "DR"
+    },
+    "textures": [
+      {
+        "asset_name": "CeilingLight_a",
+        "path": "C:/Users/noelc/OneDrive/Desktop/syncdir/Game/EF_Edie/Textures/CeilingLight_a_c.TGA",
+        "dir": "C:/Users/noelc/OneDrive/Desktop/syncdir/Game/EF_Edie/Textures/",
+        "current_filename": "CeilingLight_a_c.TGA",
+        "preferred_filename": "CeilingLight_aD_.TGA",
+        "texture_type": "Base Color",
+        "scan_timestamp": 1623053015.172412
+      },
+      {
+        "asset_name": "CeilingLight_a",
+        "path": "C:/Users/noelc/OneDrive/Desktop/syncdir/Game/EF_Edie/Textures/CeilingLight_a_c.TGA",
+        "dir": "C:/Users/noelc/OneDrive/Desktop/syncdir/Game/EF_Edie/Textures/",
+        "current_filename": "CeilingLight_a_c.TGA",
+        "preferred_filename": "CeilingLight_aD_.TGA",
+        "texture_type": "Base Color",
+        "scan_timestamp": 1623053015.172412
+      },
+      {
+        "asset_name": "CeilingLight_a",
+        "path": "C:/Users/noelc/OneDrive/Desktop/syncdir/Game/EF_Edie/Textures/CeilingLight_a_c.TGA",
+        "dir": "C:/Users/noelc/OneDrive/Desktop/syncdir/Game/EF_Edie/Textures/",
+        "current_filename": "CeilingLight_a_c.TGA",
+        "preferred_filename": "CeilingLight_aD_.TGA",
+        "texture_type": "Base Color",
+        "scan_timestamp": 1623053015.172412
+      },
+      {
+        "asset_name": "CeilingLight_a",
+        "path": "C:/Users/noelc/OneDrive/Desktop/syncdir/Game/EF_Edie/Textures/CeilingLight_a_r.TGA",
+        "dir": "C:/Users/noelc/OneDrive/Desktop/syncdir/Game/EF_Edie/Textures/",
+        "current_filename": "CeilingLight_a_r.TGA",
+        "preferred_filename": "R_CeilingLight_a.TGA",
+        "texture_type": "Roughness",
+        "scan_timestamp": 1623053015.039204
+      }
+    ]
+  },
+  {
+    "group": {
+      "extension": "PNG",
+      "group": ["Normal", "Normal", "Normal", "Roughness"],
+      "identifier": "NR"
+    },
+    "textures": [
+      {
+        "asset_name": "PillBottle",
+        "path": "C:/Users/noelc/OneDrive/Desktop/syncdir/Game/EF_Edie/Textures/PillBottle_n.TGA",
+        "dir": "C:/Users/noelc/OneDrive/Desktop/syncdir/Game/EF_Edie/Textures/",
+        "current_filename": "PillBottle_n.TGA",
+        "preferred_filename": "N_PillBottle.TGA",
+        "texture_type": "Normal",
+        "scan_timestamp": 1623053015.041199
+      },
+      {
+        "asset_name": "PillBottle",
+        "path": "C:/Users/noelc/OneDrive/Desktop/syncdir/Game/EF_Edie/Textures/PillBottle_n.TGA",
+        "dir": "C:/Users/noelc/OneDrive/Desktop/syncdir/Game/EF_Edie/Textures/",
+        "current_filename": "PillBottle_n.TGA",
+        "preferred_filename": "N_PillBottle.TGA",
+        "texture_type": "Normal",
+        "scan_timestamp": 1623053015.041199
+      },
+      {
+        "asset_name": "PillBottle",
+        "path": "C:/Users/noelc/OneDrive/Desktop/syncdir/Game/EF_Edie/Textures/PillBottle_n.TGA",
+        "dir": "C:/Users/noelc/OneDrive/Desktop/syncdir/Game/EF_Edie/Textures/",
+        "current_filename": "PillBottle_n.TGA",
+        "preferred_filename": "N_PillBottle.TGA",
+        "texture_type": "Normal",
+        "scan_timestamp": 1623053015.041199
+      },
+      {
+        "asset_name": "PillBottle",
+        "path": "C:/Users/noelc/OneDrive/Desktop/syncdir/Game/EF_Edie/Textures/PillBottle_r.TGA",
+        "dir": "C:/Users/noelc/OneDrive/Desktop/syncdir/Game/EF_Edie/Textures/",
+        "current_filename": "PillBottle_r.TGA",
+        "preferred_filename": "R_PillBottle.TGA",
+        "texture_type": "Roughness",
+        "scan_timestamp": 1623053015.127968
+      }
+    ]
+  },
+  {
+    "group": {
+      "extension": "PNG",
+      "group": ["Base Color", "Base Color", "Base Color", "Roughness"],
+      "identifier": "DR"
+    },
+    "textures": [
+      {
+        "asset_name": "PillBottle",
+        "path": "C:/Users/noelc/OneDrive/Desktop/syncdir/Game/EF_Edie/Textures/PillBottle_c.TGA",
+        "dir": "C:/Users/noelc/OneDrive/Desktop/syncdir/Game/EF_Edie/Textures/",
+        "current_filename": "PillBottle_c.TGA",
+        "preferred_filename": "PillBottleD_.TGA",
+        "texture_type": "Base Color",
+        "scan_timestamp": 1623053015.102037
+      },
+      {
+        "asset_name": "PillBottle",
+        "path": "C:/Users/noelc/OneDrive/Desktop/syncdir/Game/EF_Edie/Textures/PillBottle_c.TGA",
+        "dir": "C:/Users/noelc/OneDrive/Desktop/syncdir/Game/EF_Edie/Textures/",
+        "current_filename": "PillBottle_c.TGA",
+        "preferred_filename": "PillBottleD_.TGA",
+        "texture_type": "Base Color",
+        "scan_timestamp": 1623053015.102037
+      },
+      {
+        "asset_name": "PillBottle",
+        "path": "C:/Users/noelc/OneDrive/Desktop/syncdir/Game/EF_Edie/Textures/PillBottle_c.TGA",
+        "dir": "C:/Users/noelc/OneDrive/Desktop/syncdir/Game/EF_Edie/Textures/",
+        "current_filename": "PillBottle_c.TGA",
+        "preferred_filename": "PillBottleD_.TGA",
+        "texture_type": "Base Color",
+        "scan_timestamp": 1623053015.102037
+      },
+      {
+        "asset_name": "PillBottle",
+        "path": "C:/Users/noelc/OneDrive/Desktop/syncdir/Game/EF_Edie/Textures/PillBottle_r.TGA",
+        "dir": "C:/Users/noelc/OneDrive/Desktop/syncdir/Game/EF_Edie/Textures/",
+        "current_filename": "PillBottle_r.TGA",
+        "preferred_filename": "R_PillBottle.TGA",
+        "texture_type": "Roughness",
+        "scan_timestamp": 1623053015.127968
+      }
+    ]
+  },
+  {
+    "group": {
+      "extension": "PNG",
+      "group": ["Base Color", "Base Color", "Base Color", "Roughness"],
+      "identifier": "DR"
+    },
+    "textures": [
+      {
+        "asset_name": "2K_uitlbiaga",
+        "path": "C:/Users/noelc/OneDrive/Desktop/syncdir/Game/Megascans/3D_Assets/Sword_uitlbiaga/Albedo_2K_uitlbiaga.TGA",
+        "dir": "C:/Users/noelc/OneDrive/Desktop/syncdir/Game/Megascans/3D_Assets/Sword_uitlbiaga/",
+        "current_filename": "Albedo_2K_uitlbiaga.TGA",
+        "preferred_filename": "2K_uitlbiagaD_.TGA",
+        "texture_type": "Base Color",
+        "scan_timestamp": 1623053015.05217
+      },
+      {
+        "asset_name": "2K_uitlbiaga",
+        "path": "C:/Users/noelc/OneDrive/Desktop/syncdir/Game/Megascans/3D_Assets/Sword_uitlbiaga/Albedo_2K_uitlbiaga.TGA",
+        "dir": "C:/Users/noelc/OneDrive/Desktop/syncdir/Game/Megascans/3D_Assets/Sword_uitlbiaga/",
+        "current_filename": "Albedo_2K_uitlbiaga.TGA",
+        "preferred_filename": "2K_uitlbiagaD_.TGA",
+        "texture_type": "Base Color",
+        "scan_timestamp": 1623053015.05217
+      },
+      {
+        "asset_name": "2K_uitlbiaga",
+        "path": "C:/Users/noelc/OneDrive/Desktop/syncdir/Game/Megascans/3D_Assets/Sword_uitlbiaga/Albedo_2K_uitlbiaga.TGA",
+        "dir": "C:/Users/noelc/OneDrive/Desktop/syncdir/Game/Megascans/3D_Assets/Sword_uitlbiaga/",
+        "current_filename": "Albedo_2K_uitlbiaga.TGA",
+        "preferred_filename": "2K_uitlbiagaD_.TGA",
+        "texture_type": "Base Color",
+        "scan_timestamp": 1623053015.05217
+      },
+      {
+        "asset_name": "2K_uitlbiaga",
+        "path": "C:/Users/noelc/OneDrive/Desktop/syncdir/Game/Megascans/3D_Assets/Sword_uitlbiaga/Roughness_2K_uitlbiaga.TGA",
+        "dir": "C:/Users/noelc/OneDrive/Desktop/syncdir/Game/Megascans/3D_Assets/Sword_uitlbiaga/",
+        "current_filename": "Roughness_2K_uitlbiaga.TGA",
+        "preferred_filename": "R_2K_uitlbiaga.TGA",
+        "texture_type": "Roughness",
+        "scan_timestamp": 1623053015.087078
+      }
+    ]
+  },
+  {
+    "group": {
+      "extension": "PNG",
+      "group": ["Base Color", "Base Color", "Base Color", "Roughness"],
+      "identifier": "DR"
+    },
+    "textures": [
+      {
+        "asset_name": "2K_thcoeibpa",
+        "path": "C:/Users/noelc/OneDrive/Desktop/syncdir/Game/Pumpkin_thcoeibpa/Albedo_2K_thcoeibpa.TGA",
+        "dir": "C:/Users/noelc/OneDrive/Desktop/syncdir/Game/Pumpkin_thcoeibpa/",
+        "current_filename": "Albedo_2K_thcoeibpa.TGA",
+        "preferred_filename": "2K_thcoeibpaD_.TGA",
+        "texture_type": "Base Color",
+        "scan_timestamp": 1623053015.199338
+      },
+      {
+        "asset_name": "2K_thcoeibpa",
+        "path": "C:/Users/noelc/OneDrive/Desktop/syncdir/Game/Pumpkin_thcoeibpa/Albedo_2K_thcoeibpa.TGA",
+        "dir": "C:/Users/noelc/OneDrive/Desktop/syncdir/Game/Pumpkin_thcoeibpa/",
+        "current_filename": "Albedo_2K_thcoeibpa.TGA",
+        "preferred_filename": "2K_thcoeibpaD_.TGA",
+        "texture_type": "Base Color",
+        "scan_timestamp": 1623053015.199338
+      },
+      {
+        "asset_name": "2K_thcoeibpa",
+        "path": "C:/Users/noelc/OneDrive/Desktop/syncdir/Game/Pumpkin_thcoeibpa/Albedo_2K_thcoeibpa.TGA",
+        "dir": "C:/Users/noelc/OneDrive/Desktop/syncdir/Game/Pumpkin_thcoeibpa/",
+        "current_filename": "Albedo_2K_thcoeibpa.TGA",
+        "preferred_filename": "2K_thcoeibpaD_.TGA",
+        "texture_type": "Base Color",
+        "scan_timestamp": 1623053015.199338
+      },
+      {
+        "asset_name": "2K_thcoeibpa",
+        "path": "C:/Users/noelc/OneDrive/Desktop/syncdir/Game/Pumpkin_thcoeibpa/Roughness_2K_thcoeibpa.TGA",
+        "dir": "C:/Users/noelc/OneDrive/Desktop/syncdir/Game/Pumpkin_thcoeibpa/",
+        "current_filename": "Roughness_2K_thcoeibpa.TGA",
+        "preferred_filename": "R_2K_thcoeibpa.TGA",
+        "texture_type": "Roughness",
+        "scan_timestamp": 1623053015.09705
+      }
+    ]
+  },
+  {
+    "group": {
+      "extension": "PNG",
+      "group": ["Normal", "Normal", "Normal", "Roughness"],
+      "identifier": "NR"
+    },
+    "textures": [
+      {
+        "asset_name": "lamps",
+        "path": "C:/Users/noelc/OneDrive/Desktop/syncdir/Game/EF_Edie/Textures/lamps_n.TGA",
+        "dir": "C:/Users/noelc/OneDrive/Desktop/syncdir/Game/EF_Edie/Textures/",
+        "current_filename": "lamps_n.TGA",
+        "preferred_filename": "N_lamps.TGA",
+        "texture_type": "Normal",
+        "scan_timestamp": 1623053015.157451
+      },
+      {
+        "asset_name": "lamps",
+        "path": "C:/Users/noelc/OneDrive/Desktop/syncdir/Game/EF_Edie/Textures/lamps_n.TGA",
+        "dir": "C:/Users/noelc/OneDrive/Desktop/syncdir/Game/EF_Edie/Textures/",
+        "current_filename": "lamps_n.TGA",
+        "preferred_filename": "N_lamps.TGA",
+        "texture_type": "Normal",
+        "scan_timestamp": 1623053015.157451
+      },
+      {
+        "asset_name": "lamps",
+        "path": "C:/Users/noelc/OneDrive/Desktop/syncdir/Game/EF_Edie/Textures/lamps_n.TGA",
+        "dir": "C:/Users/noelc/OneDrive/Desktop/syncdir/Game/EF_Edie/Textures/",
+        "current_filename": "lamps_n.TGA",
+        "preferred_filename": "N_lamps.TGA",
+        "texture_type": "Normal",
+        "scan_timestamp": 1623053015.157451
+      },
+      {
+        "asset_name": "lamps",
+        "path": "C:/Users/noelc/OneDrive/Desktop/syncdir/Game/EF_Edie/Textures/lamps_r.TGA",
+        "dir": "C:/Users/noelc/OneDrive/Desktop/syncdir/Game/EF_Edie/Textures/",
+        "current_filename": "lamps_r.TGA",
+        "preferred_filename": "R_lamps.TGA",
+        "texture_type": "Roughness",
+        "scan_timestamp": 1623053015.118992
+      }
+    ]
+  },
+  {
+    "group": {
+      "extension": "PNG",
+      "group": ["Base Color", "Base Color", "Base Color", "Roughness"],
+      "identifier": "DR"
+    },
+    "textures": [
+      {
+        "asset_name": "lamps",
+        "path": "C:/Users/noelc/OneDrive/Desktop/syncdir/Game/EF_Edie/Textures/lamps_c.TGA",
+        "dir": "C:/Users/noelc/OneDrive/Desktop/syncdir/Game/EF_Edie/Textures/",
+        "current_filename": "lamps_c.TGA",
+        "preferred_filename": "lampsD_.TGA",
+        "texture_type": "Base Color",
+        "scan_timestamp": 1623053015.125973
+      },
+      {
+        "asset_name": "lamps",
+        "path": "C:/Users/noelc/OneDrive/Desktop/syncdir/Game/EF_Edie/Textures/lamps_c.TGA",
+        "dir": "C:/Users/noelc/OneDrive/Desktop/syncdir/Game/EF_Edie/Textures/",
+        "current_filename": "lamps_c.TGA",
+        "preferred_filename": "lampsD_.TGA",
+        "texture_type": "Base Color",
+        "scan_timestamp": 1623053015.125973
+      },
+      {
+        "asset_name": "lamps",
+        "path": "C:/Users/noelc/OneDrive/Desktop/syncdir/Game/EF_Edie/Textures/lamps_c.TGA",
+        "dir": "C:/Users/noelc/OneDrive/Desktop/syncdir/Game/EF_Edie/Textures/",
+        "current_filename": "lamps_c.TGA",
+        "preferred_filename": "lampsD_.TGA",
+        "texture_type": "Base Color",
+        "scan_timestamp": 1623053015.125973
+      },
+      {
+        "asset_name": "lamps",
+        "path": "C:/Users/noelc/OneDrive/Desktop/syncdir/Game/EF_Edie/Textures/lamps_r.TGA",
+        "dir": "C:/Users/noelc/OneDrive/Desktop/syncdir/Game/EF_Edie/Textures/",
+        "current_filename": "lamps_r.TGA",
+        "preferred_filename": "R_lamps.TGA",
+        "texture_type": "Roughness",
+        "scan_timestamp": 1623053015.118992
+      }
+    ]
+  },
+  {
+    "group": {
+      "extension": "PNG",
+      "group": ["Normal", "Normal", "Normal", "Roughness"],
+      "identifier": "NR"
+    },
+    "textures": [
+      {
+        "asset_name": "TheresaQuilt",
+        "path": "C:/Users/noelc/OneDrive/Desktop/syncdir/Game/EF_Edie/Textures/TheresaQuilt_n.TGA",
+        "dir": "C:/Users/noelc/OneDrive/Desktop/syncdir/Game/EF_Edie/Textures/",
+        "current_filename": "TheresaQuilt_n.TGA",
+        "preferred_filename": "N_TheresaQuilt.TGA",
+        "texture_type": "Normal",
+        "scan_timestamp": 1623053015.167424
+      },
+      {
+        "asset_name": "TheresaQuilt",
+        "path": "C:/Users/noelc/OneDrive/Desktop/syncdir/Game/EF_Edie/Textures/TheresaQuilt_n.TGA",
+        "dir": "C:/Users/noelc/OneDrive/Desktop/syncdir/Game/EF_Edie/Textures/",
+        "current_filename": "TheresaQuilt_n.TGA",
+        "preferred_filename": "N_TheresaQuilt.TGA",
+        "texture_type": "Normal",
+        "scan_timestamp": 1623053015.167424
+      },
+      {
+        "asset_name": "TheresaQuilt",
+        "path": "C:/Users/noelc/OneDrive/Desktop/syncdir/Game/EF_Edie/Textures/TheresaQuilt_n.TGA",
+        "dir": "C:/Users/noelc/OneDrive/Desktop/syncdir/Game/EF_Edie/Textures/",
+        "current_filename": "TheresaQuilt_n.TGA",
+        "preferred_filename": "N_TheresaQuilt.TGA",
+        "texture_type": "Normal",
+        "scan_timestamp": 1623053015.167424
+      },
+      {
+        "asset_name": "TheresaQuilt",
+        "path": "C:/Users/noelc/OneDrive/Desktop/syncdir/Game/EF_Edie/Textures/TheresaQuilt_r.TGA",
+        "dir": "C:/Users/noelc/OneDrive/Desktop/syncdir/Game/EF_Edie/Textures/",
+        "current_filename": "TheresaQuilt_r.TGA",
+        "preferred_filename": "R_TheresaQuilt.TGA",
+        "texture_type": "Roughness",
+        "scan_timestamp": 1623053015.124976
+      }
+    ]
+  },
+  {
+    "group": {
+      "extension": "PNG",
+      "group": ["Base Color", "Base Color", "Base Color", "Roughness"],
+      "identifier": "DR"
+    },
+    "textures": [
+      {
+        "asset_name": "TheresaQuilt",
+        "path": "C:/Users/noelc/OneDrive/Desktop/syncdir/Game/EF_Edie/Textures/TheresaQuilt_c.TGA",
+        "dir": "C:/Users/noelc/OneDrive/Desktop/syncdir/Game/EF_Edie/Textures/",
+        "current_filename": "TheresaQuilt_c.TGA",
+        "preferred_filename": "TheresaQuiltD_.TGA",
+        "texture_type": "Base Color",
+        "scan_timestamp": 1623053015.169419
+      },
+      {
+        "asset_name": "TheresaQuilt",
+        "path": "C:/Users/noelc/OneDrive/Desktop/syncdir/Game/EF_Edie/Textures/TheresaQuilt_c.TGA",
+        "dir": "C:/Users/noelc/OneDrive/Desktop/syncdir/Game/EF_Edie/Textures/",
+        "current_filename": "TheresaQuilt_c.TGA",
+        "preferred_filename": "TheresaQuiltD_.TGA",
+        "texture_type": "Base Color",
+        "scan_timestamp": 1623053015.169419
+      },
+      {
+        "asset_name": "TheresaQuilt",
+        "path": "C:/Users/noelc/OneDrive/Desktop/syncdir/Game/EF_Edie/Textures/TheresaQuilt_c.TGA",
+        "dir": "C:/Users/noelc/OneDrive/Desktop/syncdir/Game/EF_Edie/Textures/",
+        "current_filename": "TheresaQuilt_c.TGA",
+        "preferred_filename": "TheresaQuiltD_.TGA",
+        "texture_type": "Base Color",
+        "scan_timestamp": 1623053015.169419
+      },
+      {
+        "asset_name": "TheresaQuilt",
+        "path": "C:/Users/noelc/OneDrive/Desktop/syncdir/Game/EF_Edie/Textures/TheresaQuilt_r.TGA",
+        "dir": "C:/Users/noelc/OneDrive/Desktop/syncdir/Game/EF_Edie/Textures/",
+        "current_filename": "TheresaQuilt_r.TGA",
+        "preferred_filename": "R_TheresaQuilt.TGA",
+        "texture_type": "Roughness",
+        "scan_timestamp": 1623053015.124976
+      }
+    ]
+  },
+  {
+    "group": {
+      "extension": "PNG",
+      "group": ["Base Color", "Base Color", "Base Color", "Roughness"],
+      "identifier": "DR"
+    },
+    "textures": [
+      {
+        "asset_name": "2K_uizpaf2cb",
+        "path": "C:/Users/noelc/OneDrive/Desktop/syncdir/Game/Megascans/3D_Assets/Dagger_Scabbard_uizpaf2cb/Albedo_2K_uizpaf2cb.TGA",
+        "dir": "C:/Users/noelc/OneDrive/Desktop/syncdir/Game/Megascans/3D_Assets/Dagger_Scabbard_uizpaf2cb/",
+        "current_filename": "Albedo_2K_uizpaf2cb.TGA",
+        "preferred_filename": "2K_uizpaf2cbD_.TGA",
+        "texture_type": "Base Color",
+        "scan_timestamp": 1623053015.129962
+      },
+      {
+        "asset_name": "2K_uizpaf2cb",
+        "path": "C:/Users/noelc/OneDrive/Desktop/syncdir/Game/Megascans/3D_Assets/Dagger_Scabbard_uizpaf2cb/Albedo_2K_uizpaf2cb.TGA",
+        "dir": "C:/Users/noelc/OneDrive/Desktop/syncdir/Game/Megascans/3D_Assets/Dagger_Scabbard_uizpaf2cb/",
+        "current_filename": "Albedo_2K_uizpaf2cb.TGA",
+        "preferred_filename": "2K_uizpaf2cbD_.TGA",
+        "texture_type": "Base Color",
+        "scan_timestamp": 1623053015.129962
+      },
+      {
+        "asset_name": "2K_uizpaf2cb",
+        "path": "C:/Users/noelc/OneDrive/Desktop/syncdir/Game/Megascans/3D_Assets/Dagger_Scabbard_uizpaf2cb/Albedo_2K_uizpaf2cb.TGA",
+        "dir": "C:/Users/noelc/OneDrive/Desktop/syncdir/Game/Megascans/3D_Assets/Dagger_Scabbard_uizpaf2cb/",
+        "current_filename": "Albedo_2K_uizpaf2cb.TGA",
+        "preferred_filename": "2K_uizpaf2cbD_.TGA",
+        "texture_type": "Base Color",
+        "scan_timestamp": 1623053015.129962
+      },
+      {
+        "asset_name": "2K_uizpaf2cb",
+        "path": "C:/Users/noelc/OneDrive/Desktop/syncdir/Game/Megascans/3D_Assets/Dagger_Scabbard_uizpaf2cb/Roughness_2K_uizpaf2cb.TGA",
+        "dir": "C:/Users/noelc/OneDrive/Desktop/syncdir/Game/Megascans/3D_Assets/Dagger_Scabbard_uizpaf2cb/",
+        "current_filename": "Roughness_2K_uizpaf2cb.TGA",
+        "preferred_filename": "R_2K_uizpaf2cb.TGA",
+        "texture_type": "Roughness",
+        "scan_timestamp": 1623053015.136942
+      }
+    ]
+  },
+  {
+    "group": {
+      "extension": "PNG",
+      "group": ["Base Color", "Base Color", "Base Color", "Roughness"],
+      "identifier": "DR"
+    },
+    "textures": [
+      {
+        "asset_name": "2K_vd4kda1jw",
+        "path": "C:/Users/noelc/OneDrive/Desktop/syncdir/Carrot_vd4kda1jw/Albedo_2K_vd4kda1jw.TGA",
+        "dir": "C:/Users/noelc/OneDrive/Desktop/syncdir/Carrot_vd4kda1jw/",
+        "current_filename": "Albedo_2K_vd4kda1jw.TGA",
+        "preferred_filename": "2K_vd4kda1jwD_.TGA",
+        "texture_type": "Base Color",
+        "scan_timestamp": 1623053015.196346
+      },
+      {
+        "asset_name": "2K_vd4kda1jw",
+        "path": "C:/Users/noelc/OneDrive/Desktop/syncdir/Carrot_vd4kda1jw/Albedo_2K_vd4kda1jw.TGA",
+        "dir": "C:/Users/noelc/OneDrive/Desktop/syncdir/Carrot_vd4kda1jw/",
+        "current_filename": "Albedo_2K_vd4kda1jw.TGA",
+        "preferred_filename": "2K_vd4kda1jwD_.TGA",
+        "texture_type": "Base Color",
+        "scan_timestamp": 1623053015.196346
+      },
+      {
+        "asset_name": "2K_vd4kda1jw",
+        "path": "C:/Users/noelc/OneDrive/Desktop/syncdir/Carrot_vd4kda1jw/Albedo_2K_vd4kda1jw.TGA",
+        "dir": "C:/Users/noelc/OneDrive/Desktop/syncdir/Carrot_vd4kda1jw/",
+        "current_filename": "Albedo_2K_vd4kda1jw.TGA",
+        "preferred_filename": "2K_vd4kda1jwD_.TGA",
+        "texture_type": "Base Color",
+        "scan_timestamp": 1623053015.196346
+      },
+      {
+        "asset_name": "2K_vd4kda1jw",
+        "path": "C:/Users/noelc/OneDrive/Desktop/syncdir/Carrot_vd4kda1jw/Roughness_2K_vd4kda1jw.TGA",
+        "dir": "C:/Users/noelc/OneDrive/Desktop/syncdir/Carrot_vd4kda1jw/",
+        "current_filename": "Roughness_2K_vd4kda1jw.TGA",
+        "preferred_filename": "R_2K_vd4kda1jw.TGA",
+        "texture_type": "Roughness",
+        "scan_timestamp": 1623053015.16144
+      }
+    ]
+  }
+]

@@ -1,6 +1,6 @@
 from PySide6.QtCore import Qt
 from PySide6.QtWidgets import *
-from db.data_handler import DataHandler
+from db.alchemy import DatabaseHandler
 
 
 
@@ -32,10 +32,9 @@ class MainTable(QGroupBox):
         self.asset_table.horizontalHeader().setSectionResizeMode(QHeaderView(Qt.Orientation.Horizontal).Stretch)
         self.asset_table.horizontalHeader().setDefaultAlignment(Qt.AlignLeft)
         self.asset_table.setHorizontalHeaderLabels(["Asset Name", "Packing Group", "Output Path", "Date Packed", "Status"])
-        dh = DataHandler()
-        for i, row in enumerate(dh.get_all_rows()):
-            for column_index in range(len(row)):
-                self.asset_table.setItem(i, column_index, QTableWidgetItem(row[column_index]))
+        dbh = DatabaseHandler()
+        for i, pg in enumerate(dbh.get_packing_groups()):
+            self.asset_table.setItem(i, 0, QTableWidgetItem(pg.name))
 
         self.layout = QVBoxLayout(self)
         self.layout.setContentsMargins(0, 0, 0, 0)

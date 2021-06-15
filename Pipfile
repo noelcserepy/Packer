@@ -7,14 +7,18 @@ name = "pypi"
 pillow = "*"
 watchdog = "*"
 pytest-mock = "*"
-pyside6 = "*"
-qt-material = "*"
 pipfile = "*"
 sqlalchemy = "*"
+pyside6 = "*"
 
 [dev-packages]
 autopep8 = "*"
 pytest = "*"
+black = "*"
+rope = "*"
 
 [requires]
 python_version = "3.9"
+
+[pipenv]
+allow_prereleases = true

@@ -1,11 +1,8 @@
 import sys
-import os
+from PySide6.QtWidgets import *
 from UI.settings_tab.settings_tab import SettingsTab
 from UI.main_tab.main_tab import MainTab
 from packer.packer import Packer
-from PySide6.QtWidgets import *
-from qt_material import apply_stylesheet
-
 
 
 class MainWindow(QMainWindow):
@@ -27,6 +24,7 @@ class Tabs(QTabWidget):
     def setup(self):
         self.setMovable(False)
         self.setTabsClosable(False)
+        self.setTabPosition(QTabWidget.West)
 
         Packer()
         self.addTab(MainTab(), "Main")
@@ -36,9 +34,6 @@ class Tabs(QTabWidget):
 if __name__ == "__main__":
     app = QApplication([])
     win = MainWindow()
-    apply_stylesheet(app, theme='dark_cyan.xml')
+    style = "UI/style.css"
     win.show()
     sys.exit(app.exec_())
-
-
-

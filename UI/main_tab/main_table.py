@@ -34,7 +34,10 @@ class MainTable(QGroupBox):
         self.asset_table.setHorizontalHeaderLabels(["Asset Name", "Packing Group", "Output Path", "Date Packed", "Status"])
         dbh = DatabaseHandler()
         for i, pg in enumerate(dbh.get_packing_groups()):
-            self.asset_table.setItem(i, 0, QTableWidgetItem(pg.name))
+            self.asset_table.setItem(i, 0, QTableWidgetItem(pg.Asset.name))
+            self.asset_table.setItem(i, 1, QTableWidgetItem(pg.PackingGroup.name))
+            self.asset_table.setItem(i, 3, QTableWidgetItem(pg.PackingGroup.date))
+            self.asset_table.setItem(i, 4, QTableWidgetItem(pg.PackingGroup.status))
 
         self.layout = QVBoxLayout(self)
         self.layout.setContentsMargins(0, 0, 0, 0)

@@ -41,6 +41,8 @@ class PackingGroup(Base):
     id = Column(Integer, primary_key=True)
     name = Column(String)
     asset_id = Column(Integer, ForeignKey("asset.id"))
+    date = Column(String)
+    status = Column(String)
     textures = relationship(
         "Texture", secondary="texture_pg_link", back_populates="packing_groups"
     )
@@ -113,7 +115,10 @@ class DatabaseHandler:
                     session.commit()
                 else:
                     new_pg = PackingGroup(
-                        name=packing_group["identifier"], asset_id=texture.asset_id
+                        name=packing_group["identifier"], 
+                        asset_id=texture.asset_id,
+                        date=datetime.now(),
+                        status="Ready"
                     )
                     new_pg.textures.append(texture)
                     session.commit()
@@ -130,4 +135,10 @@ class DatabaseHandler:
 
     def get_packing_groups(self):
         with Session() as session:
-            return session.query(PackingGroup).all()
+            pg_info = (
+                session.query(PackingGroup, Asset)
+                .join(Asset)
+                .all()
+            )
+            print(pg_info)
+            return pg_info

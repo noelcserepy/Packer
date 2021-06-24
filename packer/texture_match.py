@@ -62,4 +62,4 @@ class TextureMatch():
         if not self.match_completed:
             print("match failed")
             raise Exception("Match incomplete.")
-        DatabaseHandler().add_new_texture_to_db(self)
+        DatabaseHandler().add_texture(self)

@@ -1,6 +1,16 @@
 from PySide6 import QtCore, QtGui
-from PySide6.QtWidgets import *
 from UI.settings_tab.texture_dialog import TextureEditDialog
+from PySide6.QtWidgets import (
+    QGroupBox,
+    QLabel,
+    QWidget,
+    QHBoxLayout,
+    QPushButton,
+    QVBoxLayout,
+    QListWidget,
+    QListWidgetItem
+)
+
 
 class TextureSelect(QGroupBox):
     def __init__(self, settings):

@@ -1,41 +1,51 @@
+from db.alchemy import DatabaseHandler
+from sqlalchemy.sql.expression import except_
 from watchdog.utils.dirsnapshot import (
-    DirectorySnapshot, 
-    DirectorySnapshotDiff, 
-    EmptyDirectorySnapshot
+    DirectorySnapshot,
+    DirectorySnapshotDiff,
+    EmptyDirectorySnapshot,
 )
 
 
-
-class FileSearch():
+class FileSearch:
     def __init__(self, settings):
         self.settings = settings
-        self.root_directory = self.settings["sync_asset_dir"]
-        self.all_directory_file_paths = list()
+        self.root_directory = self.settings["search_directory"]
+        self.dbh = DatabaseHandler()
+        self.latest_snapshot = self._get_latest_snapshot()
+        self.new_snapshot = DirectorySnapshot(self.root_directory)
 
-        self.find_all_files()
+        if self.latest_snapshot:
+            self.snapshot_diff = DirectorySnapshotDiff(
+                self.latest_snapshot, self.new_snapshot
+            )
+        else:
+            empty_snapshot = EmptyDirectorySnapshot()
+            self.snapshot_diff = DirectorySnapshotDiff(
+                empty_snapshot, self.new_snapshot
+            )
 
+        self.file_paths = self._change_slashes(
+            self.snapshot_diff.files_created
+        )
 
-    def find_all_files(self):
-        empty_snapshot = EmptyDirectorySnapshot()
-        snapshot = DirectorySnapshot(self.root_directory)
-        snapshot_diff = DirectorySnapshotDiff(empty_snapshot, snapshot)
-        # self._print_found_files(snapshot_diff)
-        self.all_directory_file_paths = self._change_slashes(snapshot_diff.files_created)
-
+        self.dbh.save_snapshot(self.new_snapshot)
+    
+    def _get_latest_snapshot(self):
+        try:
+            latest_snapshot = self.dbh.get_last_snapshot()
+            return latest_snapshot
+        except:
+            return None
 
     def _change_slashes(self, to_change):
         return [s.replace("\\", "/") for s in to_change]
 
-
     def _print_found_files(self, diff):
-        """ 
-        Takes <class 'watchdog.utils.dirsnapshot.DirectorySnapshotDiff'> 
-        Prints all the changes in directory structure since last time directories were saved with nice colours. 
-        """
-        ok = '\033[92m' #GREEN
-        warning = '\033[93m' #YELLOW
-        fail = '\033[91m' #RED
-        reset = '\033[0m' #RESET COLOR
+        ok = "\033[92m"  # GREEN
+        warning = "\033[93m"  # YELLOW
+        fail = "\033[91m"  # RED
+        reset = "\033[0m"  # RESET COLOR
 
         print(warning + "Directories Modified:")
         print(self._change_slashes(diff.dirs_modified))

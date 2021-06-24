@@ -10,7 +10,7 @@ class GroupPacker:
     def match_textures_to_packing_group(self):
         dbh = DatabaseHandler()
         for packing_group in self.settings["packing_groups"]:
-            dbh.add_textures_to_pg(packing_group)
+            dbh.populate_packing_groups(packing_group)
 
     def output_maps(self, matched_p_groups):
         output_folder = self.settings["output_path"]

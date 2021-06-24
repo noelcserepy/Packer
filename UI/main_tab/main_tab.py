@@ -1,5 +1,9 @@
 import json
-from PySide6.QtWidgets import *
+from PySide6.QtWidgets import (
+    QWidget,
+    QHBoxLayout,
+    QFileDialog
+)
 from UI.main_tab.main_table import MainTable
 
 with open("settings.json", "r") as f:

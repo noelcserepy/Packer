@@ -1,5 +1,4 @@
 import sys
-import time
 from PySide6.QtWidgets import QMainWindow, QTabWidget, QApplication
 from UI.settings_tab.settings_tab import SettingsTab
 from UI.main_tab.main_tab import MainTab

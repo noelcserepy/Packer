@@ -1,5 +1,4 @@
 from db.alchemy import DatabaseHandler
-from sqlalchemy.sql.expression import except_
 from watchdog.utils.dirsnapshot import (
     DirectorySnapshot,
     DirectorySnapshotDiff,
@@ -14,7 +13,12 @@ class FileSearch:
         self.dbh = DatabaseHandler()
         self.latest_snapshot = self._get_latest_snapshot()
         self.new_snapshot = DirectorySnapshot(self.root_directory)
+        self._make_snapshot_diff()
+        self.file_paths = self._change_slashes(self.snapshot_diff.files_created)
+        self.dbh.save_snapshot(self.new_snapshot)
+        self.dbh.print_snapshots()
 
+    def _make_snapshot_diff(self):
         if self.latest_snapshot:
             self.snapshot_diff = DirectorySnapshotDiff(
                 self.latest_snapshot, self.new_snapshot
@@ -25,12 +29,6 @@ class FileSearch:
                 empty_snapshot, self.new_snapshot
             )
 
-        self.file_paths = self._change_slashes(
-            self.snapshot_diff.files_created
-        )
-
-        self.dbh.save_snapshot(self.new_snapshot)
-    
     def _get_latest_snapshot(self):
         try:
             latest_snapshot = self.dbh.get_last_snapshot()

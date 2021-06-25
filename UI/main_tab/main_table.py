@@ -35,9 +35,9 @@ class MainTable(QGroupBox):
             ["Asset Name", "Packing Group", "Output Path", "Date Modified", "Status"]
         )
         dbh = DatabaseHandler()
-        for i, pg in enumerate(dbh.get_packing_groups()):
+        for i, pg in enumerate(dbh.get_all_packing_groups_ordered()):
             self.asset_table.setItem(i, 0, QTableWidgetItem(pg.Asset.name))
-            self.asset_table.setItem(i, 1, QTableWidgetItem(pg.PackingGroup.name))
+            self.asset_table.setItem(i, 1, QTableWidgetItem(pg.PackingGroup.identifier))
             self.asset_table.setItem(
                 i,
                 3,

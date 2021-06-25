@@ -1,31 +1,31 @@
 import os
-from PIL import Image
 from db.alchemy import DatabaseHandler
+from PIL import Image
+from pprint import pprint
 
 
-class GroupPacker:
+class ImageOutput:
     def __init__(self, settings):
         self.settings = settings
+        self.output_folder = self.settings["output_path"]
+        if not os.path.exists(self.output_folder):
+            os.mkdir(self.output_folder)
 
-    def match_textures_to_packing_group(self):
+    def output_maps(self):
         dbh = DatabaseHandler()
-        for packing_group in self.settings["packing_groups"]:
-            dbh.populate_packing_groups(packing_group)
-
-    def output_maps(self, matched_p_groups):
-        output_folder = self.settings["output_path"]
-        if not os.path.exists(output_folder):
-            os.mkdir(output_folder)
-
+        all_packing_groups = dbh.get_all_packing_groups()
+        a = all_packing_groups[0].textures
+        print(a)
+    
         for p_group in matched_p_groups:
             asset_name = p_group["textures"][0]["asset_name"]
-            if not os.path.exists(f"{output_folder}/{asset_name}"):
-                os.mkdir(f"{output_folder}/{asset_name}")
+            if not os.path.exists(f"{self.output_folder}/{asset_name}"):
+                os.mkdir(f"{self.output_folder}/{asset_name}")
 
             identifier = p_group["group"]["identifier"]
             extension = p_group["group"]["extension"]
             output_path = (
-                f"{output_folder}/{asset_name}/{identifier}_{asset_name}.{extension}"
+                f"{self.output_folder}/{asset_name}/{identifier}_{asset_name}.{extension}"
             )
             self.pack_maps(output_path, p_group)
 

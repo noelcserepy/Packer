@@ -56,7 +56,7 @@ class TextureMatch():
             return
         if self.preferred_identifier[1] == "end":
             self.preferred_filename = f"{self.asset_name}{self.preferred_identifier[0]}.{self.extension}"
-            return
+            return 
 
     def save_in_db(self):
         if not self.match_completed:

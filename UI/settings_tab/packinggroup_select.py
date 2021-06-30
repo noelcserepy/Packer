@@ -41,7 +41,7 @@ class PackingGroupSelect(QGroupBox):
         )
 
         for group in self.packing_groups_data:
-            data = [group["identifier"]] + [group["extension"]] + group["group"]
+            data = [group["identifier"]] + [group["extension"]] + group["texture_types"]
             item = QTreeWidgetItem(self.tw, data)
             item.setData(0, QtCore.Qt.UserRole, group)
 

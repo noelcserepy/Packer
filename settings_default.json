@@ -1,6 +1,7 @@
 {
     "search_directory": "C:/Users/noelc/OneDrive/Desktop/syncdir",
     "output_path": "C:/Users/noelc/OneDrive/Desktop/syncdir/teximport",
+    "source_path_as_output": true,
     "textures": [
       {
         "extensions": ["TGA", "PNG", "JPEG", "JPG"],

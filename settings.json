@@ -1,6 +1,7 @@
 {
   "search_directory": "C:/Users/noelc/OneDrive/Desktop/syncdir",
   "output_path": "C:/Users/noelc/OneDrive/Desktop/syncdir/teximport",
+  "source_path_as_output": true,
   "textures": [
     {
       "extensions": ["TGA", "PNG", "JPEG", "JPG", "fs"],
@@ -14,7 +15,7 @@
         ["_c", "end"]
       ],
       "name": "Base Color",
-      "preferred_identifier": ["D_", "end"]
+      "preferred_identifier": ["D_", "start"]
     },
     {
       "extensions": ["TGA", "PNG", "JPEG", "JPG"],
@@ -75,30 +76,30 @@
   "packing_groups": [
     {
       "extension": "PNG",
-      "group": ["Metallic", "Roughness", "Ambient_Occlusion", "Opacity"],
+      "texture_types": ["Metallic", "Roughness", "Ambient_Occlusion", "Opacity"],
       "identifier": "RMAO",
       "start": "True"
     },
     {
       "extension": "PNG",
-      "group": ["Metallic", "Roughness", "Ambient_Occlusion"],
+      "texture_types": ["Metallic", "Roughness", "Ambient_Occlusion"],
       "identifier": "RMA",
       "start": "True"
     },
     {
       "extension": "PNG",
-      "group": ["Curvature", "Ambient_Occlusion", "ID"],
+      "texture_types": ["Curvature", "Ambient_Occlusion", "ID"],
       "identifier": "CAI",
       "start": "True"
     },
     {
       "extension": "PNG",
-      "group": ["Normal", "Normal", "Normal", "Roughness"],
+      "texture_types": ["Normal", "Normal", "Normal", "Roughness"],
       "identifier": "NR"
     },
     {
       "extension": "PNG",
-      "group": ["Base Color", "Base Color", "Base Color", "Roughness"],
+      "texture_types": ["Base Color", "Base Color", "Base Color", "Roughness"],
       "identifier": "DR"
     }
   ]

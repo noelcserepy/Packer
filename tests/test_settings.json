@@ -1,6 +1,7 @@
 {
   "search_directory": "C:/Users/noelc/OneDrive/Desktop/syncdir",
   "output_path": "C:/Users/noelc/OneDrive/Desktop/syncdir/teximport",
+  "source_path_as_output": true,
   "textures": [
     {
       "extensions": ["TGA", "PNG", "JPEG", "JPG", "fs"],
@@ -14,7 +15,7 @@
         ["_c", "end"]
       ],
       "name": "Base Color",
-      "preferred_identifier": ["D_", "end"]
+      "preferred_identifier": ["D_", "start"]
     },
     {
       "extensions": ["TGA", "PNG", "JPEG", "JPG"],

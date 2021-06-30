@@ -38,6 +38,7 @@ class MainTable(QGroupBox):
         for i, pg in enumerate(dbh.get_all_packing_groups_ordered()):
             self.asset_table.setItem(i, 0, QTableWidgetItem(pg.Asset.name))
             self.asset_table.setItem(i, 1, QTableWidgetItem(pg.PackingGroup.identifier))
+            self.asset_table.setItem(i, 2, QTableWidgetItem(pg.Asset.directory))
             self.asset_table.setItem(
                 i,
                 3,

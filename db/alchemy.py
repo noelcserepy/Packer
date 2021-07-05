@@ -39,9 +39,11 @@ class Texture(Base):
     asset_id = Column(Integer, ForeignKey("asset.id"))
     extension = Column(String)
     directory = Column(String)
+    path = Column(String)
     date = Column(DateTime)
     preferred_filename = Column(String)
     texture_type = Column(String)
+    channels = relationship("Channel", backref="texture")
 
     def __repr__(self):
         return f"Texture: (asset_id={self.asset_id} | asset_name={self.asset_name} | texture_type={self.texture_type})"
@@ -59,9 +61,6 @@ class PackingGroup(Base):
         "Channel",
         order_by="Channel.position",
         collection_class=ordering_list("position"),
-    )
-    all_textures = relationship(
-        "Texture", secondary="texture_pg_link", back_populates="packing_groups" #maybe obsolete
     )
 
     def __repr__(self):
@@ -137,6 +136,12 @@ class DatabaseHandler:
         with Session() as session:
             self._match_textures_to_pg(session, settings)
 
+    def set_packing_group_status(self, packing_group_id, status):
+        with Session() as session:
+            pg = session.get(PackingGroup, packing_group_id)
+            pg.status = status
+            session.commit()
+
     def _add_new_snapshot_to_db(self, session, snapshot):
         new_snapshot = Snapshot(date=self.date, data=snapshot)
         session.add(new_snapshot)
@@ -144,7 +149,6 @@ class DatabaseHandler:
 
     def _get_last_snapshot_from_db(self, session):
         last_snapshot = session.query(Snapshot).order_by(desc(Snapshot.date)).first()
-        print(last_snapshot.date)
         return last_snapshot.data
 
     # Texture Functions
@@ -159,6 +163,7 @@ class DatabaseHandler:
             asset_name=texture_match.asset_name,
             extension=texture_match.extension,
             directory=texture_match.directory,
+            path=texture_match.path,
             date=self.date,
             preferred_filename=texture_match.preferred_filename,
             texture_type=texture_match.texture_type,
@@ -174,7 +179,9 @@ class DatabaseHandler:
         if matching_asset:
             new_texture.asset_id = matching_asset.id
         else:
-            new_asset = Asset(name=new_texture.asset_name, directory=new_texture.directory)
+            new_asset = Asset(
+                name=new_texture.asset_name, directory=new_texture.directory
+            )
             session.add(new_asset)
             session.commit()
             new_texture.asset_id = new_asset.id
@@ -201,9 +208,6 @@ class DatabaseHandler:
     def _match_textures_to_pg(self, session, settings):
         all_assets = session.query(Asset).all()
         for asset in all_assets:
-            for texture in asset.textures:
-                print(texture.preferred_filename)
-        for asset in all_assets:
             for settings_packing_group in settings["packing_groups"]:
                 new_pg = PackingGroup(
                     identifier=settings_packing_group["identifier"],
@@ -224,39 +228,42 @@ class DatabaseHandler:
                         break
 
                     new_channel = Channel(
-                        texture_type=tt,
-                        texture_id=channel_texture.id
+                        texture_type=tt, texture_id=channel_texture.id
                     )
                     new_channels.append(new_channel)
 
-                if not len(new_channels) == len(settings_packing_group["texture_types"]):
+                if not len(new_channels) == len(
+                    settings_packing_group["texture_types"]
+                ):
                     continue
-            
+
                 for channel in new_channels:
                     new_pg.channels.append(channel)
                 session.add(new_pg)
                 session.commit()
 
-
-        pgs = session.query(PackingGroup).all()
-        for pg in pgs:
-            print(pg.identifier, pg.asset.name)
-            for c in pg.channels:
-                print(c.texture_type, c.texture_id)
-
-
-
     def _get_pgs_from_db(self, session):
-        all_packing_groups = session.query(PackingGroup).all()
+        all_packing_groups = (
+            session.query(PackingGroup)
+            .options(subqueryload(PackingGroup.channels).subqueryload(Channel.texture))
+            .all()
+        )
         remade_pgs = []
         for pg in all_packing_groups:
             remade_pg = {
+                "id": pg.id,
                 "identifier": pg.identifier,
                 "asset_name": pg.asset.name,
                 "extension": pg.extension,
                 "date": pg.date,
                 "status": pg.status,
-                "directory": pg.asset.directory
+                "directory": pg.asset.directory,
+                "channels": [
+                    pg.channels[0],
+                    pg.channels[1],
+                    pg.channels[2],
+                    pg.channels[3],
+                ],
             }
             remade_pgs.append(remade_pg)
         return remade_pgs

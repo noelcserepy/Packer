@@ -1,10 +1,11 @@
 import json
 from PySide6.QtWidgets import (
     QWidget,
-    QHBoxLayout,
+    QVBoxLayout,
     QFileDialog
 )
 from UI.main_tab.main_table import MainTable
+from UI.main_tab.main_buttons import MainButtons
 
 with open("settings.json", "r") as f:
     settings = json.load(f)
@@ -17,9 +18,11 @@ class MainTab(QWidget):
 
 
     def setup(self):
+        main_buttons = MainButtons()
         main_table = MainTable()
 
-        layout = QHBoxLayout(self)
+        layout = QVBoxLayout(self)
+        layout.addWidget(main_buttons)
         layout.addWidget(main_table)
         
 

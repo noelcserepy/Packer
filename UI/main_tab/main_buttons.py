@@ -12,6 +12,8 @@ class MainButtons(QWidget):
         # Button widget to hold "SCAN" and "PACK" buttons
         self.refresh_button = QPushButton("SCAN")
         self.refresh_button.clicked.connect(self.on_scan_clicked)
+        self.rescan_button = QPushButton("RESCAN ALL")
+        self.rescan_button.clicked.connect(self.on_rescan_clicked)
         self.pack_button = QPushButton("PACK")
         self.pack_button.clicked.connect(self.on_pack_clicked)
         self.live_pack_text = QLabel("Live Pack Assets")
@@ -19,6 +21,7 @@ class MainButtons(QWidget):
 
         self.layout = QHBoxLayout(self)
         self.layout.addWidget(self.refresh_button)
+        self.layout.addWidget(self.rescan_button)
         self.layout.addWidget(self.pack_button)
         self.layout.addWidget(self.live_pack_text)
         self.layout.addWidget(self.live_pack_checkbox)
@@ -27,4 +30,7 @@ class MainButtons(QWidget):
         Packer().pack()
 
     def on_scan_clicked(self):
-        Packer().scan_new()
+        Packer().scan()
+    
+    def on_rescan_clicked(self):
+        Packer().scan(rescan=True)

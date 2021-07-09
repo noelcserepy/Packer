@@ -2,6 +2,8 @@
   "search_directory": "C:/Users/noelc/OneDrive/Desktop/syncdir",
   "output_path": "C:/Users/noelc/OneDrive/Desktop/syncdir/teximport",
   "source_path_as_output": true,
+  "overwrite_old": true,
+  "auto_rename": false,
   "textures": [
     {
       "extensions": ["TGA", "PNG", "JPEG", "JPG", "fs"],
@@ -38,7 +40,7 @@
     {
       "extensions": ["TGA", "PNG", "JPEG", "JPG"],
       "identifiers": [
-        ["_ao", "end"],
+        ["_a_o", "end"],
         ["Ambient_Occlusion_", "start"]
       ],
       "name": "Ambient Occlusion",
@@ -95,12 +97,14 @@
     {
       "extension": "PNG",
       "texture_types": ["Normal", "Normal", "Normal", "Roughness"],
-      "identifier": "NR"
+      "identifier": "NR",
+      "start": "True"
     },
     {
       "extension": "PNG",
       "texture_types": ["Base Color", "Base Color", "Base Color", "Roughness"],
-      "identifier": "DR"
+      "identifier": "DR",
+      "start": "True"
     }
   ]
 }

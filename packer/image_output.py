@@ -20,8 +20,8 @@ class ImageOutput:
 
     def output_maps(self):
         dbh = DatabaseHandler()
-        all_packing_groups = dbh.get_all_packing_groups()
-        for pg in all_packing_groups:
+        new_and_modified_packing_groups = dbh.get_new_and_modified_packing_groups()
+        for pg in new_and_modified_packing_groups:
             try:
                 result = self._multiprocess_pack(pg)
                 dbh.set_packing_group_status(result, "Packed")
@@ -41,9 +41,7 @@ class ImageOutput:
         #             dbh.set_packing_group_status(result, "Failed")
 
 
-        all_pgs_after = dbh.get_all_packing_groups()
-        for pg in all_pgs_after:
-            print(pg["status"])
+        dbh.print_packing_groups()
 
     def _multiprocess_pack(self, packing_group):
         file_path = self._make_file_path(packing_group)

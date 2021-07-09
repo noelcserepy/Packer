@@ -1,5 +1,4 @@
 import re
-from db.alchemy import DatabaseHandler
 
 class TextureMatch():
     def __init__(self, settings, path):
@@ -58,8 +57,3 @@ class TextureMatch():
             self.preferred_filename = f"{self.asset_name}{self.preferred_identifier[0]}.{self.extension}"
             return 
 
-    def save_in_db(self):
-        if not self.match_completed:
-            print("match failed")
-            raise Exception("Match incomplete.")
-        DatabaseHandler().add_texture(self)

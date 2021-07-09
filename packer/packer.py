@@ -10,21 +10,23 @@ class Packer:
         with open("settings.json", "r") as f:
             self.settings = json.load(f)
 
-    def complete_search(self):
-        self.file_paths = FileSearch(self.settings).file_paths
+    def scan(self, rescan=False):
+        if rescan:
+            fs = FileSearch(self.settings, rescan=True)
+        else:
+            fs = FileSearch(self.settings)
+        self.file_paths = fs.get_file_paths()
         self._make_textures_from_file_paths()
         dbh = DatabaseHandler()
-        dbh.populate_packing_groups(self.settings)
+        dbh.populate_all_packing_groups(self.settings)
 
     def pack(self):
         imo = ImageOutput(self.settings)
         imo.output_maps()
 
-    def scan_new(self):
-        pass
-
     def _make_textures_from_file_paths(self):
+        dbh = DatabaseHandler()
         for file in self.file_paths:
             texture_match = TextureMatch(self.settings, file)
             if texture_match.match_completed:
-                texture_match.save_in_db()
+                dbh.add_texture(texture_match)

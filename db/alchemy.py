@@ -24,6 +24,7 @@ class Asset(Base):
     __tablename__ = "asset"
     id = Column(Integer, primary_key=True)
     name = Column(String)
+    date = Column(DateTime)
     directory = Column(String)
     textures = relationship("Texture", backref="asset")
     packing_groups = relationship("PackingGroup", backref="asset")
@@ -61,10 +62,11 @@ class PackingGroup(Base):
         "Channel",
         order_by="Channel.position",
         collection_class=ordering_list("position"),
+        cascade="all, delete, delete-orphan",
     )
 
     def __repr__(self):
-        return f"Packing Group: (name={self.identifier} | id={self.id})"
+        return f"Packing Group: (name={self.identifier} | id={self.id} | status={self.status})"
 
 
 class Channel(Base):
@@ -96,7 +98,7 @@ texture_pg_link = Table(
 )
 
 
-engine = create_engine("sqlite:///:memory:", echo=False)
+engine = create_engine("sqlite:///db/packer.db", echo=False)
 Base.metadata.create_all(engine)
 Session = sessionmaker(bind=engine)
 
@@ -109,9 +111,10 @@ class DatabaseHandler:
         with Session() as session:
             self._add_new_snapshot_to_db(session, snapshot)
 
-    def get_last_snapshot(self):
+    def get_latest_snapshot(self):
         with Session() as session:
-            return self._get_last_snapshot_from_db(session)
+            snapshot = self._get_latest_snapshot_from_db(session)
+            return snapshot.data
 
     def add_texture(self, texture_match):
         with Session() as session:
@@ -132,9 +135,23 @@ class DatabaseHandler:
             )
             return pg_info
 
-    def populate_packing_groups(self, settings):
+    def get_new_and_modified_packing_groups(self):
         with Session() as session:
-            self._match_textures_to_pg(session, settings)
+            pgs = session.query(PackingGroup).filter(
+                PackingGroup.status == "New" or PackingGroup.status == "Modified"
+            )
+            return pgs
+
+    def populate_all_packing_groups(self, settings):
+        with Session() as session:
+            assets = session.query(Asset).all()
+            self._make_packing_groups_from_assets(session, settings, assets)
+
+    def populate_new_packing_groups(self, settings):
+        with Session() as session:
+            snapshot = self._get_latest_snapshot_from_db(session)
+            assets = session.query(Asset).filter(Asset.date >= snapshot.date)
+            self._make_packing_groups_from_assets(session, settings, assets)
 
     def set_packing_group_status(self, packing_group_id, status):
         with Session() as session:
@@ -147,14 +164,22 @@ class DatabaseHandler:
         session.add(new_snapshot)
         session.commit()
 
-    def _get_last_snapshot_from_db(self, session):
+    def _get_latest_snapshot_from_db(self, session):
         last_snapshot = session.query(Snapshot).order_by(desc(Snapshot.date)).first()
-        return last_snapshot.data
+        return last_snapshot
 
     # Texture Functions
     def _add_new_texture_to_db(self, session, texture_match):
         existing_texture = self.get_texture(session, texture_match)
-        if not existing_texture:
+        if existing_texture:
+            existing_asset = (
+                session.query(Asset)
+                .filter(Asset.id == existing_texture.asset_id)
+                .first()
+            )
+            existing_asset.date = self.date
+            existing_texture.date = self.date
+        else:
             new_texture = self._make_new_texture(texture_match)
             self._match_new_texture_to_asset(session, new_texture)
 
@@ -178,9 +203,12 @@ class DatabaseHandler:
         )
         if matching_asset:
             new_texture.asset_id = matching_asset.id
+            matching_asset.date = self.date
         else:
             new_asset = Asset(
-                name=new_texture.asset_name, directory=new_texture.directory
+                name=new_texture.asset_name,
+                directory=new_texture.directory,
+                date=self.date,
             )
             session.add(new_asset)
             session.commit()
@@ -205,42 +233,63 @@ class DatabaseHandler:
         return texture_query
 
     # Packing Group Functions
-    def _match_textures_to_pg(self, session, settings):
-        all_assets = session.query(Asset).all()
-        for asset in all_assets:
+    def _make_packing_groups_from_assets(self, session, settings, assets):
+        for asset in assets:
             for settings_packing_group in settings["packing_groups"]:
-                new_pg = PackingGroup(
-                    identifier=settings_packing_group["identifier"],
-                    extension=settings_packing_group["extension"],
-                    asset_id=asset.id,
-                    date=self.date,
-                    status="Ready",
+                existing_packing_group = (
+                    session.query(PackingGroup)
+                    .filter(
+                        PackingGroup.asset_id == asset.id,
+                        PackingGroup.identifier == settings_packing_group["identifier"],
+                        PackingGroup.extension == settings_packing_group["extension"],
+                    )
+                    .first()
                 )
 
-                new_channels = []
-                for tt in settings_packing_group["texture_types"]:
-                    for asset_tex in asset.textures:
-                        channel_texture = None
-                        if asset_tex.texture_type == tt:
-                            channel_texture = asset_tex
-                            break
-                    if not channel_texture:
-                        break
-
-                    new_channel = Channel(
-                        texture_type=tt, texture_id=channel_texture.id
+                if existing_packing_group:
+                    session.delete(existing_packing_group)
+                    pg = PackingGroup(
+                        identifier=settings_packing_group["identifier"],
+                        extension=settings_packing_group["extension"],
+                        asset_id=asset.id,
+                        date=self.date,
+                        status="Modified",
                     )
-                    new_channels.append(new_channel)
+                else:
+                    pg = PackingGroup(
+                        identifier=settings_packing_group["identifier"],
+                        extension=settings_packing_group["extension"],
+                        asset_id=asset.id,
+                        date=self.date,
+                        status="New",
+                    )
 
-                if not len(new_channels) == len(
-                    settings_packing_group["texture_types"]
-                ):
-                    continue
+                    new_channels = self._make_new_channels(
+                        settings_packing_group, asset
+                    )
+                    tt_count = len(settings_packing_group["texture_types"])
+                    if not len(new_channels) == tt_count:
+                        continue
 
-                for channel in new_channels:
-                    new_pg.channels.append(channel)
-                session.add(new_pg)
-                session.commit()
+                    for channel in new_channels:
+                        pg.channels.append(channel)
+                    session.add(pg)
+                    session.commit()
+
+    def _make_new_channels(self, settings_packing_group, asset):
+        new_channels = []
+        for tt in settings_packing_group["texture_types"]:
+            for asset_tex in asset.textures:
+                channel_texture = None
+                if asset_tex.texture_type == tt:
+                    channel_texture = asset_tex
+                    break
+            if not channel_texture:
+                break
+
+            new_channel = Channel(texture_type=tt, texture_id=channel_texture.id)
+            new_channels.append(new_channel)
+        return new_channels
 
     def _get_pgs_from_db(self, session):
         all_packing_groups = (
@@ -283,3 +332,8 @@ class DatabaseHandler:
         with Session() as session:
             for snapshot in session.query(Snapshot).all():
                 print(snapshot)
+
+    def print_packing_groups(self):
+        with Session() as session:
+            for pg in session.query(PackingGroup).all():
+                print(pg)

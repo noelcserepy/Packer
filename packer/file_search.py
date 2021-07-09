@@ -7,19 +7,24 @@ from watchdog.utils.dirsnapshot import (
 
 
 class FileSearch:
-    def __init__(self, settings):
+    def __init__(self, settings, rescan=False):
         self.settings = settings
+        self.rescan = rescan
         self.root_directory = self.settings["search_directory"]
         self.dbh = DatabaseHandler()
-        self.latest_snapshot = self._get_latest_snapshot()
+        self.latest_snapshot = None
+        self._get_latest_snapshot()
         self.new_snapshot = DirectorySnapshot(self.root_directory)
+        self.snapshot_diff = None
         self._make_snapshot_diff()
         self.file_paths = self._change_slashes(self.snapshot_diff.files_created)
         self.dbh.save_snapshot(self.new_snapshot)
-        self.dbh.print_snapshots()
+
+    def get_file_paths(self):
+        return self.file_paths
 
     def _make_snapshot_diff(self):
-        if self.latest_snapshot:
+        if self.latest_snapshot and not self.rescan:
             self.snapshot_diff = DirectorySnapshotDiff(
                 self.latest_snapshot, self.new_snapshot
             )
@@ -31,10 +36,9 @@ class FileSearch:
 
     def _get_latest_snapshot(self):
         try:
-            latest_snapshot = self.dbh.get_last_snapshot()
-            return latest_snapshot
+            self.latest_snapshot = self.dbh.get_latest_snapshot()
         except:
-            return None
+            self.latest_snapshot = None
 
     def _change_slashes(self, to_change):
         return [s.replace("\\", "/") for s in to_change]

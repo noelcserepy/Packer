@@ -15,14 +15,6 @@ class MainWindow(QMainWindow):
         self.setWindowTitle("Packer")
         self.resize(1080, 566)
         self.setCentralWidget(Tabs())
-    #     self.center()
-
-    # def center(self):
-    #     frameGm = self.frameGeometry()
-    #     screen = self.app.primaryScreen()
-    #     centerPoint = screen.geometry().center()
-    #     frameGm.moveCenter(centerPoint)
-    #     self.move(frameGm.topLeft())
 
 
 class Tabs(QTabWidget):
@@ -35,7 +27,7 @@ class Tabs(QTabWidget):
         self.setTabsClosable(False)
         self.setTabPosition(QTabWidget.West)
 
-        Packer().complete_search()
+        Packer().scan()
         self.addTab(MainTab(), "Main")
         self.addTab(SettingsTab(), "Settings")
 

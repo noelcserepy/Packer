@@ -22,7 +22,7 @@ class Packer:
 
     def pack(self):
         imo = ImageOutput(self.settings)
-        imo.output_maps()
+        imo.time_the_functions()
 
     def _make_textures_from_file_paths(self):
         dbh = DatabaseHandler()

@@ -1,5 +1,6 @@
 import os
 import concurrent.futures
+import time
 from db.alchemy import DatabaseHandler
 from PIL import Image
 from sqlalchemy.sql.expression import except_
@@ -18,6 +19,13 @@ class ImageOutput:
         if not os.path.exists(self.output_path):
             os.mkdir(self.output_path)
 
+    def time_the_functions(self):
+        start = time.time()
+        self.multi_output_maps()
+        end = time.time()
+        duration = end - start
+        print(f"It took {duration} seconds to complete.")
+
     def output_maps(self):
         dbh = DatabaseHandler()
         new_and_modified_packing_groups = dbh.get_new_and_modified_packing_groups()
@@ -29,18 +37,20 @@ class ImageOutput:
             except Exception as e:
                 dbh.set_packing_group_status(e.packing_group_id, "Failed")
                 print(e.message)
+        dbh.print_packing_groups()
 
-
-        # with concurrent.futures.ProcessPoolExecutor() as executor:
-        #     results = executor.map(self._multiprocess_pack, all_packing_groups)
-        #     for result in results:
-        #         try:
-        #             dbh.set_packing_group_status(result, "Packed")
-        #         except Exception as e:
-        #             print(e)
-        #             dbh.set_packing_group_status(result, "Failed")
-
-
+    def multi_output_maps(self):
+        dbh = DatabaseHandler()
+        new_and_modified_packing_groups = dbh.get_new_and_modified_packing_groups()
+        with concurrent.futures.ProcessPoolExecutor() as executor:
+            results = [executor.submit(self._multiprocess_pack, pg) for pg in new_and_modified_packing_groups]
+            for result in concurrent.futures.as_completed(results):
+                try:
+                    dbh.set_packing_group_status(result.result(), "Packed")
+                    print(result.result())
+                except Exception as e:
+                    dbh.set_packing_group_status(e.packing_group_id, "Failed")
+                    print(e.message)
         dbh.print_packing_groups()
 
     def _multiprocess_pack(self, packing_group):
@@ -114,13 +124,13 @@ class ImageOutput:
         counter = 0
         previous_texture_type = ""
         for channel in packing_group["channels"]:
-            if channel.texture.texture_type == previous_texture_type:
+            if channel["texture_type"] == previous_texture_type:
                 counter += 1
             else:
                 counter = 0
 
-            previous_texture_type = channel.texture.texture_type
-            path_and_counter = (channel.texture.path, counter)
+            previous_texture_type = channel["texture_type"]
+            path_and_counter = (channel["texture_path"], counter)
             in_channels.append(path_and_counter)
         return in_channels
 

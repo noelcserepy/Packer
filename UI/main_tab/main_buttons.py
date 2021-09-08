@@ -1,5 +1,5 @@
 from PySide6.QtCore import Qt
-from PySide6.QtWidgets import *
+from PySide6.QtWidgets import QWidget, QPushButton, QLabel, QCheckBox, QHBoxLayout
 from packer.packer import Packer
 
 
@@ -31,6 +31,6 @@ class MainButtons(QWidget):
 
     def on_scan_clicked(self):
         Packer().scan()
-    
+
     def on_rescan_clicked(self):
         Packer().scan(rescan=True)

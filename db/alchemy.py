@@ -1,5 +1,6 @@
 from datetime import datetime
 from typing import Text
+from PIL.Image import new
 from sqlalchemy import (
     Integer,
     ForeignKey,
@@ -8,6 +9,7 @@ from sqlalchemy import (
     Table,
     create_engine,
     inspect,
+    or_,
     desc,
 )
 from sqlalchemy.ext.declarative import declarative_base
@@ -137,10 +139,16 @@ class DatabaseHandler:
 
     def get_new_and_modified_packing_groups(self):
         with Session() as session:
-            pgs = session.query(PackingGroup).filter(
-                PackingGroup.status == "New" or PackingGroup.status == "Modified"
+            new_modified_pgs = (
+                session.query(PackingGroup)
+                .options(subqueryload(PackingGroup.channels).subqueryload(Channel.texture))
+                .filter(
+                    or_(PackingGroup.status == "New", PackingGroup.status == "Modified")
+                )
+                .all()
             )
-            return pgs
+            remade_pgs = self._get_packing_groups_from_db(new_modified_pgs)
+            return remade_pgs
 
     def populate_all_packing_groups(self, settings):
         with Session() as session:
@@ -291,31 +299,25 @@ class DatabaseHandler:
             new_channels.append(new_channel)
         return new_channels
 
-    def _get_pgs_from_db(self, session):
-        all_packing_groups = (
-            session.query(PackingGroup)
-            .options(subqueryload(PackingGroup.channels).subqueryload(Channel.texture))
-            .all()
-        )
+    def _get_packing_groups_from_db(self, new_modified_pgs):
         remade_pgs = []
-        for pg in all_packing_groups:
-            remade_pg = {
-                "id": pg.id,
-                "identifier": pg.identifier,
-                "asset_name": pg.asset.name,
-                "extension": pg.extension,
-                "date": pg.date,
-                "status": pg.status,
-                "directory": pg.asset.directory,
-                "channels": [
-                    pg.channels[0],
-                    pg.channels[1],
-                    pg.channels[2],
-                    pg.channels[3],
-                ],
-            }
-            remade_pgs.append(remade_pg)
+        for pg in new_modified_pgs:
+            dict_pg = self.object_as_dict(pg)
+            channels = []
+            for channel in pg.channels:
+                channel_dict = self.object_as_dict(channel)
+                channel_dict["texture_type"] = channel.texture.texture_type
+                channel_dict["texture_path"] = channel.texture.path
+                channels.append(channel_dict)
+            dict_pg["channels"] = channels
+            dict_pg["directory"] = pg.asset.directory
+            dict_pg["asset_name"] = pg.asset.name
+            remade_pgs.append(dict_pg)
         return remade_pgs
+
+    def object_as_dict(self, obj):
+        return {c.key: getattr(obj, c.key)
+            for c in inspect(obj).mapper.column_attrs}
 
     # Printing Functions
     def print_assets(self):

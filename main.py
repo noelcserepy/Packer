@@ -1,5 +1,6 @@
 import sys
 from PySide6.QtWidgets import QMainWindow, QTabWidget, QApplication
+from PySide6.QtSql import QSqlDatabase, QSqlQuery, QSqlRecord, QSqlTableModel
 from UI.settings_tab.settings_tab import SettingsTab
 from UI.main_tab.main_tab import MainTab
 from packer.packer import Packer
@@ -30,11 +31,13 @@ class Tabs(QTabWidget):
         Packer().scan()
         self.addTab(MainTab(), "Main")
         self.addTab(SettingsTab(), "Settings")
-
+        
 
 if __name__ == "__main__":
     app = QApplication([])
+    connect_to_database()
     win = MainWindow(app)
     style = "UI/style.css"
     win.show()
     sys.exit(app.exec_())
+
